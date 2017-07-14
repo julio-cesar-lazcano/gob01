@@ -1,0 +1,1230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <menuitem id="menu_configuracion" name="Configuración" sequence="21" groups="catalog_ihce.configuracion_admin"/>
+        
+<!--
+        CONFIGURACION IHCE
+-->
+        <menuitem id="menu_ihce" name="IHCE" parent="menu_configuracion" sequence="0"/>
+<!--
+      AREAS RESPONSABLES  
+-->
+        <record id="atention_area_form" model="ir.ui.view">
+            <field name="name">atention.area.form</field>
+            <field name="model">atention.area</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Areas">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="atention_area_tree" model="ir.ui.view">
+            <field name="name">atention.area.tree</field>
+            <field name="model">atention.area</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Areas">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="atention_area_action" model="ir.actions.act_window">
+            <field name="name">Areas de atención</field>
+            <field name="res_model">atention.area</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="atention_area_tree"/>
+        </record>
+        
+        <menuitem id="areasA" name="Areas de Atención" parent="menu_ihce" sequence="0" action="atention_area_action"/>
+
+
+<!--
+      AREAS RESPONSABLES  
+-->
+        <record id="convocatoria_form" model="ir.ui.view">
+            <field name="name">convocatoria.form</field>
+            <field name="model">convocatoria</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Convocatoria">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="convocatoria_tree" model="ir.ui.view">
+            <field name="name">convocatoria.tree</field>
+            <field name="model">convocatoria</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Convocatoria">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="convocatoria_action" model="ir.actions.act_window">
+            <field name="name">Convocatoria</field>
+            <field name="res_model">convocatoria</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="convocatoria_tree"/>
+        </record>
+       
+        <menuitem id="areasconvocatoria" name="Convocatoria" parent="menu_ihce" sequence="3" action="convocatoria_action"/>
+
+     
+        
+<!--
+      AREAS RESPONSABLES  
+-->
+        <record id="responsible_area_form" model="ir.ui.view">
+            <field name="name">responsible.area.form</field>
+            <field name="model">responsible.area</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Departamento">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="responsible_area_tree" model="ir.ui.view">
+            <field name="name">responsible.area.tree</field>
+            <field name="model">responsible.area</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Departamento">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="responsible_area_action" model="ir.actions.act_window">
+            <field name="name">Departamentos</field>
+            <field name="res_model">responsible.area</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="responsible_area_tree"/>
+        </record>
+        
+        <menuitem id="areas" name="Departamentos" parent="menu_ihce" sequence="1" action="responsible_area_action"/>
+        
+<!--
+        EMPRERED
+-->
+        <record id="emprereds_form" model="ir.ui.view">
+            <field name="name">emprereds.form</field>
+            <field name="model">emprereds</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Emprered">
+                    <sheet>
+                        <group string="Emprered IHCE" colspan="4" col = "4">
+                            <field name="name" colspan="2"/>
+                            <field name="town_id" colspan="2" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="emprereds_tree" model="ir.ui.view">
+            <field name="name">emprereds.tree</field>
+            <field name="model">emprereds</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Emprered IHCE">
+                    <field name="name"/>
+                    <field name="town_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_emprereds" model="ir.actions.act_window">
+            <field name="name">Catálogo Emprered IHCE</field>
+            <field name="res_model">emprereds</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="emprereds_tree"/>
+        </record>
+        
+        <menuitem id="emprered" name="Emprered " parent="menu_ihce" sequence="2" action="action_emprereds"/>
+        
+<!--
+    ###################################################################################################################
+-->
+<!--
+        CONFIGURACIÓN DIAGNOSTICO
+-->
+        <menuitem id="configuracion_diag" name="Áreas Diagnóstico" parent="menu_configuracion" sequence="1"/>
+        
+        <menuitem id="submenu_datos" name="Datos generales" parent="configuracion_diag" sequence="0"/>
+
+<!--
+        CATALOGO ESCOLARIDAD
+-->
+        <record id="escolaridad_form" model="ir.ui.view">
+            <field name="name">escolaridad.form</field>
+            <field name="model">escolaridad</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Catálogo Escolaridad">
+                    <sheet>
+                        <group string="Escolaridad" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="escolaridad_tree" model="ir.ui.view">
+            <field name="name">escolaridad.tree</field>
+            <field name="model">escolaridad</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Catálogo Escolaridad">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_escolaridad" model="ir.actions.act_window">
+            <field name="name">Catálogo Escolaridad</field>
+            <field name="res_model">escolaridad</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="escolaridad_tree"/>
+        </record>
+       
+        <menuitem id="escolaridad" name="Escolaridad" parent="submenu_datos" sequence="0" action="action_escolaridad"/>
+    
+<!--
+        CATALOGO CARACTERISTICA POBLACIONAL
+-->
+        <record id="caracteristica_poblacional_form" model="ir.ui.view">
+            <field name="name">caracteristica.poblacional.form</field>
+            <field name="model">caracteristica.poblacional</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Catálogo Característica Poblacional">
+                    <sheet>
+                        <group string="Característica Poblacional" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                            <field name="priority" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="caracteristica_poblacional_tree" model="ir.ui.view">
+            <field name="name">caracteristica.poblacional.tree</field>
+            <field name="model">caracteristica.poblacional</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Catálogo Característica Poblacional">
+                    <field name="name"/>
+                    <field name="priority"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_caracteristica_poblacional" model="ir.actions.act_window">
+            <field name="name">Catálogo Característica Poblacional</field>
+            <field name="res_model">caracteristica.poblacional</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="caracteristica_poblacional_tree"/>
+        </record>
+        
+        <menuitem id="poblacional" name="Característica Poblacional" parent="submenu_datos" sequence="1" action="action_caracteristica_poblacional"/>
+        
+        <!--
+        ESTADOS, MUNICIPIOS Y LOCALIDADES
+-->
+        <record id="states_mexico_filter" model="ir.ui.view">
+            <field name="name">states.mexico.filter</field>
+            <field name="model">states.mexico</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name" string="Estado"/>
+                    <field name="country_id" string="País"/>
+               </search>
+            </field>
+        </record>
+        
+        <record id="states_mexico_form" model="ir.ui.view">
+            <field name="name">states.mexico.form</field>
+            <field name="model">states.mexico</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Estados">
+                    <sheet>
+                        <group string="Estado" colspan="4" col="4">
+                            <field name="name" colspan="2" required="1"/>
+                            <field name="country_id" colspan="2" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="states_mexico_tree" model="ir.ui.view">
+            <field name="name">states.mexico.tree</field>
+            <field name="model">states.mexico</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Estados">
+                    <field name="name"/>
+                    <field name="country_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_states_mexico" model="ir.actions.act_window">
+            <field name="name">Estados</field>
+            <field name="res_model">states.mexico</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="states_mexico_tree"/>
+        </record>
+        
+        <menuitem id="estado" name="Estados" parent="submenu_datos" sequence="2" action="action_states_mexico"/>
+<!--
+        MUNICIPIOS
+-->
+        <record id="town_hidalgo_filter" model="ir.ui.view">
+            <field name="name">town.hidalgo.filter</field>
+            <field name="model">town.hidalgo</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name" string="Municipio"/>
+                    <field name="state_id" string="Estado"/>
+                    <field name="region_id" string="Región"/>
+               </search>
+            </field>
+        </record>
+        
+        <record id="town_hidalgo_form" model="ir.ui.view">
+            <field name="name">town.hidalgo.form</field>
+            <field name="model">town.hidalgo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Municipios">
+                    <sheet>
+                        <group string="Municipio" colspan="4" col="4">
+                            <field name="name" colspan="2" required="1"/>
+                            <field name="state_id" colspan="2" required="1"/>
+                            <field name="region_id" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="town_hidalgo_tree" model="ir.ui.view">
+            <field name="name">town.hidalgo.tree</field>
+            <field name="model">town.hidalgo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Municipios">
+                    <field name="name"/>
+                    <field name="state_id"/>
+                    <field name="region_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_town_hidalgo" model="ir.actions.act_window">
+            <field name="name">Municipios</field>
+            <field name="res_model">town.hidalgo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="town_hidalgo_tree"/>
+        </record>
+        
+        <menuitem id="municipio" name="Municipios" parent="submenu_datos" sequence="3" action="action_town_hidalgo"/>
+<!--
+        COLONIAS
+-->
+        <record id="colony_hidalgo_filter" model="ir.ui.view">
+            <field name="name">colony.hidalgo.filter</field>
+            <field name="model">colony.hidalgo</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name" string="Colonia"/>
+                    <field name="town_id" string="Municipio"/>
+               </search>
+            </field>
+        </record>
+        
+        <record id="colony_hidalgo_form" model="ir.ui.view">
+            <field name="name">colony.hidalgo.form</field>
+            <field name="model">colony.hidalgo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Localidades">
+                    <sheet>
+                        <group string="Localidad" colspan="4" col="4">
+                            <field name="name" colspan="2" required="1"/>
+                            <field name="town_id" colspan="2" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="colony_hidalgo_tree" model="ir.ui.view">
+            <field name="name">colony.hidalgo.tree</field>
+            <field name="model">colony.hidalgo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Localidades">
+                    <field name="name"/>
+                    <field name="town_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_colony_hidalgo" model="ir.actions.act_window">
+            <field name="name">Localidades</field>
+            <field name="res_model">colony.hidalgo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="colony_hidalgo_tree"/>
+        </record>
+        
+        <menuitem id="localidad" name="Localidades" parent="submenu_datos" sequence="4" action="action_colony_hidalgo"/>
+<!--
+        REGIONES
+-->
+        <record id="region_hidalgo_form" model="ir.ui.view">
+            <field name="name">region.hidalgo.form</field>
+            <field name="model">region.hidalgo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Regiones">
+                    <sheet>
+                        <group string="Región" colspan="4" col="4">
+                            <field name="name" colspan="2" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="region_hidalgo_tree" model="ir.ui.view">
+            <field name="name">region.hidalgo.tree</field>
+            <field name="model">region.hidalgo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Regiones">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_region_hidalgo" model="ir.actions.act_window">
+            <field name="name">Regiones</field>
+            <field name="res_model">region.hidalgo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="region_hidalgo_tree"/>
+        </record>
+        
+        <menuitem id="region" name="Regiones" parent="submenu_datos" sequence="5" action="action_region_hidalgo"/>
+        
+<!--
+        CATALOGO TAMAÑOS ACTIVIDAD ECONOMICA
+-->
+        <record id="tamano_actividad_economica_form" model="ir.ui.view">
+            <field name="name">tamano.actividad.economica.form</field>
+            <field name="model">tamano.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Actividad económica">
+                    <sheet>
+                        <group string="Tamaño de la empresa" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="tamano_actividad_economica_tree" model="ir.ui.view">
+            <field name="name">tamano.actividad.economica.tree</field>
+            <field name="model">tamano.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Actividad económica">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tamano" model="ir.actions.act_window">
+            <field name="name">Catalogo Actividad económica</field>
+            <field name="res_model">tamano.actividad.economica</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="tamano_actividad_economica_tree"/>
+        </record>
+       
+        <menuitem id="menu_actividad_economica" name="Actividad Económica" parent="configuracion_diag" sequence="2"/>
+        
+        <menuitem id="tamano" name="Tamaños" parent="menu_actividad_economica" sequence="0" action="action_tamano"/>
+<!--
+        CATALOGO SECTORES ACTIVIDAD ECONOMICA
+-->
+        <record id="sector_actividad_economica_form" model="ir.ui.view">
+            <field name="name">sector.actividad.economica.form</field>
+            <field name="model">sector.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Actividad económica">
+                    <sheet>
+                        <group string="Sector económico" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="sector_actividad_economica_tree" model="ir.ui.view">
+            <field name="name">sector.actividad.economica.tree</field>
+            <field name="model">sector.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Actividad económica">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_sector" model="ir.actions.act_window">
+            <field name="name">Catalogo Actividad económica</field>
+            <field name="res_model">sector.actividad.economica</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sector_actividad_economica_tree"/>
+        </record>
+
+        <menuitem id="sector" name="Sectores" parent="menu_actividad_economica" sequence="1" action="action_sector"/>
+<!--
+        CATALOGO VENTAS ANUALES ACTIVIDAD ECONOMICA
+-->
+        <record id="ventas_anuales_actividad_economica_form" model="ir.ui.view">
+            <field name="name">ventas.anuales.actividad.economica.form</field>
+            <field name="model">ventas.anuales.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Actividad económica">
+                    <sheet>
+                        <group string="Ventas anuales" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="ventas_anuales_actividad_economica_tree" model="ir.ui.view">
+            <field name="name">ventas.anuales.actividad.economica.tree</field>
+            <field name="model">ventas.anuales.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Actividad económica">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_ventas_anuales" model="ir.actions.act_window">
+            <field name="name">Catalogo Actividad económica</field>
+            <field name="res_model">ventas.anuales.actividad.economica</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="ventas_anuales_actividad_economica_tree"/>
+        </record>
+
+        <menuitem id="ventasAnuales" name="Ventas Anuales" parent="menu_actividad_economica" sequence="2" action="action_ventas_anuales"/>
+<!--
+        ACTIVIDAD ECONOMICA EMPRENDEDORES
+-->
+        <record id="emprendedor_actividad_economica_form" model="ir.ui.view">
+            <field name="name">emprendedor.actividad.economica.form</field>
+            <field name="model">emprendedor.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Actividad económica">
+                    <sheet>
+                        <group string="Status del emprendedor" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="emprendedor_actividad_economica_tree" model="ir.ui.view">
+            <field name="name">emprendedor.actividad.economica.tree</field>
+            <field name="model">emprendedor.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Actividad económica">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_emprendedor" model="ir.actions.act_window">
+            <field name="name">Catalogo Actividad económica</field>
+            <field name="res_model">emprendedor.actividad.economica</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="emprendedor_actividad_economica_tree"/>
+        </record>
+
+        <menuitem id="emprendedor" name="Emprendedor" parent="menu_actividad_economica" sequence="3" action="action_emprendedor"/>
+<!--
+        TIPO DE ACTIVIDAD ECONOMICA EMPRENDEDORES
+-->
+        <record id="tipo_emprendedor_actividad_economica_form" model="ir.ui.view">
+            <field name="name">tipo.emprendedor.actividad.economica.form</field>
+            <field name="model">tipo.emprendedor.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Actividad económica">
+                    <sheet>
+                        <group string="Tipo de actividad económica para emprendedores" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="tipo_emprendedor_actividad_economica_tree" model="ir.ui.view">
+            <field name="name">tipo.emprendedor.actividad.economica.tree</field>
+            <field name="model">tipo.emprendedor.actividad.economica</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Actividad económica">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tipo_emprendedor" model="ir.actions.act_window">
+            <field name="name">Catalogo Actividad económica</field>
+            <field name="res_model">tipo.emprendedor.actividad.economica</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="tipo_emprendedor_actividad_economica_tree"/>
+        </record>
+
+        <menuitem id="tipoEmprendedor" name="Tipos de actividad para emprendedores" parent="menu_actividad_economica" sequence="4" action="action_tipo_emprendedor"/>
+
+<!--
+        FINANZAS
+-->
+        <record id="financiamiento_form" model="ir.ui.view">
+            <field name="name">financiamiento.form</field>
+            <field name="model">financiamiento</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Financiamiento">
+                    <sheet>
+                        <group string="Financiamiento" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="financiamiento_tree" model="ir.ui.view">
+            <field name="name">financiamiento.tree</field>
+            <field name="model">financiamiento</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Financiamiento">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_financiamiento" model="ir.actions.act_window">
+            <field name="name">Financiamiento</field>
+            <field name="res_model">financiamiento</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="financiamiento_tree"/>
+        </record>
+       
+        <menuitem id="menu_finanzas" name="Finanzas" parent="configuracion_diag" sequence="3"/>
+        
+        <menuitem id="financiamiento" name="Financiamiento" parent="menu_finanzas" sequence="0" action="action_financiamiento"/>
+<!--
+        CATALOGO PUNTOS DE EQUILIBRIO
+-->
+        <record id="puntos_equilibrio_form" model="ir.ui.view">
+            <field name="name">puntos.equilibrio.form</field>
+            <field name="model">puntos.equilibrio</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Puntos de equilibrio">
+                    <sheet>
+                        <group string="Puntos de equilibrio" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="puntos_equilibrio_tree" model="ir.ui.view">
+            <field name="name">puntos.equilibrio.tree</field>
+            <field name="model">puntos.equilibrio</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Puntos de equilibrio">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_puntos_equilibrio" model="ir.actions.act_window">
+            <field name="name">Puntos de equilibrio</field>
+            <field name="res_model">puntos.equilibrio</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="puntos_equilibrio_tree"/>
+        </record>
+       
+        <menuitem id="puntos" name="Puntos de equilibrio" parent="menu_finanzas" sequence="1" action="action_puntos_equilibrio"/>
+<!--
+        CATALOGO NIVELES DE DEUDA  FINANZAS
+-->
+        <record id="nivel_deuda_form" model="ir.ui.view">
+            <field name="name">nivel.deuda.form</field>
+            <field name="model">nivel.deuda</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Nivel de deuda">
+                    <sheet>
+                        <group string="Nivel de deuda" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="nivel_deuda_tree" model="ir.ui.view">
+            <field name="name">nivel.deuda.tree</field>
+            <field name="model">nivel.deuda</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Nivel de deuda">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_nivel_deuda" model="ir.actions.act_window">
+            <field name="name">Nivel de deuda</field>
+            <field name="res_model">nivel.deuda</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="nivel_deuda_tree"/>
+        </record>
+       
+        <menuitem id="deuda" name="Nivel de deuda" parent="menu_finanzas" sequence="2" action="action_nivel_deuda"/>
+
+<!--
+        RECURSOS HUMANOS
+-->
+        <record id="frecuencia_capacitacion_form" model="ir.ui.view">
+            <field name="name">frecuencia.capacitacion.form</field>
+            <field name="model">frecuencia.capacitacion</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Frecuencias de capacitación">
+                    <sheet>
+                        <group string="Frecuencia de capacitación" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="frecuencia_capacitacion_tree" model="ir.ui.view">
+            <field name="name">frecuencia.capacitacion.tree</field>
+            <field name="model">frecuencia.capacitacion</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Frecuencias de capacitación">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_frecuencia_capacitacion" model="ir.actions.act_window">
+            <field name="name">Frecuencias de capacitación</field>
+            <field name="res_model">frecuencia.capacitacion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="frecuencia_capacitacion_tree"/>
+        </record>
+       
+        <menuitem id="menu_recursos" name="Recursos Humanos" parent="configuracion_diag" sequence="4"/>
+        
+        <menuitem id="frecuencia" name="Frecuencia de capacitación" parent="menu_recursos" sequence="0" action="action_frecuencia_capacitacion"/>
+        
+<!--
+        MERCADOTECNIA
+-->
+
+<!--
+        SERVICIOS DESARROLLO EMPRESARIAL
+-->
+        <record id="services_development_bussines_form" model="ir.ui.view">
+            <field name="name">services.development.bussines.form</field>
+            <field name="model">services.development.bussines</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Servicios de Desarrollo Empresarial">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="services_development_bussines_tree" model="ir.ui.view">
+            <field name="name">services.development.bussines.tree</field>
+            <field name="model">services.development.bussines</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Servicios de Desarrollo Empresarial">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_services_development_bussines" model="ir.actions.act_window">
+            <field name="name">Servicios de Desarrollo Empresarial</field>
+            <field name="res_model">services.development.bussines</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="services_development_bussines_tree"/>
+        </record>
+       
+        <menuitem id="menu_mercadotecnia" name="Mercadotecnia" parent="configuracion_diag" sequence="5"/>
+        
+        <menuitem id="servicios_desarrollo" name="Servicios Desarrollo Empresarial" parent="menu_mercadotecnia" sequence="0" action="action_services_development_bussines"/>
+        
+<!--
+        SERVICIOS DESARROLLO EMPRESARIAL
+-->
+        <record id="services_laboratory_form" model="ir.ui.view">
+            <field name="name">services.laboratory.form</field>
+            <field name="model">services.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Servicios de Laboratorio">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="services_laboratory_tree" model="ir.ui.view">
+            <field name="name">services.laboratory.tree</field>
+            <field name="model">services.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Servicios de Laboratorio">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_services_laboratory" model="ir.actions.act_window">
+            <field name="name">Servicios de Laboratorio</field>
+            <field name="res_model">services.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <menuitem id="servicios_laboratorio" name="Servicios Laboratorio" parent="menu_mercadotecnia" sequence="1" action="action_services_laboratory"/>
+        
+<!--
+        DEBILIDADES
+-->
+        <record id="debilidades_form" model="ir.ui.view">
+            <field name="name">debilidades.form</field>
+            <field name="model">debilidades</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Debilidades">
+                    <sheet>
+                        <group string="Debilidades del mercado" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="debilidades_tree" model="ir.ui.view">
+            <field name="name">debilidades.tree</field>
+            <field name="model">debilidades</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Debilidades">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_debilidades" model="ir.actions.act_window">
+            <field name="name">Debilidades</field>
+            <field name="res_model">debilidades</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="debilidades_tree"/>
+        </record>
+        
+        <menuitem id="debilidades" name="Debilidades" parent="menu_mercadotecnia" sequence="2" action="action_debilidades"/>
+<!--
+        CATALOGO COMPETENCIAS 
+-->
+        <record id="competencias_form" model="ir.ui.view">
+            <field name="name">competencias.form</field>
+            <field name="model">competencias</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Competencias">
+                    <sheet>
+                        <group string="Competencias del mercado" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="competencias_tree" model="ir.ui.view">
+            <field name="name">competencias.tree</field>
+            <field name="model">competencias</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Competencias">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_competencias" model="ir.actions.act_window">
+            <field name="name">Competencias</field>
+            <field name="res_model">competencias</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="competencias_tree"/>
+        </record>
+        
+        <menuitem id="competencias" name="Competencias" parent="menu_mercadotecnia" sequence="3" action="action_competencias"/>
+<!--
+        CATALOGO NECESIDADES DEL MERCADO
+-->
+        <record id="necesidades_mercado_form" model="ir.ui.view">
+            <field name="name">necesidades.mercado.form</field>
+            <field name="model">necesidades.mercado</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Necesidades del mercado">
+                    <sheet>
+                        <group string="Necesidades del mercado" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="necesidades_mercado_tree" model="ir.ui.view">
+            <field name="name">necesidades.mercado.tree</field>
+            <field name="model">necesidades.mercado</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Necesidades del mercado">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_necesidades_mercado" model="ir.actions.act_window">
+            <field name="name">Necesidades del mercado</field>
+            <field name="res_model">necesidades.mercado</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="necesidades_mercado_tree"/>
+        </record>
+        
+        <menuitem id="necesidades_mercado" name="Necesidades del mercado" parent="menu_mercadotecnia" sequence="4" action="action_necesidades_mercado"/>
+<!--
+        CATALOGO SATISFACCION DEL CLIENTE
+-->
+        <record id="satisfaccion_cliente_form" model="ir.ui.view">
+            <field name="name">satisfaccion.cliente.form</field>
+            <field name="model">satisfaccion.cliente</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Nivel de satisfacción del cliente">
+                    <sheet>
+                        <group string="Nivel de satisfacción del cliente" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="satisfaccion_cliente_tree" model="ir.ui.view">
+            <field name="name">satisfaccion.cliente.tree</field>
+            <field name="model">necesidades.mercado</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Nivel de satisfacción del cliente">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_satisfaccion_cliente" model="ir.actions.act_window">
+            <field name="name">Nivel de satisfacción del cliente</field>
+            <field name="res_model">satisfaccion.cliente</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="satisfaccion_cliente_tree"/>
+        </record>
+        
+        <menuitem id="nivel_satisfaccion" name="Nivel de satisfacción del cliente" parent="menu_mercadotecnia" sequence="5" action="action_satisfaccion_cliente"/>
+<!--
+        CATALOGO PUBLICIDAD
+-->
+        <record id="publicidad_form" model="ir.ui.view">
+            <field name="name">publicidad.form</field>
+            <field name="model">publicidad</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Publicidad">
+                    <sheet>
+                        <group string="Medios de publicidad" colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="publicidad_tree" model="ir.ui.view">
+            <field name="name">publicidad.tree</field>
+            <field name="model">publicidad</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Publicidad">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_publicidad" model="ir.actions.act_window">
+            <field name="name">Publicidad</field>
+            <field name="res_model">publicidad</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="publicidad_tree"/>
+        </record>
+        
+        <menuitem id="publicidad" name="Publicidad" parent="menu_mercadotecnia" sequence="6" action="action_publicidad"/>
+        
+
+    
+    </data>
+</openerp>

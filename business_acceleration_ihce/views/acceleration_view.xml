@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--
+        VISTAS PARA EMPRENDIMIENTO
+-->
+        
+        <record id="aceleracion_empresas_tree" model="ir.ui.view">
+            <field name="name">aceleracion.empresas.tree</field>
+            <field name="model">companies.ihce</field>
+            <field name="arch" type="xml">
+                <tree string="Empresas" colors="LightSlateGray:state=='rechazada'; green:state=='done'; black:state =='draft';">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="certification"/>
+                    <field name="aceleracion_empresarial_text"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="aceleracion_company_form" model="ir.ui.view">
+            <field name="name">aceleracion.company.form</field>
+            <field name="model">companies.ihce</field>
+            <field name="arch" type="xml">
+                <form string="Empresas">
+                    <header>
+                        <button name="confirm" type="object" string="Validar" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state','in',('done','rechazada'))]}"/>
+                        <button name="rechazar" type="object" string="Rechazar" icon="gtk-cancel" class="oe_highlight" attrs="{'invisible':[('state','in',('done','rechazada'))]}" groups="company_ihce.admin_company"/>
+                        <button name="no_confirm" type="object" string="En espera" icon="STOCK_UNDO" class="oe_highlight" attrs="{'invisible':[('state','=','draft')]}" groups="company_ihce.admin_company"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,rechazada"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name" colspan="4" readonly="1"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <separator string="" colspan="6"/>
+                        <group colspan="4" col="4">
+                            <field name="type" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                            <separator string="" colspan="2"/>
+                        </group>
+                        <separator string="" colspan="6"/>
+                        <group colspan="4" col="6">
+                            <field name="company_name" colspan="4" attrs="{'invisible': ['|',('type','=','emprendedor'),('type','=','fisica')], 'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                            <field name="rfc_company" colspan="2" attrs="{'invisible': ['|',('type','=','emprendedor'),('type','=','fisica')], 'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                        </group>
+                        <group colspan="4" col="6">
+                            <field name="name_commercial" colspan="4" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                            <separator string="" colspan="2"/>
+                        </group>
+                        <group colspan="4" col="6">
+                            <separator string="Representante legal" colspan="6" attrs="{'invisible': ['|',('type','=','emprendedor'),('type','=','fisica')],'readonly': [('state','=','rechazada')]}"/>
+                            <field name="name_people" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                            <field name="apaterno" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                            <field name="amaterno" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                            <field name="date_birth" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" required="1"/>
+                            <field name="sexo" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="curp" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                            <field name="rfc" colspan="2" attrs="{'invisible': [('type','=','emprendedor')], 'readonly': [('state','=','rechazada')], 'required': [('type','=','fisica')]}"/>
+                        </group>
+                        <separator string="Oficina de Atención"/>
+                        <group colspan="4" col="4">
+                            <field name="ihce" colspan="2" attrs="{'invisible': ['|',('dependence','=',False),('dependence','=','1')],'required':[('dependence','=','0')]}" readonly="1"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="emprered" colspan="2" attrs="{'invisible': ['|',('dependence','=',False),('dependence','=','0')],'required':[('dependence','=','1')]}" readonly="1" nolabel="1"/>
+                            <field name="dependence" colspan="2" readonly="1" invisible="1" nolabel="1"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="date" colspan="2" required="1"/>
+                            <field name="num_inadem" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                            <field name="registro_inadem" colspan="2" invisible="1"/>
+                            <field name="diagnostico" colspan="2" invisible="1"/>
+                        </group>
+                        <group colspan="4" col="4" string="Contacto principal">
+                            <field name="name_contact" colspan="4"/>
+                            <field name="phone_contact" colspan="2"/>
+                            <field name="mail_contact" colspan="2"/>
+                        </group>
+                        <notebook>
+                            <page string="Aceleración Empresarial" attrs="{'invisible': [('aceleracion_empresarial','=',False)]}">
+                                <group colspan="4" col="2">
+                                    <separator string="Requiere Certificación" colspan="2" attrs="{'invisible': [('certification','=',True)]}"/>
+                                    <field name="certification" colspan="2"/>
+                                </group>
+                                <group colspan="4" col="2">
+                                    <field name="aceleracion_empresarial_vinc" colspan="2" nolabel="1"/>
+                                </group>
+                                <group colspan="4" col="2">
+                                    <field name="aceleracion_empresarial" colspan="2" invisible="1"/>
+                                </group>
+                            </page>
+                            <page string="Información General">
+                                <separator string="Dirección" colspan="4" attrs="{'invisible': [('type','=','moral')]}"/>
+                                <separator string="Dirección del Representante legal" colspan="4" attrs="{'invisible': ['|',('type','=','emprendedor'),('type','=','fisica')]}"/>
+                                <group colspan="4" col="4">
+                                    <field name="street" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="external_number" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="internal_number" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="country" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="city" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="town" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="region" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="colony" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="cp" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                </group>
+                                <group colspan="4" col="4">
+                                    <separator string="Datos" colspan="4"/>
+                                    <field name="phone" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="cel_phone" colspan="2" />
+                                    <field name="email" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" widget="email"/>
+                                    <field name="civil_status" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="population_characteristics" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" domain="[('priority','=',1)]" options="{'no_create':True}"/>
+                                    <field name="school" colspan="2" required="1" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="occupation" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="place_birth" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                </group>
+                                <group colspan="4" col="4">
+                                    <separator string="Características" colspan="4"/>
+                                    <field name="disabled" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="indian" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="level_knowledge" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="sector" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="size" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')],'required':[('diagnostico','=',True),('type','!=','emprendedor')]}" options="{'no_create':True}"/>
+                                    <field name="sales_year" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="increase_annual_sales" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}" />
+                                    <field name="branches" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="staff" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="men" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="woman" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="indians" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="disableds" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="operations" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="old_tax" colspan="2" attrs="{'invisible': [('type','=','emprendedor')],'readonly': [('state','=','rechazada')]}"/>
+                                </group>
+                                <gruop string="Contactos">
+                                    <separator string="Contactos" colspan="4"/>
+                                    <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id, 'default_street': street, 'default_external_number': external_number, 'default_internal_number': internal_number, 'default_country': country, 'default_city': city, 'default_town': town, 'default_colony': colony, 'default_cp': cp, 'default_state': state}">
+                                        <kanban>
+                                            <field name="name"/>
+                                            <field name="email"/>
+                                            <field name="cel_phone"/>
+                                            <templates>
+                                                <t t-name="kanban-box">
+                                                    <div class="oe_module_desc">
+                                                        <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_color_border">
+                                                            <table class="oe_kanban_table">
+                                                                <tr>
+                                                                    <td class="oe_kanban_title1" align="left" valign="middle">
+                                                                        <h4><a type="open"><field name="name"/></a></h4>
+                                                                        <div><a t-if="record.email.raw_value" title="Mail" t-att-href="'mailto:'+record.email.value">
+                                                                            <field name="email"/>
+                                                                        </a></div>
+                                                                        <div t-if="record.cel_phone.raw_value">Teléfono: <field name="cel_phone"/></div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </templates>
+                                        </kanban>
+                                        <form string="Contactos">
+                                            <field name="parent_id" invisible="1"/>
+                                            <group colspan="4" col="4">
+                                                <field name="street_company_contact" colspan="2" on_change="onchange_street(street_company_contact, context)"/>
+                                                <field name="contact_principal" colspan="2"/>
+                                            </group>
+                                            <group string="Contacto" colspan="4" col="4">
+                                                <field name="name" colspan="4" required="1"/>
+                                                <field name="street" colspan="2" required="1"/>
+                                                <field name="external_number" colspan="2" required="1"/>
+                                                <field name="internal_number" colspan="2" />
+                                                <field name="country" colspan="2" required="1"/>
+                                                <field name="city" colspan="2" required="1" options="{'no_create':True}"/>
+                                                <field name="town" colspan="2" required="1" on_change="onchange_town(town)" options="{'no_create':True}"/>
+                                                <field name="region" colspan="2" options="{'no_create':True}"/>
+                                                <field name="colony" colspan="2" required="1"/>
+                                                <field name="cp" colspan="2" required="1"/>
+                                                <field name="phone" colspan="2"/>
+                                                <field name="cel_phone" colspan="2" />
+                                                <field name="email" colspan="2" widget="email"/>
+                                                <field name="sexo" colspan="2" required="1"/>
+                                                <field name="civil_status" colspan="2" />
+                                                <field name="population_characteristics" colspan="2" options="{'no_create':True}"/>
+                                                <field name="school" colspan="2" required="1" options="{'no_create':True}"/>
+                                                <field name="occupation" colspan="2"/>
+                                                <field name="date_birth" colspan="2" required="1"/>
+                                                <field name="place_birth" colspan="2" options="{'no_create':True}"/>
+                                                <field name="disabled" colspan="2"/>
+                                                <field name="indian" colspan="2"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                </gruop>
+                            </page>
+                            <page string="Dirección de la Empresa" attrs="{'invisible': ['|',('type','=','emprendedor'),('type','=','fisica')]}">
+                                <group string="Dirección de la empresa" colspan="4" col="4">
+                                    <field name="street_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="external_number_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="internal_number_company" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="country_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="city_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="town_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="region_company" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" options="{'no_create':True}"/>
+                                    <field name="colony_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="cp_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="phone_company" colspan="2" attrs="{'required': [('type','=','moral')],'readonly': [('state','=','rechazada')]}"/>
+                                    <field name="web" colspan="2" attrs="{'readonly': [('state','=','rechazada')]}" widget="url"/>
+                                </group>
+                            </page>
+                            <page string="Vinculación">
+                                <group colspan="4" col="4">
+                                    <field name="emprendimiento" colspan="2"/>
+                                    <field name="formacion_capital_humano" colspan="2"/>
+                                    <field name="emprendimiento_text" colspan="2"/>
+                                    <field name="formacion_capital_humano_text" colspan="2"/>
+                                    <field name="desarrollo_empresarial" colspan="2"/>
+                                    <field name="aceleracion_empresarial" colspan="2"/>
+                                    <field name="desarrollo_empresarial_text" colspan="2"/>
+                                    <field name="aceleracion_empresarial_text" colspan="2"/>
+                                    <field name="laboratorio" colspan="2"/>
+                                    <separator string="" colspan="2"/>
+                                    <field name="laboratorio_text" colspan="2"/>
+                                </group>
+                                <group colspan="4" col="4">
+                                    <field name="area_related"/>
+                                </group>
+                            </page>
+                            <page string="Historial">
+                                <field name="crm"/>
+                            </page>
+                            <page string="Notas">
+                                <separator string="Notas" colspan="4"/>
+                                <field name="note"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+<!--    
+        Empresas por departamento de atención
+-->
+        <record id="aceleracion_empresarial_action" model="ir.actions.act_window">
+            <field name="name">Empresas y Emprendedores</field>
+            <field name="res_model">companies.ihce</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('aceleracion_empresarial','=',True),('type','in',('moral','fisica'))]</field>
+            <field name="view_id" ref="aceleracion_empresas_tree"/>
+        </record>
+        
+        <record id="action_aceleracion_tree_view" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="aceleracion_empresas_tree"/>
+            <field name="act_window_id" ref="aceleracion_empresarial_action"/>
+        </record>
+        
+        <record id="action_aceleracion_form_view" model="ir.actions.act_window.view">
+            <field eval="5" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="aceleracion_company_form"/>
+            <field name="act_window_id" ref="aceleracion_empresarial_action"/>
+        </record>
+    
+        <menuitem id="submenu_aceleracion_empre" name="Vinculados" parent="menu_aceleracion" sequence="0"/>
+        
+        <menuitem id="empresas_aceem" name="Empresas" parent="submenu_aceleracion_empre" sequence="0" action="aceleracion_empresarial_action"/>
+        
+        
+        
+<!--
+        ACELERACION EMPRESARIAL
+-->
+        <record id="aceleracion_ihce_filter" model="ir.ui.view">
+            <field name="name">aceleracion.ihce.filter</field>
+            <field name="model">acceleration.ihce</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="date_ini" string="Fecha Inicio"/>
+                    <field name="date_fin" string="Fecha Final"/>
+                    <field name="name" string="Proyecto"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Fecha Inicio" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'date_ini'}"/>
+                        <filter string="Fecha Final" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'date_fin'}"/>
+                        <filter string="Proyecto" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'name'}"/>
+                        <filter string="Responsable" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'user_id'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="acceleration_ihce_form" model="ir.ui.view">
+            <field name="name">acceleration.ihce.form</field>
+            <field name="model">acceleration.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Proyecto Aceleración Empresarial">
+                    <header>
+                        <button name="finalizar_proyecto_ace" type="object" string="Finalizar" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state_ace','in',('cancel','done','draft','out_time'))]}" />
+                        <button name="empezar_proyecto_ace" type="object" string="Empezar" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state_ace','in',('cancel','done','out_time','process'))]}" />
+                        <field name="state_ace" widget="statusbar" statusbar_visible="draft,process,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name" coslpan="2" required="1" attrs="{'readonly':[('state_ace','in',('cancel','done'))]}" placeholder="Nombre del Proyecto..."/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="description" coslpan="2" required="1" attrs="{'readonly':[('state_ace','in',('cancel','done'))]}"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="user_id" coslpan="2" required="1" attrs="{'readonly':['|',('state_ace','in',('cancel','done')),('change_user','=',False)]}" on_change="onchange_user(user_id)"/>
+                            <field name="area" coslpan="2" attrs="{'invisible':[('option','=','emprered')], 'required': [('option','=','ihce')], 'readonly':[('change_user','=',False)]}" options="{'no_create':True}"/>
+                            <field name="emprered" coslpan="2" attrs="{'invisible':[('option','=','ihce')], 'required': [('option', '=', 'emprered')], 'readonly':[('change_user','=',False)]}" options="{'no_create':True}"/>
+                            <field name="option" coslpan="2" invisible="1"/>
+                            <field name="date_ini" coslpan="2" required="1"/>
+                            <field name="date_fin" coslpan="2" required="1" attrs="{'readonly':[('state_ace','in',('cancel','done'))]}"/>
+                            <field name="change_user" groups="business_acceleration_ihce.admin_aceleracion"/>
+                        </group>
+                        <notebook>
+                            <page string="Empresas">
+                                <group coslpan="4" col="4">
+                                    <field name="company_list_ids" nolabel="1" colspan="4" context="{'default_acceleration_id': id}" attrs="{'readonly':[('state_ace','in',('cancel','done','draft'))]}">
+                                    </field>
+                                    <field name="number_company" colspan="4" readonly="1"/>
+                                </group>
+                            </page>
+                            <page string="Indicadores">
+                                <group col="4" colspan="2">
+                                    <field name="service" colspan="2" readonly="1"/>
+                                    <field name="asesoria" colspan="2" readonly="1"/>
+                                </group>
+                            </page>
+                            <page string="Consultorías">
+                                <group col="4" colspan="2">
+                                    <field name="courses_ids" colspan="2" nolabel="1" context="{'default_acceleration_id': id, 'default_services': 'aceleracion', 'default_type': 'consultoria'}"/>
+                                </group>
+                            </page>
+                            <page string="Observaciones">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                        <field name="percent" readonly="1" widget="progressbar" colspan="4"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="acceleration_ihce_tree" model="ir.ui.view">
+            <field name="name">acceleration.ihce.tree</field>
+            <field name="model">acceleration.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Proyectos Aceleración Empresarial" colors="black:state_ace=='draft'; gray:state_ace=='cancel'; green:state_ace=='done'; red:state_ace=='out_time'; blue:state_ace=='process';">
+                    <field name="name" />
+                    <field name="date_ini" />
+                    <field name="date_fin" />
+                    <field name="percent" widget="progressbar"/>
+                    <field name="number_company"/>
+                    <field name="state_ace"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="acceleration_ihce_action" model="ir.actions.act_window">
+            <field name="name">Proyectos Aceleración Empresarial</field>
+            <field name="res_model">acceleration.ihce</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="acceleration_ihce_tree"/>
+        </record>
+    
+        <menuitem id="aceleracion_empre" name="Aceleración Empresarial" parent="menu_aceleracion" sequence="1"/>
+        <menuitem id="proyectos_ae" name="Proyectos" parent="aceleracion_empre" sequence="0" action="acceleration_ihce_action"/>
+  
+    </data>
+</openerp>

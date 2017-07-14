@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--
+        MEMBRESIAS
+-->
+        <record id="type_membership_form" model="ir.ui.view">
+            <field name="name">type.membership.form</field>
+            <field name="model">type.membership</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Membresías">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" coslpan="2" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="type_membership_tree" model="ir.ui.view">
+            <field name="name">type.membership.tree</field>
+            <field name="model">type.membership</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Catálogos">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="type_membership_action" model="ir.actions.act_window">
+            <field name="name">Catálogos</field>
+            <field name="res_model">type.membership</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="type_membership_tree"/>
+        </record>
+    
+        <menuitem id="submenu_catalog_business" name="Código de Barras" parent="submenu_tiempos" sequence="1"/>
+        
+        <menuitem id="membership" name="Tipos de membresía" parent="submenu_catalog_business" sequence="0" action="type_membership_action"/>
+        
+<!--
+        PATENTES
+-->
+        <record id="type_patent_form" model="ir.ui.view">
+            <field name="name">type.patent.form</field>
+            <field name="model">type.patent</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Patentes">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" coslpan="2" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="type_patent_tree" model="ir.ui.view">
+            <field name="name">type.patent.tree</field>
+            <field name="model">type.patent</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Catálogos">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="type_patent_action" model="ir.actions.act_window">
+            <field name="name">Catálogos</field>
+            <field name="res_model">type.patent</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="type_patent_tree"/>
+        </record>
+        
+        <menuitem id="menu_code_barras" name="Patentes" parent="submenu_tiempos" sequence="2"/>
+        
+        <menuitem id="type_patent" name="Tipos de patentes" parent="menu_code_barras" sequence="0" action="type_patent_action"/>
+        
+<!--
+        LABORATORIOS
+-->
+        <record id="laboratory_form" model="ir.ui.view">
+            <field name="name">laboratory.form</field>
+            <field name="model">laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Laboratorios">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" coslpan="2" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="laboratory_tree" model="ir.ui.view">
+            <field name="name">laboratory.tree</field>
+            <field name="model">laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Catálogos">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="laboratory_action" model="ir.actions.act_window">
+            <field name="name">Catálogos</field>
+            <field name="res_model">laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="laboratory_tree"/>
+        </record>
+        
+        <menuitem id="menu_fda_conf" name="FDA" parent="submenu_tiempos" sequence="3"/>
+        
+        <menuitem id="laboratory" name="Laboratorios" parent="menu_fda_conf" sequence="0" action="laboratory_action"/>
+
+    </data>
+</openerp>

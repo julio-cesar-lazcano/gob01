@@ -1,0 +1,1037 @@
+<?xml version="1.0"?>
+
+<document filename="Diagnostico.pdf">
+    <template title="Diagnostico Emprendedores" author="OpenERP S.A.(sales@openerp.com)" allowSplitting="20" pageSize="(600.0,800.0)">
+        <pageTemplate id="first">
+                
+            <pageGraphics>
+            
+                <setFont name="Helvetica-Oblique" size="6.0"/>
+
+                
+                <image file="bara.jpg" x="0mm" y="0mm" width="2mm" height="297mm"/>
+                
+                <image file="pie_ihce.jpg" x="20mm" y="4mm" width="35mm" height="18mm"/>
+            </pageGraphics>
+                
+            <frame id="first" x1="50.0" y1="70.0" width="550" height="700"/>
+        
+        </pageTemplate>
+    </template>
+ 
+    <stylesheet>
+        <blockTableStyle id="Table0">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table1">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table2">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table3">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table4">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table5">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table6">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table7">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table8">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table9">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table10">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table11">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table12">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table13">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+
+        <initialize>
+            <paraStyle name="all" alignment="justify"/>
+        </initialize>
+
+        <paraStyle name="Standard" fontName="Helvetica" leading="10" />
+        <paraStyle name="Title1" fontName="Helvetica-Bold" fontSize="12.0" alignment="CENTER" leading="10" />
+        <paraStyle name="Title" fontName="Helvetica" fontSize="8.0" alignment="CENTER" leading="10"/>
+        <paraStyle name="text_title" fontName="Helvetica" fontSize="6.0" alignment="LEFT" leading="10" />
+        <paraStyle name="text" fontName="Helvetica" fontSize="7.0" alignment="LEFT" leading="10" />
+        <images/>
+    </stylesheet>
+    
+    <story>
+        <section>
+            <para style="terp_default_8">[[repeatIn(objects,'o')]]</para>
+            
+            <blockTable colWidths="60.0,350.0,140.0" style="Table1">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                        <para style="Title1" alignment="CENTER" textColor="#E33B3C">DIAGNÓSTICO EMPRENDEDORES</para>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                        <para style="text" fontSize="9.0" alignment="CENTER">[[ o.dependence == '0' and removeParentNode('para')]] Emprered [[o.emprered.name]]</para> 
+                        <para style="text" fontSize="9.0" alignment="CENTER">[[ o.dependence == '1' and removeParentNode('para')]] IHCE [[o.ihce.name]]</para> 
+                        <para style="Standard"> <font color="white"> </font> </para>
+                        <para style="text" fontSize="9.0" alignment="CENTER">[[o.type == 'emprendedor' and removeParentNode('para')]] Persona [[o.type]]</para>
+                        <para style="text" fontSize="9.0" alignment="CENTER">[[o.type != 'emprendedor' and removeParentNode('para')]]  Emprendedor</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+<!--
+                        <para style="Title" alignment="LEFT"> [[ o.company_id.logo and setTag('para','image',{'width':'110.0','height':'60.0'}) ]] [[ o.company_id.logo ]]</para>
+-->
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">DATOS GENERALES</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table2">[[ o.type == 'moral' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text_title">Razón Social:</para>
+                        <para style="text">[[ o.company_name ]]</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">RFC:</para>
+                        <para style="text">[[ o.rfc_company ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Teléfono:</para>
+                        <para style="text">[[ o.phone_company ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Sitio web:</para>
+                        <para style="text">[[ o.web ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Calle:</para>
+                        <para style="text">[[ o.street_company ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">No. Ext:</para>
+                        <para style="text">[[ o.external_number_company ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">No. Int:</para>
+                        <para style="text">[[ o.internal_number_company ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">País:</para>
+                        <para style="text">[[ o.country_company ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Ciudad:</para>
+                        <para style="text">[[ o.city_company.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Municipio:</para>
+                        <para style="text">[[ o.town_company.name ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Colonia:</para>
+                        <para style="text">[[ o.colony_company.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">C.P:</para>
+                        <para style="text">[[ o.cp_company ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Fax:</para>
+                        <para style="text">[[ o.fax_company ]]</para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table3">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Nombre:</para>
+                        <para style="text">[[ o.name_people ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Apellido paterno:</para>
+                        <para style="text">[[ o.apaterno ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Apellido materno:</para>
+                        <para style="text">[[ o.amaterno ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">RFC:</para>
+                        <para style="text">[[ o.rfc]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Teléfono fijo:</para>
+                        <para style="text">[[ o.phone ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Teléfono móvil:</para>
+                        <para style="text">[[ o.cel_phone ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Calle:</para>
+                        <para style="text">[[ o.street ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">No. Ext:</para>
+                        <para style="text">[[ o.external_number ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">No. Int:</para>
+                        <para style="text">[[ o.internal_number ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">País:</para>
+                        <para style="text">[[ o.country ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Ciudad:</para>
+                        <para style="text">[[ o.city.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Municipio:</para>
+                        <para style="text">[[ o.town.name ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Colonia:</para>
+                        <para style="text">[[ o.colony.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">C.P:</para>
+                        <para style="text">[[ o.cp ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Fax:</para>
+                        <para style="text">[[ o.fax ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Fecha de nacimiento:</para>
+                        <para style="text">[[ o.date_birth ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Lugar de nacimiento:</para>
+                        <para style="text">[[ o.place_birth.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Curp:</para>
+                        <para style="text">[[ o.curp ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Sexo:</para>
+                        <para style="text">[[ o.sexo ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Estado civil:</para>
+                        <para style="text">[[ o.civil_status ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Característica poblacional:</para>
+                        <para style="text">[[ o.population_characteristics.name ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Escolaridad:</para>
+                        <para style="text">[[ o.school.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Ocupación:</para>
+                        <para style="text">[[ o.occupation ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Puesto:</para>
+                        <para style="text">[[ o.post ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Correo electrónico:</para>
+                        <para style="text">[[ o.email ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Es discapacitado:</para>
+                        <para style="text">[[o.disabled == True and removeParentNode('para') ]] No</para>
+                        <para style="text">[[o.disabled == False and removeParentNode('para') ]] Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Es indigena:</para>
+                        <para style="text">[[o.indian == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.indian == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">ACTIVIDAD ECONÓMICA</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table4">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="text_title">Tamaño:</para>
+                        <para style="text">[[ o.size.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Sector:</para>
+                        <para style="text">[[ o.sector.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Ventas anuales:</para>
+                        <para style="text">[[ o.sales_year.name ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">No. empleados:</para>
+                        <para style="text">[[ o.staff ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Hombres:</para>
+                        <para style="text">[[ o.men ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Mujeres:</para>
+                        <para style="text">[[ o.woman ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Indígenas:</para>
+                        <para style="text">[[ o.indians ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Discapacitados:</para>
+                        <para style="text">[[ o.disableds ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Inicio de operaciones:</para>
+                        <para style="text">[[ o.operations ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Sucursales:</para>
+                        <para style="text">[[ o.branches ]]</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table5">[[ o.type == 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="text_title">Emprendedor con:</para>
+                        <para style="text">[[ o.enmprendedor_activity.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Tipo:</para>
+                        <para style="text">[[ o.type_activity_empre.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Sector:</para>
+                        <para style="text">[[ o.sector.name ]]</para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">ÁREAS DE DESARROLLO</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table6">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text">Áreas de interés</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <section>
+                <para style="Standard">[[repeatIn(o.area_development,'line')]]</para>
+                <blockTable colWidths="180.0,180.0,180.0" style="Table6">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                    <tr>
+                        <td>
+                            <para style="text_title">Administración:</para>
+                            <para style="text">[[line.administration == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.administration == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Finanzas:</para>
+                            <para style="text">[[line.finance  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.finance  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Legal:</para>
+                            <para style="text">[[line.legal  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.legal  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <para style="text_title">Ventas:</para>
+                            <para style="text">[[line.sales  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.sales  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Asesoría Físcal:</para>
+                            <para style="text">[[line.advice  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.advice  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Desarrollo Humano:</para>
+                            <para style="text">[[line.development  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.development  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <para style="text_title">Producción:</para>
+                            <para style="text">[[line.production  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.production  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Mercadotecnia:</para>
+                            <para style="text">[[line.marketing  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.marketing  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="Standard"> <font color="white"> </font> </para>
+                        </td>
+                    </tr>
+                </blockTable>
+            </section>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table7">[[ o.type == 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text">Áreas de interés</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <section>
+                <para style="Standard">[[repeatIn(o.area_development,'line')]]</para>
+                <blockTable colWidths="180.0,180.0,180.0" style="Table7">[[ o.type == 'emprendedor' or removeParentNode('blockTable') ]]
+                    <tr>
+                        <td>
+                            <para style="text_title">Plan de negocios:</para>
+                            <para style="text">[[line.business_plan  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.business_plan  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Asesoría emprendimiento:</para>
+                            <para style="text">[[line.entrepreneurship  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.entrepreneurship  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Innovación del producto:</para>
+                            <para style="text">[[line.innovation  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.innovation  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <para style="text_title">Ampliar mercado:</para>
+                            <para style="text">[[line.market  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.market  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Constitución de empresa:</para>
+                            <para style="text">[[line.company  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.company  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="text_title">Financiamiento:</para>
+                            <para style="text">[[line.funding  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.funding  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <para style="text_title">Incubación:</para>
+                            <para style="text">[[line.incubation  == True and removeParentNode('para') ]]No</para>
+                            <para style="text">[[line.incubation  == False and removeParentNode('para') ]]Sí</para>
+                        </td>
+                        <td>
+                            <para style="Standard"> <font color="white"> </font> </para>
+                        </td>
+                        <td>
+                            <para style="Standard"> <font color="white"> </font> </para>
+                        </td>
+                    </tr>
+                </blockTable>
+            </section>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">NEGOCIO</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table8">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text">Cuenta con:</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Misión:</para>
+                        <para style="text">[[ o.mission ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Visión:</para>
+                        <para style="text">[[ o.vision ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Valores:</para>
+                        <para style="text">[[ o.values ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Manuales de procedimientos:</para>
+                        <para style="text">[[o.procedures  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.procedures  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Manuales de organización:</para>
+                        <para style="text">[[o.organization  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.organization  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Empresa familiar:</para>
+                        <para style="text">[[o.family_business  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.family_business  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Plan de crecimiento:</para>
+                        <para style="text">[[o.increase  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.increase  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Alternativas para su crecimiento:</para>
+                        <para style="text">[[o.alternatives  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.alternatives  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Plan de negocios:</para>
+                        <para style="text">[[o.business  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.business  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table9">[[ o.type == 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text">Cuenta con:</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Estudio de mercado:</para>
+                        <para style="text">[[o.market  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.market  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Plan de negocios:</para>
+                        <para style="text">[[o.business  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.business  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">MERCADOTECNIA</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table10">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text">Requiere:</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <section>
+                <para style="Standard">[[repeatIn(o.marketing_de_lines,'line')]]</para>
+                <blockTable colWidths="180.0,180.0,180.0" style="Table10">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                    <tr>
+                        <td>
+                            <para style="text">[[line.name.name ]]</para>
+                        </td>
+                        <td>
+                            <para style="Standard"> <font color="white"> </font> </para>
+                        </td>
+                        <td>
+                            <para style="Standard"> <font color="white"> </font> </para>
+                        </td>
+                    </tr>
+                </blockTable>
+            </section>
+            
+            <section>
+                <para style="Standard">[[repeatIn(o.marketing_lab_lines,'line')]]</para>
+                <blockTable colWidths="180.0,180.0,180.0" style="Table10">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                    <tr>
+                        <td>
+                            <para style="text">[[line.name.name ]]</para>
+                        </td>
+                        <td>
+                            <para style="Standard"> <font color="white"> </font> </para>
+                        </td>
+                        <td>
+                            <para style="Standard"> <font color="white"> </font> </para>
+                        </td>
+                    </tr>
+                </blockTable>
+            </section>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table10">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text_title">Comercialización:</para>
+                        <para style="text">[[o.merchandising]]</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="text">Realiza:</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Plan de medios sociales:</para>
+                        <para style="text">[[o.social_media  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.social_media  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Promociones:</para>
+                        <para style="text">[[ o.promotions ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Presencia en Internet:</para>
+                        <para style="text">[[o.internet  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.internet  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">FINANZAS</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table11">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="text_title">Financiamiento:</para>
+                        <para style="text">[[ o.funding.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Costos de producción:</para>
+                        <para style="text">[[ o.costs ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Punto de equilibrio:</para>
+                        <para style="text">[[ o.breakeven.name ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Margen de utilidad :</para>
+                        <para style="text">[[o.margin]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Cuenta con crédito:</para>
+                        <para style="text">[[o.credit  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.credit  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Nivel de deuda:</para>
+                        <para style="text">[[ o.debt.name ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Requiere un crédito:</para>
+                        <para style="text">[[o.required_credit  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.required_credit  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Requiere capital (socios):</para>
+                        <para style="text">[[o.capital  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.capital  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">RECURSOS HUMANOS</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table12">
+                <tr>
+                    <td>
+                        <para style="text_title">Procedimiento de contratación:</para>
+                        <para style="text">[[o.booking  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.booking  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Contratos individuales de trabajo:</para>
+                        <para style="text">[[o.contracts  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.contracts  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Programa de capacitación:</para>
+                        <para style="text">[[o.training  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.training  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Frecuencia de capacitación:</para>
+                        <para style="text">[[ o.frequency.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" textColor="#18982E">PRODUCCIÓN</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table13">[[ o.type != 'emprendedor' or removeParentNode('blockTable') ]]
+                <tr>
+                    <td>
+                        <para style="text_title">Cantidad de producción anual:</para>
+                        <para style="text">[[ o.quantity ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Unidad:</para>
+                        <para style="text">[[ o.unit ]]</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Antiguedad de la maquinaria:</para>
+                        <para style="text">[[ o.machine_old ]]</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text_title">Requiere norma de certificación:</para>
+                        <para style="text">[[o.rule  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.rule  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="text_title">Cuenta con la certificación:</para>
+                        <para style="text">[[o.certification  == True and removeParentNode('para') ]]No</para>
+                        <para style="text">[[o.certification  == False and removeParentNode('para') ]]Sí</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="180.0,180.0,180.0" style="Table0">
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" alignment="CENTER">_______________________</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                    <td>
+                        <para style="Title" fontSize="7.0" alignment="CENTER" >Firma</para>
+                    </td>
+                </tr>
+            </blockTable>
+
+        </section>
+        
+    </story>
+
+</document>
+

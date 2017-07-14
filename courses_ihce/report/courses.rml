@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+
+<document filename="Cursos.pdf">
+    <template title="Lista de asistentes" author="OpenERP S.A.(sales@openerp.com)" allowSplitting="20">
+        <pageTemplate id="first">
+                
+            <pageGraphics>
+            
+                <setFont name="Helvetica-Oblique" size="6.0"/>
+                
+                <image x="143.0mm" y="260.0mm"  width="46.994mm" height="28.342mm">[[company.logo and company.logo or removeParentNode('image')]]</image>
+                
+                <image file="bara.jpg" x="0mm" y="0mm" width="2mm" height="297mm"/>
+
+            </pageGraphics>
+                
+            <frame id="first" x1="25.0" y1="70.0" width="550" height="700"/>
+        
+        </pageTemplate>
+    </template>
+ 
+    <stylesheet>
+        <blockTableStyle id="Table0">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table1">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table2">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+            <lineStyle kind="LINEABOVE" colorName="#18982E" start="0,0" stop="7,0"/>
+            <lineStyle kind="LINEBELOW" colorName="#18982E" start="0,0" stop="7,0"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table3">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table4">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+        
+        <blockTableStyle id="Table5">
+            <blockAlignment value="LEFT"/>
+            <blockValign value="TOP"/>
+        </blockTableStyle>
+
+        <initialize>
+            <paraStyle name="all" alignment="justify"/>
+        </initialize>
+
+        <paraStyle name="Standard" fontName="Helvetica" leading="15" />
+        <paraStyle name="Title1" fontName="Helvetica-Bold" fontSize="8.5" alignment="CENTER" leading="7" />
+        <paraStyle name="encabezado" fontName="Helvetica-Bold" fontSize="7.0" alignment="CENTER" leading="10"/>
+        <paraStyle name="text" fontName="Helvetica" fontSize="6.0" alignment="LEFT" leading="10" />
+        <images/>
+    </stylesheet>
+    
+    <story>
+        <section>
+            <para style="Standard">[[repeatIn(objects,'o')]]</para>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="310.0,230" style="Table0">
+                <tr>
+                    <td>
+                        <para style="Title1" alignment="LEFT">[[ o.courses_id.name ]]</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="Title1" alignment="LEFT">[[ o.name]]</para>
+                    </td>
+                    <td>
+                        <para style="Standard"> <font color="white"> </font> </para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="135,135,135,135" style="Table1">
+                <tr>
+                    <td>
+                        <para style="encabezado">FECHA</para>
+                    </td>
+                    <td>
+                        <para style="encabezado">HORAS DE CAPACITACIÓN</para>
+                    </td>
+                    <td>
+                        <para style="encabezado">PROVEEDOR</para>
+                    </td>
+                    <td>
+                        <para style="encabezado">MUNICIPIO</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <para style="text" alignment="CENTER">[[ o.date]]</para>
+                    </td>
+                    <td>
+                        <para style="text" alignment="CENTER">[[ o.hours_training]]</para>
+                    </td>
+                    <td>
+                        <para style="text" alignment="CENTER">[[ o.supplier_id.name]]</para>
+                    </td>
+                    <td>
+                        <para style="text" alignment="CENTER">[[ o.municipio.name]]</para>
+                    </td>
+                </tr>
+            </blockTable>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <blockTable colWidths="100.0,100.0,70.0,50.0,90.0,80.0,50.0" style="Table2">
+                <tr>
+                    <td>
+                        <para style="encabezado" alignment="LEFT">PARTICIPANTE</para>
+                    </td>
+                    <td>
+                        <para style="encabezado" alignment="LEFT">EMPRESA</para>
+                    </td>
+                    <td>
+                        <para style="encabezado" alignment="LEFT">MUNICIPIO</para>
+                    </td>
+                    <td>
+                        <para style="encabezado" alignment="LEFT">TELÉFONO</para>
+                    </td>
+                    <td>
+                        <para style="encabezado" alignment="LEFT">CORREO ELECTRÓNICO</para>
+                    </td>
+                    <td>
+                        <para style="encabezado" alignment="LEFT">IDEA DE NEGOCIO</para>
+                    </td>
+                    <td>
+                        <para style="encabezado" alignment="LEFT">EVALUACIÓN</para>
+                    </td>
+                </tr>
+            </blockTable>
+
+
+            <section>
+                <para style="Standard">[[repeatIn(o.line, 'li')]]</para>
+                <blockTable colWidths="100.0,100.0,70.0,50.0,90.0,80.0,50.0" style="Table3">
+                    <tr>
+                        <td>
+                            <para style="text">[[ li.contact_id.name ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.name_company ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.town.name ]]</para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.cel_phone ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.email ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.idea_commerce ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'6' and removeParentNode('para')]] Excelente</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'5' and removeParentNode('para')]] Muy bueno</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'4' and removeParentNode('para')]] Bueno</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'3' and removeParentNode('para')]] Regular</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'2' and removeParentNode('para')]] Malo</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'1' and removeParentNode('para')]] Muy malo</para>
+                        </td>
+                    </tr>
+                </blockTable>
+            </section>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+            
+            <section>
+                <para style="Standard">[[repeatIn(o.list_lines,'li')]]</para>
+                <blockTable colWidths="100.0,100.0,70.0,50.0,90.0,80.0,50.0" style="Table3">
+                    <tr>
+                        <td>
+                            <para style="text">[[ li.name ]] </para>
+                        </td>
+                        <td>
+                            <para style="text"> </para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.town.name ]]</para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.cel_phone ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.email ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[ li.idea_commerce ]] </para>
+                        </td>
+                        <td>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'6' and removeParentNode('para')]] Excelente</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'5' and removeParentNode('para')]] Muy bueno</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'4' and removeParentNode('para')]] Bueno</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'3' and removeParentNode('para')]] Regular</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'2' and removeParentNode('para')]] Malo</para>
+                            <para style="text">[[li.course_evaluation&lt;&gt;'1' and removeParentNode('para')]] Muy malo</para>
+                        </td>
+                    </tr>
+                </blockTable>
+            </section>
+            
+            <para style="Standard"> <font color="white"> </font> </para>
+
+        </section>
+        
+    </story>
+
+</document>

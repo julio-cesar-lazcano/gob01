@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+<!--
+        SECUENCIA ID DE PROYECTO
+-->
+        <record id="seq_type_laboratorios" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.laboratorio</field>
+        </record>
+        
+        <record id="seq_laboratorios" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.laboratorio</field>
+            <field name="prefix">LAB</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+<!--
+        <record id="seq_type_metalmecanico" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.metal</field>
+        </record>
+        
+        <record id="seq_metalmecanico" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.metal</field>
+            <field name="prefix">MM</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_textil" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.textil</field>
+        </record>
+        
+        <record id="seq_textil" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.textil</field>
+            <field name="prefix">TE</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_manufactura" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.manufactura</field>
+        </record>
+        
+        <record id="seq_laboratory" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.manufactura</field>
+            <field name="prefix">MA</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_ser_prof" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.ser.prof</field>
+        </record>
+        
+        <record id="seq_ser_prof" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.ser.prof</field>
+            <field name="prefix">SP</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_construccion" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.construccion</field>
+        </record>
+        
+        <record id="seq_construccion" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.construccion</field>
+            <field name="prefix">CO</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_agroindustrial" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.agroindustrial</field>
+        </record>
+        
+        <record id="seq_agroindustrial" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.agroindustrial</field>
+            <field name="prefix">AI</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_turistico" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.turistico</field>
+        </record>
+        
+        <record id="seq_turistico" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.turistico</field>
+            <field name="prefix">TU</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_gastronomico" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.gastronomico</field>
+        </record>
+        
+        <record id="seq_gastronomico" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.gastronomico</field>
+            <field name="prefix">GA</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_logistico" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.logistico</field>
+        </record>
+        
+        <record id="seq_logistico" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.logistico</field>
+            <field name="prefix">LO</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_automotriz" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.automotriz</field>
+        </record>
+        
+        <record id="seq_automotriz" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.automotriz</field>
+            <field name="prefix">AU</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_electronico" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.electronico</field>
+        </record>
+        
+        <record id="seq_electronico" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.electronico</field>
+            <field name="prefix">EL</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_maquinaria" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.maquinaria</field>
+        </record>
+        
+        <record id="seq_maquinaria" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.maquinaria</field>
+            <field name="prefix">ME</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_quimico" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.quimico</field>
+        </record>
+        
+        <record id="seq_quimico" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.quimico</field>
+            <field name="prefix">PQ</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_madero" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.madero</field>
+        </record>
+        
+        <record id="seq_madero" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.madero</field>
+            <field name="prefix">PM</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_salud" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.salud</field>
+        </record>
+        
+        <record id="seq_salud" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.salud</field>
+            <field name="prefix">SM</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_telecom" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.telecom</field>
+        </record>
+        
+        <record id="seq_telecom" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.telecom</field>
+            <field name="prefix">TC</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_tics" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.tics</field>
+        </record>
+        
+        <record id="seq_tics" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.tics</field>
+            <field name="prefix">TI</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_negocios" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.negocios</field>
+        </record>
+        
+        <record id="seq_negocios" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.negocios</field>
+            <field name="prefix">NE</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_pesca" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.pesca</field>
+        </record>
+        
+        <record id="seq_pesca" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.pesca</field>
+            <field name="prefix">AP</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_mineria" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.mineria</field>
+        </record>
+        
+        <record id="seq_mineria" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.mineria</field>
+            <field name="prefix">MI</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_alimentos" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.alimentos</field>
+        </record>
+        
+        <record id="seq_alimentos" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.alimentos</field>
+            <field name="prefix">AB</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+        
+        <record id="seq_type_aeronautica" model="ir.sequence.type">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.aeronautica</field>
+        </record>
+        
+        <record id="seq_aeronautica" model="ir.sequence">
+            <field name="name">Laboratorio de Diseño</field>
+            <field name="code">sector.aeronautica</field>
+            <field name="prefix">AE</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+-->
+        
+    </data>
+</openerp>

@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_forming_area,forming.area,model_forming_area,,1,1,1,1
+access_courses_ihce,courses.ihce,model_courses_ihce,,1,1,1,1
+access_date_courses,date.courses,model_date_courses,,1,1,1,1
+access_company_line,company.line,model_company_line,,1,1,1,1
+access_suppliers_ihce,suppliers.ihce,model_suppliers_ihce,,1,1,1,1
+access_company_invited,company.invited,model_company_invited,,1,1,1,1
+access_list_new_persons,list.new.persons,model_list_new_persons,,1,1,1,1
+
+
+
+
+
+

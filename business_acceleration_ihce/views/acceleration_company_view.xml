@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+<!--
+        ACELERACION EMPRESARIAL
+-->
+        
+        <record id="company_list_acceleration_form" model="ir.ui.view">
+            <field name="name">company.list.acceleration.form</field>
+            <field name="model">company.list.acceleration</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Proyecto Aceleración Empresarial">
+                    <header>
+                        <button name="finish_proyect" type="object" string="Finalizar" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state','in',('done','out_time'))]}" />
+                        <field name="state" widget="statusbar" statusbar_visible="process,done"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="company_id" coslpan="2" required="1" domain="[('company','=',True),('state','=','done'),('aceleracion_empresarial','=',True)]" attrs="{'readonly':[('state','=','done')]}" options="{'no_create':True}"/>
+                            <field name="acceleration_id" coslpan="2" required="1" attrs="{'readonly':[('state','=','done')]}"/>
+                        </group>
+                        <notebook>
+                            <page string="Etapas de proyecto">
+                                <group col="4" colspan="4">
+                                    <separator string="Etapa" coslpan="2"/>
+                                    <separator string="Fecha" coslpan="2"/>
+                                </group>
+                                <group col="4" colspan="4">
+                                    <field name="adiagnostic" colspan="2" on_change="onchange_adiagnostic(adiagnostic,percent,company_id)" context="{'acceleration_id': acceleration_id}" attrs="{'readonly':[('state','=','done')]}"/>
+                                    <field name="date_fin_diag" colspan="2" required="1" on_change="onchange_date_fin_diag(date_fin_diag,company_id)" context="{'acceleration_id': acceleration_id}" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
+                                    <field name="training" colspan="2" attrs="{'readonly':[('state','=','done')]}" on_change="onchange_training(training,percent,company_id)" context="{'acceleration_id': acceleration_id}"/>
+                                    <field name="date_fin_trai" colspan="2" attrs="{'required': [('adiagnostic','=',True)], 'readonly':[('state','=','done')]}" on_change="onchange_date_fin_trai(date_fin_trai,company_id)" context="{'acceleration_id': acceleration_id}" nolabel="1"/>
+                                    <field name="implementation" colspan="2" attrs="{'readonly':[('state','=','done')]}" on_change="onchange_implementation(implementation,percent,company_id)" context="{'acceleration_id': acceleration_id}"/>
+                                    <field name="date_fin_imple" colspan="2" attrs="{'required': [('training','=',True)], 'readonly':[('state','=','done')]}" on_change="onchange_date_fin_imple(date_fin_imple,company_id)" context="{'acceleration_id': acceleration_id}" nolabel="1"/>
+                                    <field name="cross_audit" colspan="2" attrs="{'readonly':[('state','=','done')]}" on_change="onchange_cross_audit(cross_audit,percent,company_id)" context="{'acceleration_id': acceleration_id}"/>
+                                    <field name="date_fin_cros" colspan="2" attrs="{'required': [('implementation','=',True)], 'readonly':[('state','=','done')]}" on_change="onchange_date_fin_cros(date_fin_cros,company_id)" context="{'acceleration_id': acceleration_id}" nolabel="1"/>
+                                    <field name="acceptation_audit" colspan="2" attrs="{'readonly':[('state','=','done')]}" on_change="onchange_acceptation_audit(acceptation_audit,percent,company_id)" context="{'acceleration_id': acceleration_id}"/>
+                                    <field name="date_fin_acep" colspan="2" attrs="{'required': [('cross_audit','=',True)], 'readonly':[('state','=','done')]}" on_change="onchange_date_fin_acep(date_fin_acep,company_id)" context="{'acceleration_id': acceleration_id}" nolabel="1"/>
+                                    <field name="audit" colspan="2" attrs="{'readonly':[('state','=','done')]}" on_change="onchange_audit(audit,percent,company_id)" context="{'acceleration_id': acceleration_id}"/>
+                                    <field name="date_fin_audi" colspan="2" attrs="{'required': [('acceptation_audit','=',True)], 'readonly':[('state','=','done')]}" on_change="onchange_date_fin_audi(date_fin_audi,company_id)" context="{'acceleration_id': acceleration_id}" nolabel="1"/>
+                                    <field name="certificate" colspan="2" attrs="{'readonly':[('state','=','done')]}" on_change="onchange_certificate(certificate,percent,company_id)" context="{'acceleration_id': acceleration_id}"/>
+                                    <field name="date_fin_cer" colspan="2" attrs="{'required': [('audit','=',True)], 'readonly':[('state','=','done')]}" on_change="onchange_date_fin_cer(date_fin_cer,company_id)" context="{'acceleration_id': acceleration_id}" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                        <field name="percent" widget="progressbar" colspan="4"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="company_list_acceleration_tree" model="ir.ui.view">
+            <field name="name">company.list.acceleration.tree</field>
+            <field name="model">company.list.acceleration</field>
+            <field name="type">tree</field> 
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Proyectos Aceleración Empresarial" colors="black:state=='draft'; green:state=='done'; red:state=='out_time'; blue:state=='process';">
+                    <field name="company_id" />
+                    <field name="percent" widget="progressbar"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        
+<!--
+        <record id="acceleration_ihce_gantt" model="ir.ui.view">
+            <field name="name">acceleration.ihce.gantt</field>
+            <field name="model">company.list.acceleration</field>
+            <field name="type">gantt</field> 
+            <field name="arch" type="xml">
+                <gantt string="Session Gantt" date_start="date_fin_diag" date_stop="date_fin_cer">
+                    <level object="company.list.acceleration" link="company_id" domain="[]">
+                        <field name="company_id"/>
+                        <field name="acceleration_id"/>
+                        <field name="date_fin_diag"/>
+                    </level>
+                </gantt>
+            </field>
+        </record>
+-->
+        
+        <record id="company_list_acceleration_action" model="ir.actions.act_window">
+            <field name="name">Proyectos Aceleración Empresarial</field>
+            <field name="res_model">company.list.acceleration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="company_list_acceleration_tree"/>
+        </record>
+  
+    </data>
+</openerp>

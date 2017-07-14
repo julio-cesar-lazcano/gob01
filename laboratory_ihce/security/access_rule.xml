@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        
+        <!--     desing_laboratory  ir.rule  -->
+        <record id="desing_laboratory_personal_rule" model="ir.rule">
+            <field name="name">Identidad corporativa Personal</field>
+            <field ref="model_desing_laboratory" name="model_id"/>
+            <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('laboratory_ihce.user_laboratorio'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+        <record id="desing_laboratory_supervisor_rule" model="ir.rule">
+            <field name="name">Identidad corporativa Supervisor</field>
+            <field ref="model_desing_laboratory" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('laboratory_ihce.supervisor_laboratorio'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+        <!--     advices_laboratory  ir.rule  -->
+        <record id="advices_laboratory_personal_rule" model="ir.rule">
+            <field name="name">Asesorias Laboratorio Personal</field>
+            <field ref="model_advices_laboratory" name="model_id"/>
+            <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('laboratory_ihce.user_laboratorio'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+        <record id="advices_laboratory_supervisor_rule" model="ir.rule">
+            <field name="name">Asesorias Laboratorio Supervisor</field>
+            <field ref="model_advices_laboratory" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('laboratory_ihce.supervisor_laboratorio'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+        
+        <!--     laboratory_ihce  ir.rule  -->
+        <record id="advices_laboratory_personal_rule" model="ir.rule">
+            <field name="name">Proyectos Laboratorio Personal</field>
+            <field ref="model_laboratory_ihce" name="model_id"/>
+            <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('laboratory_ihce.user_laboratorio'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+        <record id="advices_laboratory_supervisor_rule" model="ir.rule">
+            <field name="name">Proyectos Laboratorio Supervisor</field>
+            <field ref="model_laboratory_ihce" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('laboratory_ihce.supervisor_laboratorio'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+    </data>
+</openerp>

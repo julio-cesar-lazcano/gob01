@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="capital_data1" model="indicador.capital.humano">
+            <field name="name">Empresas que reciben Consultoría</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="capital_data2" model="indicador.capital.humano">
+            <field name="name">Horas</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="capital_data3" model="indicador.capital.humano">
+            <field name="name">Cursos, Talleres, Diplomados, etc.</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="capital_data4" model="indicador.capital.humano">
+            <field name="name">Horas</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="capital_data5" model="indicador.capital.humano">
+            <field name="name">Asistentes</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="capital_data6" model="indicador.capital.humano">
+            <field name="name">Mujeres</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="capital_data7" model="indicador.capital.humano">
+            <field name="name">Hombres</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+    </data>
+</openerp>

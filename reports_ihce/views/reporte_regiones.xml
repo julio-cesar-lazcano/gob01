@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="reporte_regiones_tree" model="ir.ui.view">
+            <field name="name">reporte.regiones.tree</field>
+            <field name="model">reporte.regiones</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Reporte por Región">
+                    <field name='date'/>
+                    <field name='xls_file' filename="xls_file_name"/>
+                    <field name='user_id'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="reporte_regiones_form" model="ir.ui.view">
+            <field name="name">reporte.regiones.form</field>
+            <field name="model">reporte.regiones</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Reporte por Región">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <label string="Reporte por Región"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name='date' colspan="2" readonly="1"/>
+                            <field name='type' colspan="2" required="1"/>
+                            <field name='region' colspan="2" attrs="{'invisible': ['|',('type', '=', 'completo'),('type','=', False)], 'required': [('type','=','rango')] }"/>
+                            <field name='user_id' colspan="2" invisible="1"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name='date_ini' colspan="2" required="1"/>
+                            <field name='date_fin' colspan="2" required="1"/>
+                            <button name="action_create_report" type="object" string="Crear reporte" icon="gtk-apply" class="oe_highlight" colspan="2"/>
+                        </group>
+                        <group string = "Archivo" attrs="{'invisible': [('xls_file_name', '=', False)] }" colspan="4">
+                            <field name='xls_file_name' invisible="1" colspan="2"/>
+                            <field name='xls_file' filename="xls_file_name"  colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="reporte_regiones_action" model="ir.actions.act_window">
+            <field name="name">Reporte por Región</field>
+            <field name="res_model">reporte.regiones</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="reporte_regiones_tree"/>
+        </record>
+    
+        <menuitem id="regiones" name="Reporte regiones" parent="menu_reporte_ejecutivo" sequence="1" action="reporte_regiones_action"/>
+
+    </data>
+</openerp>

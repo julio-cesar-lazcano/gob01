@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+       
+        <menuitem id="submenu_services_laboratory" name="Servicios" parent="menu_laboratorio" sequence="1"/>
+        
+        <menuitem id="submenu_report_laboratory" name="Reporte" parent="menu_laboratorio" sequence="3"/>
+<!--
+        REPORTE DE PROYECTOS
+-->
+        <record id="laboratory_ihce_filter" model="ir.ui.view">
+            <field name="name">laboratory.ihce.filter</field>
+            <field name="model">laboratory.ihce</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="state"/>
+                    <field name="company_id" string="Beneficiario"/>
+                    <field name="user_id" string="Responsable"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Beneficiarios" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'company_id'}"/>
+                        <filter string="Fechas de inicio" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'date'}"/>
+                        <filter string="Estado" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Responsable" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Sector" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'sector'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="laboratory_ihce_form" model="ir.ui.view">
+            <field name="name">laboratory.ihce.form</field>
+            <field name="model">laboratory.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Proyectos de Laboratorio de Diseño">
+                    <header>
+                        <button name="send_test" type="object" string="Renviar Encuesta" icon="gtk-go-forward" class="oe_highlight" attrs="{'invisible':[('state','in',('process','detained'))]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="process,done"/>
+                    </header>
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name" readonly="1" />
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="company_id" coslpan="2" required="1" domain="[('company','=',True),('state','=','done'),('laboratorio','=',True)]" readonly="1" options="{'no_create':True}"/>
+                            <field name="sector" coslpan="2" readonly="1"/>
+                            <field name="user_id" coslpan="2" required="1" options="{'no_create':True}"/>
+                            <field name="state_done" coslpan="2" invisible="1"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="url_test" coslpan="4" readonly="1" attrs="{'invisible': [('state','in',('process','out_time','detained'))]}" widget="url"/>
+                        </group>
+                        <field name="percent" widget="progressbar" colspan="4"/>
+                        <notebook>
+                            <page string="Servicios">
+                                <field name="lines_services" nolabel="1">
+                                    <tree colors="green:state=='process'; red:state=='out_time'; gray:state=='done'; brown:state=='detained';">
+                                        <field name="service"/>
+                                        <field name="app"/>
+                                        <field name="date"/>
+                                        <field name="date_next"/>
+                                        <field name="date_fin"/>
+                                        <field name="percent"/>
+                                        <field name="notes"/>
+                                        <field name="user_id"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Indicadores">
+                                <group colspan="4" col="4">
+                                    <field name="servicio" readonly="1" colspan="2"/>
+                                    <field name="advices" readonly="1" colspan="2"/>
+                                </group>
+                                <group colspan="4" col="4" string="Asesorías">
+                                    <field name="lines_advices" readonly="1" colspan="4" nolabel="1">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="date"/>
+                                            <field name="user_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Encuesta de Satisfacción" attrs="{'invisible': [('tests_bol','=',False)]}">
+                                <field name="tests_bol" invisible="1"/>
+                                <field name="test" nolabel="1" readonly="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="rfc"/>
+                                        <field name="date"/>
+                                        <field name="comments"/>
+                                        <field name="recommendation"/>
+                                    </tree>
+                                    <form>
+                                        <group colspan="4" col="4">
+                                            <field name="name" colspan="4"/>
+                                            <field name="date" colspan="2"/>
+                                            <field name="rfc" colspan="2"/>
+                                        </group>
+                                        <group colspan="4" col="4">
+                                            <label string="Sobre la atención del personal del laboratorio de diseño y desarrollo de producto." colspan="4"/>
+                                            <field name="question1" colspan="4"/>
+                                            <field name="question2" colspan="4"/>
+                                            <field name="question3" colspan="4"/>
+                                        </group>
+                                        <group colspan="4" col="4">
+                                            <label string="Sobre el servicio recibido por parte del laboratorio de diseño y desarrollo de producto." colspan="4"/>
+                                            <field name="question4" colspan="4"/>
+                                            <field name="question5" colspan="4"/>
+                                            <field name="question6" colspan="4"/>
+                                            <field name="question7" colspan="4"/>
+                                        </group>
+                                        <group colspan="4" col="4">
+                                            <label string="Sobre los servicios específicos y las instalaciones." colspan="4"/>
+                                            <field name="question8" colspan="4"/>
+                                            <field name="question9" colspan="4"/>
+                                            <field name="question10" colspan="4"/>
+                                            <field name="question11" colspan="4"/>
+                                        </group>
+                                        <group colspan="4" col="4">
+                                            <field name="comments" colspan="4"/>
+                                            <field name="recommendation" colspan="4"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Observaciones">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="laboratory_ihce_tree" model="ir.ui.view">
+            <field name="name">laboratory.ihce.tree</field>
+            <field name="model">laboratory.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Proyectos Laboratorio de Diseño" colors="green:state=='process'; red:state=='out_time'; gray:state=='done'; brown:state=='detained';">
+                    <field name="name" />
+                    <field name="company_id" />
+                    <field name="percent" widget="progressbar"/>
+                    <field name="user_id"/>
+                    <field name="notes"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="laboratory_ihce_action" model="ir.actions.act_window">
+            <field name="name">Proyectos Laboratorio de Diseño</field>
+            <field name="res_model">laboratory.ihce</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="laboratory_ihce_tree"/>
+        </record>
+        
+        <menuitem id="report_proyect_labo" name="Reporte de Proyectos" parent="submenu_report_laboratory" sequence="0" action="laboratory_ihce_action"/>
+        
+<!--
+        SERVICIOS
+-->
+        <record id="desing_laboratory_filter" model="ir.ui.view">
+            <field name="name">desing.laboratory.filter</field>
+            <field name="model">desing.laboratory</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="date_fin" string="Fecha de termino"/>
+                    <field name="date_next" string="Fecha de próxima cita"/>
+                    <field name="state"/>
+                    <field name="company_id" string="Beneficiario"/>
+                    <field name="user_id" string="Responsable"/>
+                    <field name="id_project" string="ID de Proyecto"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Beneficiarios" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'company_id'}"/>
+                        <filter string="Fechas de inicio" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'date'}"/>
+                        <filter string="Fechas de próxima cita" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'date_next'}"/>
+                        <filter string="Estado" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Responsable" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Sector" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'sector'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="desing_laboratory_form" model="ir.ui.view">
+            <field name="name">desing.laboratory.form</field>
+            <field name="model">desing.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Servicios Laboratorio de Diseño">
+                    <header>
+                        <button name="start_process" type="object" string="Iniciar" icon="gtk-go-forward" class="oe_highlight" attrs="{'invisible':[('state','in',('cancel','process','detained','out_time','done','pre_done'))]}"/>
+                        <button name="action_detained_wizard" type="object" string="Abandonar" icon="gtk-stop" class="oe_highlight" attrs="{'invisible':[('state','in',('detained','done','pre_done'))]}"/>
+                        <button name="refresh_process" type="object" string="Reabrir" icon="gtk-ok" class="oe_highlight" attrs="{'invisible':[('state','in',('draft','process','out_time','pre_done','done'))]}"/>
+                        <button name="done_process" type="object" string="Terminar" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state','in',('draft','detained','done','process','out_time'))]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,process,done"/>
+                    </header>
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="service" placeholder="Servicio..." attrs="{'readonly': [('state','in',('process','done','detained','out_time','pre_done'))], 'invisible': [('option_service','=','1')], 'required':[('option_service','=','0')]}" options="{'no_create':True}"/>
+                                    <field name="app" placeholder="Aplicación..." attrs="{'readonly': [('state','in',('process','done','detained','out_time','pre_done'))], 'invisible': [('option_service','=','0')], 'required':[('option_service','=','1')]}" options="{'no_create':True}"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h3>
+                                    <label string="ID de Proyecto" for="id_project"/>
+                                </h3>
+                                <h1>
+                                    <field name="id_project"  readonly="1"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="company_id" coslpan="2" required="1" domain="[('company','=',True),('state','=','done'),('laboratorio','=',True)]" attrs="{'readonly': [('state','in',('process','done','detained','out_time','pre_done'))]}" on_change="onchange_company(company_id,user_id,service,app)" options="{'no_create':True}"/>
+                            <field name="sector" coslpan="2" readonly="1"/>
+                            <field name="user_id" coslpan="2" required="1" attrs="{'readonly': [('state','in',('done','detained'))]}" on_change="onchange_user(user_id)" options="{'no_create':True}"/>
+                            <field name="area" coslpan="2" attrs="{'invisible':[('option','=','emprered')], 'readonly': [('state','in',('done','detained'))], 'required': [('option','=','ihce')]}" options="{'no_create':True}"/>
+                            <field name="emprered" coslpan="2" attrs="{'invisible':[('option','=','ihce')], 'readonly': [('state','in',('done','detained'))], 'required':[('option','=','emprered')]}" options="{'no_create':True}"/>
+                            <field name="option" coslpan="2" invisible="1"/>
+                            <field name="date" coslpan="2" attrs="{'readonly': [('state','in',('pre_done','done'))]}"/>
+                            <field name="date_fin" coslpan="2" attrs="{'readonly': [('state','=','done')], 'invisible': [('state','in',('draft','process','detained','out_time'))]}"/>
+                            <field name="date_next" coslpan="2" attrs="{'readonly': [('state','in',('draft','detained','done','pre_done'))], 'invisible': ['|',('state','=','draft'),('date_next','=',False)]}" on_change="onchange_date_next(date_next)"/>
+                            <field name="return_date2" coslpan="2" invisible="1"/>
+                            <field name="return_date" coslpan="2" invisible="1"/>
+                            <field name="option_service" coslpan="2" invisible="1"/>
+                        </group>
+                        <field name="percent" widget="progressbar" colspan="4"/>
+                        <notebook>
+                            <page string="Bitácora de Trabajo">
+                                <field name="binnacle_lines" nolabel="1" attrs="{'readonly': [('state','in',('draft','done','pre_done','detained'))]}" context="{'default_service': id, 'default_id_project': id_project, 'default_user_id': user_id}"/>
+                            </page>
+                            <page string="Notas">
+                                <field name="notes" attrs="{'readonly': [('state','=','done')]}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+<!--
+        VISTA CALENDAR
+-->
+        <record model="ir.ui.view" id="desing_laboratory_calendar">
+            <field name="name">desing.laboratory.calendar</field>
+            <field name="model">desing.laboratory</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar date_start="date_next" color="user_id">
+                    <field name="service"/>
+                    <field name="app"/>
+                    <field name="company_id"/>
+                </calendar>
+            </field>
+        </record>
+        
+<!--
+        VISTAS TREE
+-->
+        <record id="desing_laboratory_tree" model="ir.ui.view">
+            <field name="name">desing.laboratory.tree</field>
+            <field name="model">desing.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Servicios Laboratorio de Diseño" colors="black:state=='draft'; green:state=='process'; red:state=='out_time'; gray:state=='done'; brown:state=='detained';">
+                    <field name="company_id" />
+                    <field name="id_project" />
+                    <field name="service"/>
+                    <field name="app"/>
+                    <field name="date"/>
+                    <field name="date_next"/>
+                    <field name="date_fin"/>
+                    <field name="percent" widget="progressbar"/>
+                    <field name="notes"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="services_laboratory_tree" model="ir.ui.view">
+            <field name="name">services.laboratory.tree</field>
+            <field name="model">desing.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Servicios Laboratorio de Diseño" colors="black:state=='draft'; green:state=='process'; red:state=='out_time'; gray:state=='done'; brown:state=='detained';">
+                    <field name="company_id" />
+                    <field name="id_project" />
+                    <field name="date"/>
+                    <field name="date_next"/>
+                    <field name="date_fin"/>
+                    <field name="percent" widget="progressbar"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="aplicacion_laboratory_tree" model="ir.ui.view">
+            <field name="name">aplicacion.laboratory.tree</field>
+            <field name="model">desing.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Servicios Laboratorio de Diseño" colors="black:state=='draft'; green:state=='process'; red:state=='out_time'; gray:state=='done'; brown:state=='detained';">
+                    <field name="company_id" />
+                    <field name="id_project" />
+                    <field name="app"/>
+                    <field name="date"/>
+                    <field name="date_next"/>
+                    <field name="date_fin"/>
+                    <field name="percent" widget="progressbar"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+<!--
+        ACTIONS
+-->
+        <record id="desing_laboratory_action" model="ir.actions.act_window">
+            <field name="name">Servicios Laboratorio de Diseño</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="desing_laboratory_tree"/>
+        </record>
+        
+        <record id="aplicaciones_action" model="ir.actions.act_window">
+            <field name="name">Aplicaciones</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_option_service': '1'}</field>
+            <field name="domain">[('option_service','=','1')]</field>
+            <field name="view_id" ref="aplicacion_laboratory_tree"/>
+        </record>
+        
+        <record id="identidad_action" model="ir.actions.act_window">
+            <field name="name">Manual de Identidad</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 1,'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',1)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="logotipo_action" model="ir.actions.act_window">
+            <field name="name">Diseño de Logotipo</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 2,'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',2)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="relogotipo_action" model="ir.actions.act_window">
+            <field name="name">Rediseño de Logotipo</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 12,'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',12)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="etiquetas_action" model="ir.actions.act_window">
+            <field name="name">Diseño de Etiquetas</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 5 ,'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',5)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="reetiquetas_action" model="ir.actions.act_window">
+            <field name="name">Rediseño de Etiquetas</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 15 ,'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',15)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="punto_venta_action" model="ir.actions.act_window">
+            <field name="name">Diseño de Punto de Venta</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 4, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',4)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="envase_action" model="ir.actions.act_window">
+            <field name="name">Diseño de Envase</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 11, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',11)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="embalaje_action" model="ir.actions.act_window">
+            <field name="name">Diseño de Embalaje</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 6, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',6)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="folletos_action" model="ir.actions.act_window">
+            <field name="name">Diseño de Folletos y Catálogos</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 10, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',10)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="fotografia_action" model="ir.actions.act_window">
+            <field name="name">Fotografía de Producto</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 9, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',9)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="producto3d_action" model="ir.actions.act_window">
+            <field name="name">Diseño de Producto 3D</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 7, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',7)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="prototipado_action" model="ir.actions.act_window">
+            <field name="name">Prototipado Rápido</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 3, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',3)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        <record id="empaque_action" model="ir.actions.act_window">
+            <field name="name">Empaque</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_service': 16, 'default_option_service': '0'}</field>
+            <field name="domain">[('service','=',16)]</field>
+            <field name="view_id" ref="services_laboratory_tree"/>
+        </record>
+        
+        
+        <record id="desing_laboratory_calendar_action" model="ir.actions.act_window">
+            <field name="name">Calendario Laboratorio de Diseño</field>
+            <field name="res_model">desing.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,form</field>
+            <field name="view_id" ref="desing_laboratory_calendar"/>
+        </record>
+        
+<!--
+        MENUS
+-->
+        <menuitem id="identidad" name="Manual de Identidad Corporativa" parent="submenu_services_laboratory" sequence="0" action="identidad_action"/>
+        <menuitem id="logotipo" name="Diseño de Logotipo" parent="submenu_services_laboratory" sequence="1" action="logotipo_action"/>
+        <menuitem id="relogotipo" name="Rediseño de Logotipo" parent="submenu_services_laboratory" sequence="2" action="relogotipo_action"/>
+        <menuitem id="etiquetas" name="Diseño de Etiquetas" parent="submenu_services_laboratory" sequence="3" action="etiquetas_action"/>
+        <menuitem id="reetiquetas" name="Rediseño de Etiquetas" parent="submenu_services_laboratory" sequence="4" action="reetiquetas_action"/>
+        <menuitem id="punto_venta" name="Diseño de Punto de Venta" parent="submenu_services_laboratory" sequence="5" action="punto_venta_action"/>
+        <menuitem id="envase" name="Diseño de Envase" parent="submenu_services_laboratory" sequence="6" action="envase_action"/>
+        <menuitem id="embalaje" name="Diseño de Embalaje" parent="submenu_services_laboratory" sequence="7" action="embalaje_action"/>
+        <menuitem id="empaque" name="Diseño de Empaque" parent="submenu_services_laboratory" sequence="8" action="empaque_action"/>
+        <menuitem id="folletos" name="Diseño de Folletos y Catálogos" parent="submenu_services_laboratory" sequence="9" action="folletos_action"/>
+        <menuitem id="fotografia" name="Fotografía de Producto" parent="submenu_services_laboratory" sequence="10" action="fotografia_action"/>
+        <menuitem id="producto3d" name="Diseño de Producto 3D" parent="submenu_services_laboratory" sequence="11" action="producto3d_action"/>
+        <menuitem id="prototipado" name="Prototipado Rápido" parent="submenu_services_laboratory" sequence="12" action="prototipado_action"/>
+        <menuitem id="apps" name="Aplicaciones" parent="submenu_services_laboratory" sequence="14" action="aplicaciones_action"/>
+        
+        <menuitem id="calendar_laboratory" name="Calendario" parent="menu_laboratorio" sequence="2"/>
+        <menuitem id="calendar" name="Citas" parent="calendar_laboratory" sequence="0" action="desing_laboratory_calendar_action"/>
+        
+        
+        <menuitem id="report_labo" name="Reporte de Servicios" parent="submenu_report_laboratory" sequence="1" action="desing_laboratory_action"/>
+        
+        
+<!--
+        VISTAS PARA APLICACIONES
+-->
+
+        <record id="app_laboratory_form" model="ir.ui.view">
+            <field name="name">app.laboratory.form</field>
+            <field name="model">app.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Aplicaciones">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" coslpan="4" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="app_laboratory_tree" model="ir.ui.view">
+            <field name="name">app.laboratory.tree</field>
+            <field name="model">app.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Aplicaciones">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="app_laboratory_action" model="ir.actions.act_window">
+            <field name="name">Aplicaciones</field>
+            <field name="res_model">app.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="app_laboratory_tree"/>
+        </record>
+        
+        <menuitem id="menu_aplicacion" name="Configuración" parent="menu_laboratorio" sequence="4" groups="laboratory_ihce.admin_laboratorio"/>
+        <menuitem id="aplicacion" name="Aplicaciones" parent="menu_aplicacion" sequence="0" action="app_laboratory_action"/>
+        
+        
+<!--
+        VISTAS DE BITACORA DE TRABAJO
+-->
+
+        <record id="binnacle_laboratory_form" model="ir.ui.view">
+            <field name="name">binnacle.laboratory.form</field>
+            <field name="model">binnacle.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Bitácora de Trabajo">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title" colspan="4">
+                                <h1>
+                                    <field name="name" coslpan="2" required="1" placeholder="Actividad..." attrs="{'readonly': [('state','=','done')]}"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="id_project" coslpan="4"  readonly="1"/>
+                            <field name="service" coslpan="2" required="1" readonly="1"/>
+                            <field name="date" coslpan="2" required="1"/>
+                            <field name="user_id" coslpan="2" required="1" attrs="{'readonly': [('state','=','done')]}" options="{'no_create':True}"/>
+                            <field name="percent" colspan="2" required="1"/>
+                            <field name="date_next" coslpan="2" attrs="{'invisible': [('percent','=',100)], 'required': [('percent','!=',100)], 'readonly': [('state','=','done')]}"/>
+                            <field name="state" colspan="2" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Comentarios/Acuerdos">
+                                <field name="notes" attrs="{'readonly': [('state','=','done')]}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="binnacle_laboratory_tree" model="ir.ui.view">
+            <field name="name">binnacle.laboratory.tree</field>
+            <field name="model">binnacle.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Bitácora de Trabajo">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="notes"/>
+                    <field name="date_next"/>
+                    <field name="percent"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+        
+<!--
+        ASESORIAS
+-->
+        
+        <record id="advices_laboratory_filter" model="ir.ui.view">
+            <field name="name">advices.laboratory.filter</field>
+            <field name="model">advices.laboratory</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="company_id" string="Beneficiario"/>
+                    <field name="user_id" string="Responsable"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Beneficiarios" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'company_id'}"/>
+                        <filter string="Responsable" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Servicio" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'option'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="advices_laboratory_form" model="ir.ui.view">
+            <field name="name">advices.laboratory.form</field>
+            <field name="model">advices.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Asesorías Laboratorio de Diseño">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title" colspan="4">
+                                <h1>
+                                    <field name="company_id" coslpan="2" required="1" placeholder="Beneficiario..." options="{'no_create':True}" domain="[('company','=',True),('state','=','done'),('laboratorio','=',True)]"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="date" coslpan="2" required="1"/>
+                            <field name="option" coslpan="2" required="1"/>
+                            <field name="service" coslpan="2" attrs="{'required': [('option','=','0')], 'invisible': ['|',('option','=','1'),('option','=',False)]}" options="{'no_create':True}"/>
+                            <field name="app" coslpan="2" attrs="{'required': [('option','=','1')], 'invisible': ['|',('option','=','0'),('option','=',False)]}" options="{'no_create':True}"/>
+                            <field name="user_id" coslpan="2" required="1" options="{'no_create':True}"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="name" coslpan="4" required="1"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="advices_laboratory_tree" model="ir.ui.view">
+            <field name="name">advices.laboratory.tree</field>
+            <field name="model">advices.laboratory</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Asesorías Laboratorio de Diseño">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="company_id"/>
+                    <field name="service"/>
+                    <field name="app"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="advices_laboratory_action" model="ir.actions.act_window">
+            <field name="name">Asesorías Laboratorio de Diseño</field>
+            <field name="res_model">advices.laboratory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="advices_laboratory_tree"/>
+        </record>
+        
+        <menuitem id="asesorias" name="Asesorías" parent="submenu_services_laboratory" sequence="13" action="advices_laboratory_action"/>
+        
+    </data>
+</openerp>

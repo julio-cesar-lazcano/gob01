@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+         <!-- view_crm_activities_form -->
+        <record id="view_cancellation_course_wizard_form" model="ir.ui.view">
+            <field name="name">view.cancellation.course.wizard.form</field>
+            <field name="model">cancellation.course.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Cancelar" version="7.0">
+                    <header>
+                        <button name="action_confirm" type="object" string="Cancelar" icon="STOCK_CANCEL" colspan="4"/>
+                    </header>
+                    <group colspan="4" >
+                        <field name="instrucctions" nolabel="1" />
+                    </group>
+                    <field name="cancellation_reason" attrs="{'required':[('course_id','!=',False)]}"/>
+                    <field name="course_id" invisible="1"/>
+                </form>
+            </field>
+        </record>
+        
+
+
+        
+    </data>
+</openerp>

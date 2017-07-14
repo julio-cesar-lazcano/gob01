@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record model="ir.module.category" id="group_report">
+            <field name="name">Reportes IHCE</field>
+            <field name="sequence">100</field>
+        </record>
+        
+        
+        <record model="res.groups" id="admin_reports">
+            <field name="name">Administrador Reportes</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="report_emprendimiento">
+            <field name="name">Semáforo Emprendimiento</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="report_formacion">
+            <field name="name">Semáforo Formación de Capital Humano</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="report_aceleracion">
+            <field name="name">Semáforo Aceleración Empresarial</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="report_desarrollo">
+            <field name="name">Semáforo Desarrollo Empresarial</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_apan">
+            <field name="name">Reportes Apan</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_atoto">
+            <field name="name">Semáforo Atotonilco</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_huejutla">
+            <field name="name">Reportes Huejutla</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_huichapan">
+            <field name="name">Reportes Huichapan</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_ixmiquilpan">
+            <field name="name">Reportes Ixmiquilpan</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_otomi">
+            <field name="name">Reportes Otomí-Tepehua</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_mixquiahuala">
+            <field name="name">Reportes Mixquiahuala</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_pachuca">
+            <field name="name">Reportes Pachuca</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_tizayuca">
+            <field name="name">Reportes Tizayuca</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_tula">
+            <field name="name">Reportes Tula</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_tulancingo">
+            <field name="name">Reportes Tulancingo</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_zacualtipan">
+            <field name="name">Reportes Zacualtipan</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_molango">
+            <field name="name">Reportes Molango</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_metztitlan">
+            <field name="name">Reportes Metztitlán</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        <record model="res.groups" id="informes_jacala">
+            <field name="name">Reportes Jacala</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+        
+        <record model="res.groups" id="informes_labo">
+            <field name="name">Reportes Laboratorio</field>
+            <field name="category_id"  ref="reports_ihce.group_report"/>
+        </record>
+        
+    </data>
+</openerp>

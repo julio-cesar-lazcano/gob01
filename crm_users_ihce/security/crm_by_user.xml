@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        
+        <record id="ir_rule_crm_proyect_personal" model="ir.rule">
+            <field name="model_id" ref="crm_users_ihce.model_crm_project_ihce"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">CRM Project IHCE</field>
+            <field name="groups" eval="[(4, ref('crm_users_ihce.personal_crm_project'))]"/>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+        <record id="ir_rule_crm_proyect_by_area" model="ir.rule">
+            <field name="model_id" ref="crm_users_ihce.model_crm_project_ihce"/>
+            <field name="domain_force">['|',('area.id','=',user.area.id),('user_id','=',user.id)]</field>
+            <field name="name">CRM Project by Area IHCE</field>
+            <field name="groups" eval="[(4, ref('crm_users_ihce.crm_project_by_area'))]"/>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+        <record id="ir_rule_crm_task_personal" model="ir.rule">
+            <field name="model_id" ref="crm_users_ihce.model_crm_task"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">CRM Task IHCE</field>
+            <field name="groups" eval="[(4, ref('crm_users_ihce.personal_crm_project'))]"/>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+        <record id="ir_rule_crm_task_by_area" model="ir.rule">
+            <field name="model_id" ref="crm_users_ihce.model_crm_task"/>
+            <field name="domain_force">['|',('crm_id.area.id','=',user.area.id),('user_id','=',user.id)]</field>
+            <field name="name">CRM Task by Area IHCE</field>
+            <field name="groups" eval="[(4, ref('crm_users_ihce.crm_project_by_area'))]"/>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+    </data>
+</openerp>

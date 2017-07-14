@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.module.category" id="group_emprendimiento">
+            <field name="name">Emprendimiento</field>
+            <field name="sequence">95</field>
+        </record>
+
+
+        <record model="res.groups" id="admin_company">
+            <field name="name">Empresas y Diagnósticos</field>
+            <field name="category_id"  ref="company_ihce.group_emprendimiento"/>
+        </record>
+    </data>
+</openerp>

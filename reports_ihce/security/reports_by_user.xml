@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        
+<!--
+        <record id="ir_rule_asesoria_pymes" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_asesoria_pymes"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_asesoria_emprered" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_asesorias_emprered"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+        <record id="ir_rule_servicios_empreres" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_servicios_emprered"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_consultoria" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_consultorias"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_consultoria_emprered" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_consultorias_emprered"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_cursos" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_cursos"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_cursos_emprered" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_cursos_emprered"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_emprendimiento" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_report_emprendimiento"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_emprendimiento_emprered" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_report_emprendimiento_emprered"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_emprered" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_emprered"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_ihce" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reports_ihce"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_platicas" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_platicas_cursos"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_servicio_pymes" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_servicio_pymes"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_ejecutivo" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reporte_ejecutivo"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_cursos_ejecutivo" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_cursos_ihce_ejecutivo"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_emprered_ejecutivo" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_emprered_ejecutivo"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_laboratorio" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_reports_laboratory"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+
+<!--
+        <record id="ir_rule_servicio_laboratorio" model="ir.rule">
+            <field name="model_id" ref="reports_ihce.model_create_report_services_laboratory"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="name">Reporte por Usuario</field>
+            <field eval="1" name="global"/>
+            <field eval="1" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+-->
+        
+    </data>
+</openerp>

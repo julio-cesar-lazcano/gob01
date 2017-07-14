@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_time_development,time.development,model_time_development,,1,1,0,0
+access_bar_code,bar.code,model_bar_code,,1,1,1,1
+access_type_membership,type.membership,model_type_membership,,1,1,1,1
+access_fda_ihce,fda.ihce,model_fda_ihce,,1,1,1,1
+access_laboratory_fda,laboratory.fda,model_laboratory_fda,,1,1,1,1
+access_laboratory,laboratory,model_laboratory,,1,1,1,1
+access_patent_ihce,patent.ihce,model_patent_ihce,,1,1,1,1
+access_type_patent,type.patent,model_type_patent,,1,1,1,1
+access_register_trademark,register.trademark,model_register_trademark,,1,1,1,1
+
+
+
+
+

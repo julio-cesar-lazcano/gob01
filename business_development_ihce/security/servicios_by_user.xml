@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        
+        <record id="ir_rule_barras" model="ir.rule">
+            <field name="name">Código de Barras por Usuario</field>
+            <field name="model_id" ref="model_bar_code"/>
+            <field name="domain_force">['|',('emprered.id','=',user.emprered.id),('area.id','=',user.area.id)]</field>
+            <field name="groups" eval="[(4, ref('business_development_ihce.user_desarrollo'))]"/>
+            <field eval="1" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+        <record id="ir_rule_fda" model="ir.rule">
+            <field name="name">FDA por Usuario</field>
+            <field name="model_id" ref="model_fda_ihce"/>
+<!--
+            <field name="domain_force">['|',('user_id', '=', user.id),('user_id','=',False)]</field>
+-->
+            <field name="domain_force">['|',('area.id','=',user.area.id),('user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('business_development_ihce.user_desarrollo'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+        <record id="ir_rule_patente" model="ir.rule">
+            <field name="name">Patente por Usuario</field>
+            <field name="model_id" ref="model_patent_ihce"/>
+<!--
+            <field name="domain_force">['|',('user_id', '=', user.id),('user_id','=',False)]</field>
+-->
+            <field name="domain_force">['|',('area.id','=',user.area.id),('user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('business_development_ihce.user_desarrollo'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+
+        <record id="ir_rule_marca" model="ir.rule">
+            <field name="name">Registro de Marca por Usuario</field>
+            <field name="model_id" ref="model_register_trademark"/>
+<!--
+            <field name="domain_force">['|',('user_id', '=', user.id),('user_id','=',False)]</field>
+-->
+            <field name="domain_force">['|',('area.id','=',user.area.id),('user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('business_development_ihce.user_desarrollo'))]"/>
+            <field eval="0" name="global"/>
+            <field eval="0" name="perm_unlink"/>
+            <field eval="1" name="perm_write"/>
+            <field eval="1" name="perm_read"/>
+            <field eval="1" name="perm_create"/>
+        </record>
+        
+    </data>
+</openerp>

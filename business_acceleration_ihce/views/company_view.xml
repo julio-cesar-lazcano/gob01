@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data> 
+        <record id="companies_ihce_form_inh_ace" model="ir.ui.view">
+            <field name="name">companies.ihce.form.inh.ace</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="company_ihce.companies_ihce_form"/>
+            <field name="arch" type="xml">
+                <field name="aceleracion_empresarial" position="after">
+                    <group colspan="4" col="2" attrs="{'invisible':[('acceleration_registers','=',False)]}">
+                        <field name="acceleration_registers" invisible="1"/>
+                        <field name="acceleration_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+        <record id="companies_ihce_form_inh_ace2" model="ir.ui.view">
+            <field name="name">companies.ihce.form.inh.ace2</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="business_acceleration_ihce.aceleracion_company_form"/>
+            <field name="arch" type="xml">
+                <field name="aceleracion_empresarial" position="after">
+                    <group colspan="4" col="2" attrs="{'invisible':[('acceleration_registers','=',False)]}">
+                        <field name="acceleration_registers" invisible="1"/>
+                        <field name="acceleration_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

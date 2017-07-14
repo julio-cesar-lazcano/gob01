@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_entrepreneurship_ihce,entrepreneurship.ihce,model_entrepreneurship_ihce,,1,1,1,1
+access_incubators_ihce,incubators.ihce,model_incubators_ihce,,1,1,1,1
+access_incubators_catalog,incubators.catalog,model_incubators_catalog,,1,1,1,1
+
+
+
+
+

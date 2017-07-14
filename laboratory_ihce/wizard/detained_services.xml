@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+         <!-- view_crm_activities_form -->
+        <record id="detained_services_form" model="ir.ui.view">
+            <field name="name">detained.services.form</field>
+            <field name="model">detained.services</field>
+            <field name="arch" type="xml">
+                <form string="Abandonar" version="7.0">
+                    <header>
+                        <button name="action_confirm" type="object" string="Abandonar" icon="STOCK_CANCEL" colspan="4"/>
+                    </header>
+                    <group colspan="4" >
+                        <field name="instrucctions" nolabel="1" />
+                    </group>
+                    <field name="cancellation_reason" attrs="{'required':[('service_id','!=',False)]}"/>
+                    <field name="service_id" invisible="1"/>
+                </form>
+            </field>
+        </record>
+        
+
+
+        
+    </data>
+</openerp>

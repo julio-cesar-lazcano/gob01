@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record model="ir.module.category" id="group_aceleracion">
+            <field name="name">Aceleración Empresarial</field>
+            <field name="sequence">98</field>
+        </record>
+        
+        <record model="res.groups" id="admin_aceleracion">
+            <field name="name">Administrador Aceleración Empresarial</field>
+            <field name="category_id"  ref="business_acceleration_ihce.group_aceleracion"/>
+        </record>
+        
+        <record model="res.groups" id="user_aceleracion">
+            <field name="name">Usuario Aceleración Empresarial</field>
+            <field name="category_id"  ref="business_acceleration_ihce.group_aceleracion"/>
+        </record>
+    
+    </data>
+</openerp>

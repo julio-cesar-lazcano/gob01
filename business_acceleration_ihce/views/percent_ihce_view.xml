@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <menuitem id="menu_aceleracion" name="Aceleración Empresarial" sequence="16" groups="business_acceleration_ihce.admin_aceleracion,business_acceleration_ihce.user_aceleracion"/>
+        
+        <record id="percent_acceleration_form" model="ir.ui.view">
+            <field name="name">percent.acceleration.form</field>
+            <field name="model">percent.acceleration</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Porcentajes">
+                    <header>
+                    </header>
+                    <sheet>
+                        <field name="name" coslpan="4" readonly="1"/>
+                        <group colspan="4" col="4">
+                            <field name="date" coslpan="4"/>
+                        </group>
+                        <group coslpan="4" col="8" >
+                            <field name="adiagnostic_percent" coslpan="2" required="1"/>
+                            <label string="%" coslpan="2"/>
+                            <label string="" coslpan="2"/>
+                            <field name="training_percent" coslpan="2" required="1"/>
+                            <label string="%" coslpan="2"/>
+                            <label string="" coslpan="2"/>
+                            <field name="implemetation_percent" coslpan="2" required="1"/>
+                            <label string="%" coslpan="2"/>
+                            <label string="" coslpan="2"/>
+                            <field name="cross_audit_percent" coslpan="2" required="1"/>
+                            <label string="%" coslpan="2"/>
+                            <label string="" coslpan="2"/>
+                            <field name="acceptation_audit_percent" coslpan="2" required="1"/>
+                            <label string="%" coslpan="2"/>
+                            <label string="" coslpan="2"/>
+                            <field name="audit_percent" coslpan="2" required="1"/>
+                            <label string="%" coslpan="2"/>
+                            <label string="" coslpan="2"/>
+                            <field name="certificate_percent" coslpan="2" required="1"/>
+                            <label string="%" coslpan="2"/>
+                            <label string="" coslpan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="percent_acceleration_tree" model="ir.ui.view">
+            <field name="name">percent.acceleration.tree</field>
+            <field name="model">percent.acceleration</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Porcentajes">
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="percent_acceleration_action" model="ir.actions.act_window">
+            <field name="name">Porcentajes</field>
+            <field name="res_model">percent.acceleration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="percent_acceleration_tree"/>
+        </record>
+    
+        <menuitem id="submenu_porcentajes_ac" name="Configuración" parent="menu_aceleracion" sequence="3" groups="business_acceleration_ihce.admin_aceleracion"/>
+        
+        <menuitem id="porcentaje_ae" name="Porcentajes" parent="submenu_porcentajes_ac" sequence="0" action="percent_acceleration_action"/>
+
+    </data>
+</openerp>

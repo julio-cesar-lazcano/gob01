@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record model="res.groups" id="admin_emprendimiento">
+            <field name="name">Emprendimiento</field>
+            <field name="category_id"  ref="company_ihce.group_emprendimiento"/>
+        </record>
+    
+    </data>
+</openerp>

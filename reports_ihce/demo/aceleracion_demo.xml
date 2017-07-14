@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="aceleracion_data1" model="indicador.aceleracion">
+            <field name="name">Consultoría Especializada</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="aceleracion_data2" model="indicador.aceleracion">
+            <field name="name">Cursos, Talleres, Diplomados, Platicas, etc</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="aceleracion_data3" model="indicador.aceleracion">
+            <field name="name">Asistentes</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="aceleracion_data4" model="indicador.aceleracion">
+            <field name="name">Empresas Certificadas</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+    </data>
+</openerp>

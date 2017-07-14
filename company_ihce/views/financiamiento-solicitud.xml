@@ -1,0 +1,586 @@
+<openerp>
+  <data>
+    <template id="form_fina">
+      <t t-call="website.layout">
+        <t t-set="title">Registro</t>
+        <div class="oe_structure">
+
+          <script type="text/javascript">
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove(); 
+                });
+            }, 4000);
+           
+            function validateForm()
+            {
+           /* 
+            var phone = document.forms["Form"]["cel_phone"].value;
+            var phoneNum = phone.replace(/[^\d]/g, '');
+            if(phoneNum.length != 10){
+                alert("Son 10 digitos");
+                return false;  
+            }*/
+            
+        
+            var a=document.forms["Form"]["name_people"].value;
+            var b=document.forms["Form"]["apaterno"].value;
+            var c=document.forms["Form"]["amaterno"].value;
+            var d=document.forms["Form"]["user_l"].value;
+            var e=document.forms["Form"]["password_login"].value;
+            var f=document.forms["Form"]["amaterno"].value;
+
+
+            if (a==null || a=="",b==null || b=="", c==null || c=="", d==null || d=="", e==null || e=="", f==null || f=="")
+              {
+              alert("Llenar todos los campos");
+              return false;
+              }
+
+              var email = document.getElementById('email');
+              var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+              if (!filter.test(email.value)) {
+                alert('Mail no valido');
+                email.focus;
+                return false
+              }
+            }
+
+
+            function PasarSegunda() {
+                var SegundoView = document.getElementById('SegundoView');
+                SegundoView.style.display='block';
+            }
+            function PasarTercera() {
+                var SegundoView = document.getElementById('SegundoView');
+                var TercerView = document.getElementById('TercerView');
+                var CuartoView = document.getElementById('CuartoView');
+                var QuintoView = document.getElementById('QuintoView');
+                SegundoView.style.display='block';
+                TercerView.style.display='block';
+            }
+            function PasarCuarta() {
+                var SegundoView = document.getElementById('SegundoView');
+                var TercerView = document.getElementById('TercerView');
+                var CuartoView = document.getElementById('CuartoView');
+                var QuintoView = document.getElementById('QuintoView');
+                SegundoView.style.display='block';
+                TercerView.style.display='block';
+                CuartoView.style.display='block';
+            }
+            function PasarQuinta() {
+                var SegundoView = document.getElementById('SegundoView');
+                var TercerView = document.getElementById('TercerView');
+                var CuartoView = document.getElementById('CuartoView');
+                var QuintoView = document.getElementById('QuintoView');
+                SegundoView.style.display='block';
+                TercerView.style.display='block';
+                CuartoView.style.display='block';
+                QuintoView.style.display='block';
+            }
+            function PasarSexta() {
+                var SegundoView = document.getElementById('SegundoView');
+                var TercerView = document.getElementById('TercerView');
+                var CuartoView = document.getElementById('CuartoView');
+                var QuintoView = document.getElementById('QuintoView');
+                var SextoView = document.getElementById('SextoView');
+                SegundoView.style.display='block';
+                TercerView.style.display='block';
+                CuartoView.style.display='block';
+                QuintoView.style.display='block';
+                SextoView.style.display='block';
+            }
+
+            function tipo(id) {
+                switch(id) {
+                  case 'Emprendedor':
+                      var PrimerView = document.getElementById('PrimerView');
+                      var SegundoView = document.getElementById('SegundoView');
+                      var TercerView = document.getElementById('TercerView');
+                      var CuartoView = document.getElementById('CuartoView');
+                      var QuintoView = document.getElementById('QuintoView');
+                      var SextoView = document.getElementById('SextoView');
+
+                      PrimerView.style.display='block';
+                      SegundoView.style.display='none';
+                      TercerView.style.display='block';
+                      CuartoView.style.display='block';
+                      QuintoView.style.display='block';
+                      SextoView.style.display='block';
+                      break;
+                  case 'Persona Fisica':
+                      var PrimerView = document.getElementById('PrimerView');
+                      var SegundoView = document.getElementById('SegundoView');
+                      var TercerView = document.getElementById('TercerView');
+                      var CuartoView = document.getElementById('CuartoView');
+                      var QuintoView = document.getElementById('QuintoView');
+                      var SextoView = document.getElementById('SextoView');
+
+                      PrimerView.style.display='block';
+                      SegundoView.style.display='block';
+                      TercerView.style.display='block';
+                      CuartoView.style.display='block';
+                      QuintoView.style.display='block';
+                      SextoView.style.display='block';
+                      break;
+                  case 'Persona Moral':
+                      var PrimerView = document.getElementById('PrimerView');
+                      var SegundoView = document.getElementById('SegundoView');
+                      var TercerView = document.getElementById('TercerView');
+                      var CuartoView = document.getElementById('CuartoView');
+                      var QuintoView = document.getElementById('QuintoView');
+                      var SextoView = document.getElementById('SextoView');
+
+                      PrimerView.style.display='block';
+                      SegundoView.style.display='block';
+                      TercerView.style.display='block';
+                      CuartoView.style.display='block';
+                      QuintoView.style.display='block';
+                      SextoView.style.display='block';
+                      break;
+              }
+            }
+            </script>
+
+        <img src="" style="width:100%;position:absolute;background-color:#FFFFFF; z-index:0;"/>
+        <div class="container" Style="padding-left: 20%;z-index:1;position:absolute;">
+            <br/>
+            <form method="post" action="/RegistroFinanciamiento" onsubmit="return validateForm()" name="Form" style="background-color:#FFFFFF;width:800px">
+              <div id="OneView">
+                <div>
+                  <h2 style="width:100%;padding-left: 1%;">Cedula de registro solicitud de financiamiento</h2>
+                </div>
+                <br></br>
+                <br></br>
+                <div>
+                  <h3 style="width:100%;padding-left: 1%;">Tipo de persona:</h3>
+                </div>
+                <div style="background-color:#FFFFFF;width:100%;padding-left: 5%;">
+                  <t t-foreach="types" t-as="i">
+                      <t t-esc="i"/>
+                      <input type="radio" class="ihce-radio" t-att-id="i" name="types" style="width:50px;" t-att-value="i" onchange="tipo(id)"/>
+                  </t>
+                </div>
+                <div>
+                  <h3 style="width:100%;padding-left: 1%;">Selecciona el esquema de tu financiamiento:</h3>
+                </div>
+                <br></br>
+                <div style="background-color:#FFFFFF;width:100%;padding-left: 5%;">
+                  <t t-foreach="finan" t-as="i">
+                      <t t-esc="i"/>
+                      <input type="radio" class="ihce-radio" name="finan" style="width:50px;" t-att-value="i" />
+                  </t>
+                </div>
+              </div>
+              <br/>
+              <!--<h3 Style="width:60%;padding-left: 1%;"> Solicitud de financiamiento </h3>-->
+              <br></br>
+              <br></br>
+              <div id="PrimerView" style="display:none;">
+                <label Style="width:60%;"> I. Datos Generales de identificación de la Empresa </label> 
+                <br/>
+                <div>
+                  <table style="width:100%">
+                    <tr>
+                        <td colspan="3"> Nombre o Razón Social</td>
+                        <td>Núm. de empleados</td> 
+                    </tr>
+
+                    <tr>
+                        <td colspan="3"><input name="razon_social1" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <td><input name="no_empleados1" type="number" placeholder="" Style="width:90%; text-transform:capitalize"/></td> 
+                    </tr>
+                    <tr>
+                        <td colspan="3">Descripción de la Actividad Económica</td>
+                        <td>Fecha inicio de operaciones</td> 
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input name="des_actividad1" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <!--<td><input name="fecha_operaciones1" type="date" placeholder="" data-date-inline-picker="false" data-date-open-on-focus="true" style="width:90%;" /></td> -->
+                        <td>
+                          <select name="dia_1" >
+                            <t t-foreach="dia" t-as="i">
+                                   <option t-esc="i" name="dia_1" t-att-value="i"/>
+                            </t>
+                          </select>
+                          <select name="mes_1">
+                            <t t-foreach="mes" t-as="i">
+                                   <option t-esc="i" name="mes_1" t-att-value="i"/>
+                            </t>
+                          </select>
+                          <select name="anio_1">
+                            <t t-foreach="anio" t-as="i">
+                                   <option t-esc="i" name="anio_1" t-att-value="i"/>
+                            </t>
+                          </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Domicilio de la Empresa Calle y Número</td>
+                        <td>Colonia</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input name="direccion_empresa1" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <td><input name="colonia_empresa1" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td> 
+                    </tr>
+                    <tr>
+                        <td colspan="2" >Localidad</td>
+                        <td>Municipio</td> 
+                        <td>Estado</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input name="localidad1" type="text" placeholder="" Style="width:95% text-transform:capitalize;"/></td>
+                      <td><input name="municipio1" type="text" placeholder="" Style="width:90%;text-transform:capitalize"/></td>
+                      <td><input name="estado1" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                    </tr>
+                    <tr>
+                      <td>C.P.</td>
+                      <td>Teléfono</td> 
+                      <td>Fax</td>
+                      <td>R.F.C.</td>
+                    </tr>
+                    <tr>
+                      <td><input name="cp1" type="number" placeholder="" Style="width:90%;"/></td>
+                      <td><input name="telefono1" type="number" placeholder="" Style="width:90%; "/></td>
+                      <td><input name="fax1" type="number" placeholder="" Style="width:90%; "/></td>
+                      <td><input name="rfc1" type="text" placeholder="" Style="width:90%;"/></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">Cámara u Organismo Empresarial (en caso de estar afiliado)</td>
+                      <td colspan="2">Correo electrónico</td> 
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input name="organismo_empresarial" type="text" placeholder="" Style="width:95%; text-transform:capitalize"/></td>
+                      <td colspan="2"><input name="email1" type="text" placeholder="" Style="width:95%"/></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">Referencias telefónicas personales</td> 
+                    </tr>
+                    <tr>
+                      <td colspan="4"><input name="ref_personales1" type="number" placeholder="" oninput="PasarSegunda()" Style="width:98%; text-transform:capitalize"/></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+         
+              <br>
+              </br>
+
+              <div id="SegundoView" style="display:none;">
+                <label Style="width:60%;"> II. Datos del Representante Legal (Persona Moral)  o Propietario  (Persona Física) </label>
+                <div>
+
+                  <table style="width:100%">
+                    <tr>
+                        <td colspan="3"> Nombre o Razón Social</td>
+                        <td>Núm. de empleados</td> 
+                    </tr>
+
+                    <tr>
+                        <td colspan="3"><input name="razon_social2" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <td><input name="no_empleados2" type="number" placeholder="" Style="width:90%;"/></td> 
+                    </tr>
+                    <tr>
+                        <td colspan="3">Descripción de la Actividad Económica</td>
+                        <td>Fecha inicio de operaciones</td> 
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input name="des_actividad2" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <!--<td><input name="fecha_operaciones2" type="date" on_change="onchange_age(fecha_operaciones2)" style="width:90%;"/></td> -->
+                        <td>
+                          <select name='dia_2'>
+                            <t t-foreach="dia" t-as="i">
+                                   <option t-esc="i" name="dia_2" t-att-value="i"/>
+                            </t>
+                          </select>
+                          <select name="mes_2">
+                            <t t-foreach="mes" t-as="i">
+                                   <option t-esc="i" name="mes_2" t-att-value="i"/>
+                            </t>
+                          </select>
+                          <select name="anio_2">
+                            <t t-foreach="anio" t-as="i">
+                                   <option t-esc="i" name="anio_2" t-att-value="i"/>
+                            </t>
+                          </select>
+                        </td>
+                        
+                    </tr>
+
+                    
+                    <tr>
+                        <td colspan="3">Domicilio de la Empresa Calle y Número</td>
+                        <td>Colonia</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input name="direccion_empresa2" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <td><input name="colonia_empresa2" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td> 
+                    </tr>
+                    <tr>
+                        <td colspan="2" >Localidad</td>
+                        <td>Municipio</td> 
+                        <td>Estado</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input name="localidad2" type="text" placeholder="" Style="width:95%; text-transform:capitalize"/></td>
+                      <td><input name="municipio2" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                      <td><input name="estado2" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                    </tr>
+                    <tr>
+                      <td>C.P.</td>
+                      <td>Teléfono</td> 
+                      <td>Fax</td>
+                      <td>R.F.C.</td>
+                    </tr>
+                    <tr>
+                      <td><input name="cp2" type="number" placeholder="" Style="width:90%;"/></td>
+                      <td><input name="telefono2" type="number" placeholder="" Style="width:90%;"/></td>
+                      <td><input name="fax2" type="number" placeholder="" Style="width:90%;"/></td>
+                      <td><input name="rfc2" type="text" placeholder="" Style="width:90%;"/></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">Cámara u Organismo Empresarial (en caso de estar afiliado)</td>
+                      <td colspan="2">Correo electrónico</td> 
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input name="organismo_empresarial2" type="text" placeholder="" Style="width:95%; text-transform:capitalize"/></td>
+                      <td colspan="2"><input name="email2" type="text" placeholder="" Style="width:95%"/></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">Referencias telefónicas personales</td> 
+                    </tr>
+                    <tr>
+                      <td colspan="4"><input name="ref_personales2" type="number" placeholder="" oninput="PasarTercera()" style="width:98%;"/></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <br>
+              </br>
+
+              <div id="TercerView" style="display:none;">
+              <label Style="width:60%;"> III. Datos del Aval  </label>
+              <div>
+                  <table style="width:100%">
+                    <tr>
+                        <td colspan="3"> Nombre o Razón Social</td>
+                        <td>Núm. de empleados</td> 
+                    </tr>
+
+                    <tr>
+                        <td colspan="3"><input name="razon_social3" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <td><input name="no_empleados3" type="number" placeholder="" Style="width:90%;"/></td> 
+                    </tr>
+                    <tr>
+                        <td colspan="3">Descripción de la Actividad Económica</td>
+                        <td>Fecha inicio de operaciones</td> 
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input name="des_actividad3" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <!--<td><input name="fecha_operaciones3" type="date" placeholder="" Style="width:90%;"/></td> -->
+                        <td>
+                          <select name="dia_3" >
+                            <t t-foreach="dia" t-as="i">
+                                   <option t-esc="i" name="dia_3" t-att-value="i"/>
+                            </t>
+                          </select>
+                          <select name="mes_3">
+                            <t t-foreach="mes" t-as="i">
+                                   <option t-esc="i" name="mes_3" t-att-value="i"/>
+                            </t>
+                          </select>
+                          <select name="anio_3">
+                            <t t-foreach="anio" t-as="i">
+                                   <option t-esc="i" name="anio_3" t-att-value="i"/>
+                            </t>
+                          </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Domicilio de la Empresa Calle y Número</td>
+                        <td>Colonia</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input name="direccion_empresa3" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                        <td><input name="colonia_empresa3" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td> 
+                    </tr>
+                    <tr>
+                        <td colspan="2" >Localidad</td>
+                        <td>Municipio</td> 
+                        <td>Estado</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input name="localidad3" type="text" placeholder="" Style="width:95%; text-transform:capitalize"/></td>
+                      <td><input name="municipio3" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                      <td><input name="estado3" type="text" placeholder="" Style="width:90%; text-transform:capitalize"/></td>
+                    </tr>
+                    <tr>
+                      <td>C.P.</td>
+                      <td>Teléfono</td> 
+                      <td>Fax</td>
+                      <td>R.F.C.</td>
+                    </tr>
+                    <tr>
+                      <td><input name="cp3" type="number" placeholder="" Style="width:90%;"/></td>
+                      <td><input name="telefono3" type="number" placeholder="" Style="width:90%;"/></td>
+                      <td><input name="fax3" type="number" placeholder="" Style="width:90%;"/></td>
+                      <td><input name="rfc3" type="text" placeholder="" Style="width:90%;"/></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">Cámara u Organismo Empresarial (en caso de estar afiliado)</td>
+                      <td colspan="2">Correo electrónico</td> 
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input name="organismo_empresarial3" type="text" placeholder="" Style="width:95%; text-transform:capitalize"/></td>
+                      <td colspan="2"><input name="email3" type="text" placeholder="" Style="width:95%"/></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">Referencias telefónicas personales</td> 
+                    </tr>
+                    <tr>
+                      <td colspan="4"><input name="ref_personales3" type="int" placeholder="" oninput="PasarCuarta()" style="width:98%; text-transform:capitalize"/></td>
+                    </tr>
+                  </table>
+              </div>
+              </div>
+              <br>
+              </br>
+
+              <div id="CuartoView" style="display:none;">
+              <label Style="width:60%;"> IV. Características del Financiamiento  </label>
+              <div>
+                  <table style="width:100%">
+                    <tr>
+                        <td> Monto del crédito solicitado  </td>
+                        <td>Plazo</td> 
+                        <td colspan="2"> Empleos que se proyectan generar </td>
+                    </tr>
+
+                    <tr>
+                        <td><input name="monto_solicitado" type="number" placeholder="" Style="width:95%; "/></td>
+                        <td><input name="plazo" type="text" placeholder="" Style="width:95%; text-transform:capitalize"/></td> 
+                        <td colspan="2"><input name="empleos_proyecta" type="number" placeholder="" Style="width:95%;"/></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">Tipo de financiamiento</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><input name="destino_financiamiento" type="text" placeholder="" Style="width:98%; text-transform:capitalize"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" >Especificar el destino del financiamiento</td>
+                        <td>Valor comercial actualizado</td> 
+                     
+                    </tr>
+                    <tr>
+                      <td colspan="3"><input name="garantias" type="text" placeholder="" Style="width:95%; text-transform:capitalize"/></td>
+                      <td><input name="valor_comercial" type="text" placeholder="" oninput="PasarQuinta()" style="width:95%; text-transform:capitalize"/></td>
+                    </tr>
+                  </table>
+              </div>
+              </div>
+              <br>
+              </br>
+
+              <div id="QuintoView" style="display:none;">
+                <label Style="width:60%;"> V. Observaciones y comentarios del Solicitante (En caso de requerir más espacio anexar no más de una  cuartilla) </label>
+                <div>
+                    <table style="width:100%" >
+                        <tr>
+                          <td>Tipo de garantia</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input name="obser" type="text" placeholder="" Style="width:98%; text-transform:capitalize"/>
+                          </td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Valor comercial de la garantia</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input name="obser" type="text" placeholder="" Style="width:98%; text-transform:capitalize"/>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Descripción de la garantia</td>                          
+                        </tr>
+                        <tr>
+                          <td>
+                            <input name="obser" type="text" placeholder="" Style="width:98%; text-transform:capitalize"/>
+                          </td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Observaciones y comentarios</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input name="obser" type="text" placeholder="" Style="width:98%; text-transform:capitalize"/>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Lugar y fecha de captura</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input name="lugar_fecha" type="text" placeholder="" oninput="PasarSexta()" style="width:98%; text-transform:capitalize"/>
+                          </td>
+                        </tr>
+
+                    </table>
+                </div>
+              </div>
+              <br>
+              </br>
+
+
+              <div id="SextoView" style="display:none;">
+                  <table style="width:100%" >
+
+                        <td>
+                          INFORMACION IMPORTANTE: <br></br>
+                          * La recepción de una solicitud de  financiamiento no implica su autorización y, no la exime de las demás etapas de evaluación, ni de requisitos adicionales que, en razón de la actividad específica, sean requeridos por la legislación aplicable en la materia.
+                           <br> </br>
+
+                          * El monto autorizado del crédito es tomando en consideración la viabilidad técnica, financiera, administrativa y legal del proyecto de inversión.
+                           <br> </br>
+
+                          * En caso de que en el proceso de análisis la información presentada tenga inconsistencias, la Dirección de Financiamiento Empresarial por conducto del especialista asignado, podrá solicitar información complementaria que permita continuar y concluir el proceso del financiamiento.
+                           <br> </br>
+
+                          * La presentación de un aval no sustituye la garantía.
+                          <br> </br>
+
+                          * Si se necesitará más documentos para uno de los programas, se le notificará.
+                          <br> </br>
+
+                          * Los documentos a enviar formarán parte del expediente por ende deberán estar completas y legbles. 
+                          <br> </br>
+
+                          NOTA IMPORTANTE: Una vez autorizado el financiamiento deberá presentar los documentos en original que le solicite el área de financiamiento. 
+                          <br> </br>
+
+
+                          NOTA: Para la presentación de esta solicitud de financiamiento es necesario integrar en su totalidad la documentación requerida para conformar el expediente correspondiente, de conformidad con las disposiciones establecidas en las Reglas de Operación del Fideicomiso de Apoyo a la Micro y Pequeña Empresa Hidalguense de fecha 29 de junio de 2016 y su primera modificación de fecha 22 de diciembre de 2016.  
+                        </td>
+                  </table>
+                  <br>
+                  </br>
+                  <input type="submit" value="Enviar" style="width:100%;"/>
+              </div>
+            </form>
+        </div>
+        </div>
+      </t>
+    </template>
+  </data>
+</openerp>

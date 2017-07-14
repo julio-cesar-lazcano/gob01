@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="metas_ejecutivo_tree" model="ir.ui.view">
+            <field name="name">metas.ejecutivo.tree</field>
+            <field name="model">metas.ejecutivo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Reporte de Metas Anuales">
+                    <field name='user_id'/>
+                    <field name='xls_file' filename="xls_file_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="metas_ejecutivo_form" model="ir.ui.view">
+            <field name="name">metas.ejecutivo.form</field>
+            <field name="model">metas.ejecutivo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Reporte de Metas Anuales">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <label string="Reporte de Metas Anuales"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name='anio' colspan="2" required="1"/>
+                            <button name="action_create_report" type="object" string="Crear reporte" icon="gtk-apply" class="oe_highlight" colspan="2"/>
+                        </group>
+                        <group string = "Archivo" attrs="{'invisible': [('xls_file_name', '=', False)] }" colspan="4">
+                            <field name='xls_file_name' invisible="1" colspan="2"/>
+                            <field name='xls_file' filename="xls_file_name"  colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="metas_ejecutivo_action" model="ir.actions.act_window">
+            <field name="name">Reporte de Metas Anuales</field>
+            <field name="res_model">metas.ejecutivo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="metas_ejecutivo_tree"/>
+        </record>
+    
+        <menuitem id="reporte_metas_ejec" name="Reporte de Meta Anual" parent="menu_reporte_ejecutivo" sequence="1" action="metas_ejecutivo_action"/>
+
+
+    </data>
+</openerp>

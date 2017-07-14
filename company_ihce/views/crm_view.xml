@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="crm_ihce_tree" model="ir.ui.view">
+            <field name="name">crm.ihce.tree</field>
+            <field name="model">crm.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree colors="black: state == 'draft';blue: state == 'progress';green: state == 'done';gray: state == 'cancel'">
+                    <field name="date" />
+                    <field name="name"/>
+<!--
+                    <field name="call"/>
+                    <field name="meeting"/>
+-->
+                    <field name="user"/>
+                    <field name="date_compromise"/>
+                    <field name="state"/>
+                    <button name="comenzar" type="object" string="Comenzar" icon="gtk-go-forward" attrs="{'invisible':[('state','in',('done','progress'))]}"/>
+                    <button name="terminar" type="object" string="Terminar" icon="gtk-apply" attrs="{'invisible':[('state','in',('draft','done'))]}"/>
+                    <button name="cancelar" type="object" string="Cancelar" icon="gtk-cancel" attrs="{'invisible':[('state','in',('cancel','done'))]}"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="crm_ihce_form" model="ir.ui.view">
+            <field name="name">crm.ihce.form</field>
+            <field name="model">crm.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Historial Emprendedores">
+                    <group string="Actividad" colspan="4" col="4">
+                        <field name="date" string="Fecha" colspan="2" readonly="1" required="1"/>
+                        <field name="date_compromise" string="Fecha compromiso" colspan="2" attrs="{'readonly':[('state','in',('done','cancel'))]}" required="1"/>
+                        <field name="user" string="Responsable" colspan="2" options="{'no_create':True}" readonly="1"/>
+                        <field name="area" coslpan="2" attrs="{'invisible': ['|',('option','=',False),('option','=','emprered')]}" readonly="1"/>
+                        <field name="emprered" coslpan="2" attrs="{'invisible': ['|',('option','=',False),('option','=','ihce')]}" readonly="1"/>
+                        <field name="option" colspan="2" invisible="1"/>
+                        <field name="call" string="Llamada" colspan="2" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                        <field name="meeting" string="Reunión" colspan="2" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                    </group>
+                    <group colspan="2" col="4">
+                        <field name="name" string="Actividad" colspan="2" attrs="{'readonly':[('state','in',('done','cancel'))]}" required="1"/>
+                        <field name="state" invisible="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

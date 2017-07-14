@@ -1,0 +1,305 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="zimapan_data1" model="indicador.emprered.zimapan">
+            <field name="name">Servicios Empresariales</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data2" model="indicador.emprered.zimapan">
+            <field name="name">Cursos</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data3" model="indicador.emprered.zimapan">
+            <field name="name">Asistentes</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data4" model="indicador.emprered.zimapan">
+            <field name="name">Horas</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data5" model="indicador.emprered.zimapan">
+            <field name="name">Total Asesorías</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data6" model="indicador.emprered.zimapan">
+            <field name="name">Mujeres</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data7" model="indicador.emprered.zimapan">
+            <field name="name">Hombres</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data8" model="indicador.emprered.zimapan">
+            <field name="name">Consultoría Especializada</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data9" model="indicador.emprered.zimapan">
+            <field name="name">Horas Consultoría</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data10" model="indicador.emprered.zimapan">
+            <field name="name">Expedientes Financiamiento</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data11" model="indicador.emprered.zimapan">
+            <field name="name">Empresas en proyecto aceleración empresarial</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data12" model="indicador.emprered.zimapan">
+            <field name="name">Eventos</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+        <record id="zimapan_data13" model="indicador.emprered.zimapan">
+            <field name="name">Diagnósticos empresariales</field>
+            <field name="meta_anual">0</field>
+            <field name="enero">0</field>
+            <field name="febrero">0</field>
+            <field name="marzo">0</field>
+            <field name="trim1">0</field>
+            <field name="abril">0</field>
+            <field name="mayo">0</field>
+            <field name="junio">0</field>
+            <field name="trim2">0</field>
+            <field name="julio">0</field>
+            <field name="agosto">0</field>
+            <field name="septiembre">0</field>
+            <field name="trim3">0</field>
+            <field name="octubre">0</field>
+            <field name="noviembre">0</field>
+            <field name="diciembre">0</field>
+            <field name="trim4">0</field>
+            <field name="total">0</field>
+            <field name="porcentaje">0</field>
+        </record>
+        
+    </data>
+</openerp>

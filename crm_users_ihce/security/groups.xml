@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record model="ir.module.category" id="group_crm">
+            <field name="name">CRM</field>
+            <field name="sequence">95</field>
+        </record>
+        
+        <record model="res.groups" id="user_crm">
+            <field name="name">CRM</field>
+            <field name="category_id"  ref="crm_users_ihce.group_crm"/>
+        </record>
+        
+        <record model="res.groups" id="personal_crm_project">
+            <field name="name">Proyectos Personales CRM</field>
+            <field name="category_id"  ref="crm_users_ihce.group_crm"/>
+        </record>
+        
+        <record model="res.groups" id="crm_project_by_area">
+            <field name="name">Proyectos CRM por Area</field>
+            <field name="category_id"  ref="crm_users_ihce.group_crm"/>
+        </record>
+    </data>
+</openerp>

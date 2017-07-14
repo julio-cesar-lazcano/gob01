@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_level_knowledge,level.knowledge,model_level_knowledge,,1,1,1,0
+access_login_ihce,login.ihce,model_login_ihce,,1,1,1,1
+access_companies_ihce,companies.ihce,model_companies_ihce,,1,1,1,0
+access_services_de_lines,services.de.lines,model_services_de_lines,,1,1,1,0
+access_services_lab_lines,services.lab.lines,model_services_lab_lines,,1,1,1,0
+access_crm_ihce,crm.ihce,model_crm_ihce,,1,1,1,1
+access_related_areas,related.areas,model_related_areas,,1,1,1,0
+access_asesorias_ihce,asesorias.ihce,model_asesorias_ihce,,1,1,1,0
+access_servicios_ihce,servicios.ihce,model_servicios_ihce,,1,1,1,0

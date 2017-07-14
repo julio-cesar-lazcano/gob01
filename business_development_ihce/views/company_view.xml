@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data> 
+        <record id="companies_ihce_form_inh2" model="ir.ui.view">
+            <field name="name">companies.ihce.form.inh</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="company_ihce.companies_ihce_form"/>
+            <field name="arch" type="xml">
+                <field name="desarrollo_empresarial" position="after">
+                    <group string="Registro de Marca" colspan="4" col="2" attrs="{'invisible':[('mark_register','=',False)]}">
+                        <field name="mark_register" invisible="1"/>
+                        <field name="mark_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                    <group string="Código de Barras" colspan="4" col="2" attrs="{'invisible':[('code_bar','=',False)]}">
+                        <field name="code_bar" invisible="1"/>
+                        <field name="code_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                    <group string="Patente" colspan="4" col="2" attrs="{'invisible':[('patent','=',False)]}">
+                        <field name="patent" invisible="1"/>
+                        <field name="patent_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                    <group string="FDA" colspan="4" col="2" attrs="{'invisible':[('fda','=',False)]}">
+                        <field name="fda" invisible="1"/>
+                        <field name="fda_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+        <record id="de_form_inh2" model="ir.ui.view">
+            <field name="name">de.form.inh</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="business_development_ihce.de_company_form"/>
+            <field name="arch" type="xml">
+                <field name="desarrollo_empresarial" position="after">
+                    <group string="Registro de Marca" colspan="4" col="2" attrs="{'invisible':[('mark_register','=',False)]}">
+                        <field name="mark_register" invisible="1"/>
+                        <field name="mark_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                    <group string="Código de Barras" colspan="4" col="2" attrs="{'invisible':[('code_bar','=',False)]}">
+                        <field name="code_bar" invisible="1"/>
+                        <field name="code_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                    <group string="Patente" colspan="4" col="2" attrs="{'invisible':[('patent','=',False)]}">
+                        <field name="patent" invisible="1"/>
+                        <field name="patent_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                    <group string="FDA" colspan="4" col="2" attrs="{'invisible':[('fda','=',False)]}">
+                        <field name="fda" invisible="1"/>
+                        <field name="fda_id" nolabel="1" readonly="1" colspan="2"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

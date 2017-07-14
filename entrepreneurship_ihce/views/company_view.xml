@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data> 
+        <record id="companies_ihce_form_inh3" model="ir.ui.view">
+            <field name="name">companies.ihce.form.inh</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="company_ihce.companies_ihce_form"/>
+            <field name="arch" type="xml">
+                <field name="emprendimiento" position="after">
+                    <group string="Servicios Emprendimiento" colspan="4" col="2" attrs="{'invisible':[('empre_len','=',False)]}">
+                        <field name="empre_len" invisible="1" colspan="2" />
+                        <field name="emprendimiento_id" nolabel="1" readonly="1" colspan="2" />
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+        <record id="emprendimiento_form_inh3" model="ir.ui.view">
+            <field name="name">emprendimiento.form.inh</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="entrepreneurship_ihce.emprendimiento_company_form"/>
+            <field name="arch" type="xml">
+                <field name="emprendimiento" position="after">
+                    <group string="Servicios Emprendimiento" colspan="4" col="2" attrs="{'invisible':[('empre_len','=',False)]}">
+                        <field name="empre_len" invisible="1" colspan="2" />
+                        <field name="emprendimiento_id" nolabel="1" readonly="1" colspan="2" />
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

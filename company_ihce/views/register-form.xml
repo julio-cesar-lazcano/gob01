@@ -1,0 +1,125 @@
+<openerp>
+  <data>
+    <template id="form">
+      <t t-call="website.layout">
+        <t t-set="title">Registro</t>
+        <div class="oe_structure">
+          <script type="text/javascript">
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove(); 
+                });
+            }, 4000);
+           
+            function validateForm()
+            {
+           /* 
+            var phone = document.forms["Form"]["cel_phone"].value;
+            var phoneNum = phone.replace(/[^\d]/g, '');
+            if(phoneNum.length != 10){
+                alert("Son 10 digitos");
+                return false;  
+            }*/
+            
+        
+            var a=document.forms["Form"]["name_people"].value;
+            var b=document.forms["Form"]["apaterno"].value;
+            var c=document.forms["Form"]["amaterno"].value;
+            var d=document.forms["Form"]["user_l"].value;
+            var e=document.forms["Form"]["password_login"].value;
+            var f=document.forms["Form"]["amaterno"].value;
+
+            if (a==null || a=="",b==null || b=="", c==null || c=="", d==null || d=="", e==null || e=="", f==null || f=="")
+              {
+              alert("Llenar todos los campos");
+              return false;
+              }
+
+              var email = document.getElementById('email');
+              var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+              if (!filter.test(email.value)) {
+                alert('Mail no valido');
+                email.focus;
+                return false;
+              }
+            }
+            </script>
+
+          <img src="http://52.183.73.30/ihce/img/Fondo-de-lienzo.jpg" style="width:100%;position:absolute;background-color:#FFFFFF; z-index:0;"/>
+          <div class="container" Style="padding-left: 30%;z-index:1;position:absolute;">
+            <br/>
+            <br/>
+            <form method="post" action="/signup" onsubmit="return validateForm()" name="Form" style="background-color:#FFFFFF;width:500px">
+              <br/>
+              <t t-if="message">
+              <div class="alert alert-success" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                  <t t-esc="message"/>
+              </div>
+              </t>
+              <br/>
+              <div style="background-color:#FFFFFF;width:100%;">
+              <label Style="width:20%;padding-left: 5%;">Perfil</label>
+              <t t-foreach="types" t-as="i">
+                <label>
+                  <t t-esc="i" />
+                  <input type="radio" class="ihce-radio" name="types" t-att-value="i" />
+                </label>
+              </t>
+              </div>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Nombre</label>
+              <input name="name_people" type="text" placeholder="Nombre" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Apellido Paterno</label>
+              <input name="apaterno" type="text" placeholder="Apellido Paterno" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Apellido Materno</label>
+              <input name="amaterno" type="text" placeholder="Apellido Materno" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Usuario</label>
+              <input name="user_l" type="text" placeholder="Usuario" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Contraseña</label>
+              <input name="password_login" type="password" placeholder="Password" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Teléfono celular</label>
+              <input name="cel_phone" type="number" placeholder="Teléfono celular" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Correo electrónico</label>
+              <input name="email" id="email" type="email" placeholder="Correo electrónico" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Fecha de nacimiento</label>
+
+              <input type="date" placeholder="MM/DD/YYY" name="date_birth" step="1" value="1995-12-31" min='1940-01-01' max='2017-13-31' Style="width:40%;"/>
+              
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Sexo</label>
+              <select name="sexo" Style="width:40%;">
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+              </select>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Area a visitar</label>
+              <select name="areas" Style="width:40%;">
+              <option name="fooby[1][]" t-foreach="areas" t-as="i" t-att-value="i">
+                  <t t-esc="i"/>
+              </option>
+              </select>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Emprered</label>
+              <select name="empr" Style="width:40%;">
+              <option name="fooby[1][]" t-foreach="empr" t-as="i" t-att-value="i">
+                  <t t-esc="i"/>
+              </option>
+              </select>
+              <br/>
+              <input type="submit" value="Enviar" Style="width:100%;"/>
+            </form>
+          </div>
+        </div>
+      </t>
+    </template>
+  </data>
+</openerp>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="percent_data" model="percent.acceleration">
+            <field name="adiagnostic_percent">10</field>
+            <field name="training_percent">10</field>
+            <field name="implemetation_percent">15</field>
+            <field name="cross_audit_percent">15</field>
+            <field name="acceptation_audit_percent">10</field>
+            <field name="audit_percent">20</field>
+            <field name="certificate_percent">20</field>
+        </record>
+        
+    </data>
+</openerp>

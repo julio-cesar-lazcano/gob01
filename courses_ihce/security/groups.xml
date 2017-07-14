@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record model="ir.module.category" id="group_capital">
+            <field name="name">Formación de Capital Humano</field>
+            <field name="sequence">96</field>
+        </record>
+        
+        <record model="res.groups" id="admin_courses">
+            <field name="name">Administrador Cursos</field>
+            <field name="category_id"  ref="courses_ihce.group_capital"/>
+        </record>
+        
+        <record model="res.groups" id="user_courses">
+            <field name="name">Usuario Cursos</field>
+            <field name="category_id"  ref="courses_ihce.group_capital"/>
+        </record>
+    </data>
+</openerp>

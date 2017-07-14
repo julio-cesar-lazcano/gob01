@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--
+        CURSOS
+-->
+
+        <record id="courses_ihce_filter" model="ir.ui.view">
+            <field name="name">courses.ihce.filter</field>
+            <field name="model">courses.ihce</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name" string="Curso"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Formato" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'type'}"/>
+                        <filter string="Nivel de conocimiento" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'level'}"/>
+                        <filter string="Área de formación" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'forming_area'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="courses_ihce_form" model="ir.ui.view">
+            <field name="name">courses.ihce.form</field>
+            <field name="model">courses.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Cursos, Talleres y Consultorías">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name" colspan="2" placeholder="Nombre de Curso..."/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="type" colspan="2"/>
+                            <field name="level" colspan="2" options="{'no_create':True}"/>
+                            <field name="forming_area" colspan="2" options="{'no_create':True}"/>
+                            <field name="modules" colspan="2" required="1"/>
+                            <field name="state_cours" colspan="2" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Contenido del curso">
+                                <group colspan="4" col="4">
+                                    <separator string="Objetivo" colspan="4"/>
+                                    <field name="objective" colspan="4" nolabel="1"/>
+                                    <separator string="Temario" colspan="4"/>
+                                    <field name="agenda" colspan="4" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Proveedores">
+                                <group colspan="4" col="4">
+                                    <field name="supplier_id" nolabel="1" domain="[('area','=',forming_area)]" context="{'default_area': forming_area}"/>
+                                </group>
+                            </page>
+                            <page string="Cursos programados">
+                                <field name="date_course" context="{'default_courses_id': id, 'default_type': type}">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="date"/>
+                                        <field name="supplier_id"/>
+                                        <field name="number_attendees"/>
+                                        <field name="course_evaluation"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="courses_ihce_tree" model="ir.ui.view">
+            <field name="name">courses.ihce.tree</field>
+            <field name="model">courses.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Cursos, Talleres y Consultorías">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="modules"/>
+                    <field name="level"/>
+                    <field name="forming_area"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="courses_ihce_action" model="ir.actions.act_window">
+            <field name="name">Cursos, Talleres y Consultorías</field>
+            <field name="res_model">courses.ihce</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="courses_ihce_tree"/>
+        </record>
+    
+        <menuitem id="submenu_cursos" name="Cursos, Talleres y Consultorías" parent="menu_formacion" sequence="1"/>
+        
+        <menuitem id="cursos" name="Cursos, Talleres y Consultorías" parent="submenu_cursos" sequence="0" action="courses_ihce_action"/>
+        
+    </data>
+</openerp>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--
+        AREAS DE FORMACIÓN CATALOGO PARA CURSOS
+-->
+        <record id="forming_area_form" model="ir.ui.view">
+            <field name="name">forming.area.form</field>
+            <field name="model">forming.area</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Catálogos">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                        </group>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="forming_area_tree" model="ir.ui.view">
+            <field name="name">forming.area.tree</field>
+            <field name="model">forming.area</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Catálogos">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="forming_area_action" model="ir.actions.act_window">
+            <field name="name">Catálogos</field>
+            <field name="res_model">forming.area</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="forming_area_tree"/>
+        </record>
+    
+        <menuitem id="submenu_catalogos" name="Catálogos" parent="menu_formacion" sequence="4"/>
+        
+        <menuitem id="catalogos" name="Áreas de formación" parent="submenu_catalogos" sequence="0" action="forming_area_action"/>
+        
+    </data>
+</openerp>

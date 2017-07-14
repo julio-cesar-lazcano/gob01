@@ -1,0 +1,131 @@
+<openerp>
+  <data>
+    <template id="form_acompa">
+      <t t-call="website.layout">
+        <t t-set="title">Registrado Acompañamiento</t>
+        <div class="oe_structure">
+          <script type="text/javascript">
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove(); 
+                });
+            }, 4000);
+
+            function validateForm(){     
+
+            
+                  var a = document.getElementById('name_people');
+                  var b = document.getElementById('apaterno');
+                  var c = document.getElementById('amaterno');
+                  var d = document.getElementById('user_login');
+                  var e = document.getElementById('password_login');
+                  var f = document.getElementById('name_comer');
+                  var g = document.getElementById('product_server');
+                  var h = document.getElementById('tramit_comer');
+                  var i = document.getElementById('muni');
+                  var j = document.getElementById('tel');
+                  var k = document.getElementById('RFC');
+                  var l = document.getElementById('email');
+                  var m = document.getElementById('sexo');
+                  var n = document.getElementById('areas');
+                  var o = document.getElementById('empr');
+
+                 if (a.value == null || a.value == "" || b.value == null || b.value == "" || c.value == null || c.value == "" || d.value == null || d.value == "" || e.value == null || e.value == "" || f.value == null || f.value == "" || g.value == null || g.value == "" || h.value == null|| h.value == "" || i.value == null || i.value == "" || j.value == null || j.value == "" || k.value == null || k.value == "" || l.value == null || l.value == "" || m.value == null || m.value == "" || n.value == null || n.value == "" || o.value == null || o.value == "")
+                    {
+                    alert("Llenar todos los campos");
+                    return false;
+                    }
+                  }
+            
+            </script>
+
+          <img src="http://52.183.73.30/ihce/img/Fondo-de-lienzo.jpg" style="width:100%;position:absolute;background-color:#FFFFFF; z-index:0;"/>
+          <div class="container" Style="padding-left: 30%;z-index:1;position:absolute;">
+            <br/>
+            <br/>
+            <form method="post" action="/1/registro_acompanamiento/" onsubmit="return validateForm()" name="Form1" style="background-color:#FFFFFF;width:500px">
+              <br/>
+              <t t-if="message">
+              <div class="alert alert-success" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                  <t t-esc="message"/>
+              </div>
+              </t>
+              <br/>
+              <div style="background-color:#FFFFFF;width:100%;">
+              <label Style="width:20%;padding-left: 5%;">Perfil</label>
+              <t t-foreach="types" t-as="i">
+                <label>
+                  <t t-esc="i" />
+                  <input type="radio" class="ihce-radio" name="types" t-att-value="i" checked="True"/>
+                </label>
+              </t>
+              </div>
+              <br/>
+             <label Style="width:40%;padding-left: 5%; ">Nombre</label>
+              <input name="name_people" type="text" id= "name_people" placeholder="Nombre" Style="width:40%; text-transform:capitalize;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Apellido Paterno</label>
+              <input name="apaterno" type="text" id = "apaterno" placeholder="Apellido Paterno" Style="width:40%; text-transform:capitalize"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Apellido Materno</label>
+              <input name="amaterno" type="text" id="amaterno" placeholder="Apellido Materno" Style="width:40%; text-transform:capitalize"/>
+              <br/>
+               <label Style="width:40%;padding-left: 5%;">Usuario</label>
+              <input name="user_login" type="text" id="user_login" placeholder="Usuario" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Contraseña</label>
+              <input name="password_login" type="password" id="password_login" placeholder="Contraseña" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Nombre Comercial</label>
+              <input name="name_comer" type="text" id="name_comer" placeholder="Nombre Comercial" Style="width:40%; text-transform:capitalize"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Producto o servicio</label>
+              <input name="product_server" type="text" id="product_server" placeholder="Producto o servicio" Style="width:40%; text-transform:capitalize"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Tramite a realizar </label>
+              <input name="tramit_comer" type="text" id="tramit_comer" placeholder="Tramite a realizar" Style="width:40%; text-transform:capitalize"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Municipio</label>
+              <select name="muni" id="muni" Style="width:40%;">
+              <option name="fooby[1][]" t-foreach="muni" t-as="i" t-att-value="i">
+                  <t t-esc="i"/>
+              </option>    
+              </select>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Teléfono </label>
+              <input name="tel" type="number"  maxlength="10"  id="tel" placeholder="Telefono" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">RFC</label>
+              <input name="RFC" type="text" id="RFC"  placeholder="RFC" Style="width:40%; text-transform:uppercase"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">E-mail</label>
+              <input name="email" type="email" id="email" placeholder="E-mail" Style="width:40%;"/>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Sexo</label>
+              <select name="sexo" id="sexo" Style="width:40%;">
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+              </select>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Area a visitar</label>
+              <select name="areas" id="areas" Style="width:40%;">
+              <option name="fooby[1][]" t-foreach="areas" t-as="i" t-att-value="i">
+                  <t t-esc="i"/>
+              </option>
+              </select>
+              <br/>
+              <label Style="width:40%;padding-left: 5%;">Emprered</label>
+              <select name="empr" id="empr" Style="width:40%;">
+              <option name="fooby[1][]" t-foreach="empr" t-as="i" t-att-value="i">
+                  <t t-esc="i"/>
+              </option>
+              </select>
+              <input type="submit" value="Enviar" Style="width:100%;"/>
+            </form>
+          </div>
+        </div>
+      </t>
+    </template>
+  </data>
+</openerp>

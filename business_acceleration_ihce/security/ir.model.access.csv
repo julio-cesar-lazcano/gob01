@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_acceleration_ihce,acceleration.ihce,model_acceleration_ihce,,1,1,1,1
+access_percent_acceleration,percent.acceleration,model_percent_acceleration,,1,1,0,0
+access_company_list_acceleration,company.list.acceleration,model_company_list_acceleration,,1,1,1,1
+
+
+
+
+

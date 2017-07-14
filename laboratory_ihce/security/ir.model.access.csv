@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_app_laboratory,app.laboratory,model_app_laboratory,,1,1,1,0
+access_laboratory_ihce,laboratory.ihce,model_laboratory_ihce,,1,1,1,0
+access_desing_laboratory,desing.laboratory,model_desing_laboratory,,1,1,1,1
+access_binnacle_laboratory,binnacle.laboratory,model_binnacle_laboratory,,1,1,1,1
+access_test_laboratory,test.laboratory,model_test_laboratory,,1,1,1,1
+access_advices_laboratory,advices.laboratory,model_advices_laboratory,,1,1,1,1
+access_detained_services,detained.services,model_detained_services,,1,1,1,1
+
+
+
+
+
+

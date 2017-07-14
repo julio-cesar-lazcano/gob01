@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <menuitem id="informes" name="Reportes" sequence="19"/>
+        
+        <menuitem id="informes_ihce" name="Reportes IHCE" sequence="0" parent="informes"/>
+        
+        <menuitem id="menu_repo_empren" name="Emprendimiento" parent="informes_ihce" sequence="0" groups="admin_reports,report_emprendimiento"/>
+        
+        <menuitem id="menu_repo_de" name="Desarrollo Empresarial" parent="informes_ihce" sequence="1" groups="admin_reports,report_desarrollo"/>
+        
+        <menuitem id="menu_repo_fch" name="Formación de Capital Humano" parent="informes_ihce" sequence="2" groups="admin_reports,report_formacion"/>
+        
+        <menuitem id="menu_reportes_labora" name="Laboratorio" parent="informes_ihce" sequence="3" groups="admin_reports,informes_labo"/>
+        
+        <menuitem id="menu_repo_ihce" name="IHCE" parent="informes_ihce" sequence="4" groups="admin_reports"/>
+        
+        <menuitem id="menu_indicadores_ihce" name="Semáforo de Control" sequence="5" parent="informes_ihce" groups="admin_reports,report_emprendimiento,report_desarrollo,report_formacion,report_aceleracion"/>
+        
+        <menuitem id="menu_reporte_ejecutivo" name="Reporte Ejecutivo" sequence="6" parent="informes_ihce" groups="admin_reports"/>
+        
+        <menuitem id="menu_cuadros_ejecutivos" name="Cuadros Ejecutivos" sequence="2" parent="menu_reporte_ejecutivo"/>
+        
+       
+        <menuitem id="informes_emprered" name="Reportes EMPRERED" sequence="1" parent="informes"/>
+        
+
+        <menuitem id="indicadores_emprered" name="Semáforo de Control" sequence="7" parent="informes_emprered"/>
+        
+        <menuitem id="menu_configuracion" name="Configuración" sequence="3" parent="informes" groups="admin_reports"/>
+        <menuitem id="configuracion" name="Metas Anuales" sequence="0" parent="menu_configuracion"/>
+        
+
+    </data>
+</openerp>

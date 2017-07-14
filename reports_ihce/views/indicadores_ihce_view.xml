@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="indicador_emprendimiento_tree" model="ir.ui.view">
+            <field name="name">indicador.emprendimiento.tree</field>
+            <field name="model">indicador.emprendimiento</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores IHCE Emprendimiento" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprendimiento_action" model="ir.actions.act_window">
+            <field name="name">Indicadores IHCE Emprendimiento</field>
+            <field name="res_model">indicador.emprendimiento</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprendimiento_tree"/>
+        </record>
+    
+        <menuitem id="indicador_emprendi" name="Emprendimiento" parent="menu_indicadores_ihce" sequence="0" action="indicador_emprendimiento_action" groups="reports_ihce.report_emprendimiento,reports_ihce.admin_reports"/>
+        
+
+        <record id="indicador_servicios_empresariales_tree" model="ir.ui.view">
+            <field name="name">indicador.servicios.empresariales.tree</field>
+            <field name="model">indicador.servicios.empresariales</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Servicios Empresariales" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_servicios_empresariales_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Servicios Empresariales</field>
+            <field name="res_model">indicador.servicios.empresariales</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_servicios_empresariales_tree"/>
+        </record>
+    
+        <menuitem id="indicador_sericios_em" name="Servicios Empresariales" parent="menu_indicadores_ihce" sequence="1" action="indicador_servicios_empresariales_action" groups="reports_ihce.report_desarrollo,reports_ihce.admin_reports"/>
+        
+        
+        
+        <record id="indicador_aceleracion_tree" model="ir.ui.view">
+            <field name="name">indicador.aceleracion.tree</field>
+            <field name="model">indicador.aceleracion</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Aceleración Empresarial" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_aceleracion_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Aceleración Empresarial</field>
+            <field name="res_model">indicador.aceleracion</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_aceleracion_tree"/>
+        </record>
+    
+        <menuitem id="indicador_aceler" name="Aceleración Empresarial" parent="menu_indicadores_ihce" sequence="2" action="indicador_aceleracion_action" groups="reports_ihce.report_aceleracion,reports_ihce.admin_reports"/>
+        
+        
+        
+        <record id="indicador_capital_humano_tree" model="ir.ui.view">
+            <field name="name">indicador.capital.humano.tree</field>
+            <field name="model">indicador.capital.humano</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Formación de Capital Humano" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_capital_humano_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Formación de Capital Humano</field>
+            <field name="res_model">indicador.capital.humano</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_capital_humano_tree"/>
+        </record>
+    
+        <menuitem id="indicador_capital" name="Formación de Capital Humano" parent="menu_indicadores_ihce" sequence="3" action="indicador_capital_humano_action" groups="reports_ihce.report_formacion,reports_ihce.admin_reports"/>
+
+    
+    </data>
+</openerp>

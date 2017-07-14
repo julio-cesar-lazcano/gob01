@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="report_emprendimiento_emprered_tree" model="ir.ui.view">
+            <field name="name">report.emprendimiento.emprered.tree</field>
+            <field name="model">report.emprendimiento.emprered</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Reporte Emprendimiento Emprered">
+                    <field name='date'/>
+                    <field name='xls_file' filename="xls_file_name"/>
+                    <field name='user_id'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="report_emprendimiento_emprered_form" model="ir.ui.view">
+            <field name="name">report.emprendimiento.emprered.form</field>
+            <field name="model">report.emprendimiento.emprered</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Reporte Emprendimiento Emprered">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <label string="Emprendimiento Emprered"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name='type' colspan="2" required="1"/>
+                            <field name='date' colspan="2" readonly="1"/>
+                            <field name='emprered' colspan="2" invisible="1"/>
+                            <field name='user_id' colspan="2" invisible="1"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name='date_ini' colspan="2" attrs="{'required': [('type', '=', 'rango')], 'invisible': [('type', '!=', 'rango')]}"/>
+                            <field name='date_fin' colspan="2" attrs="{'required': [('type', '=', 'rango')], 'invisible': [('type', '!=', 'rango')]}"/>
+                            <button name="action_create_report" type="object" string="Crear reporte" icon="gtk-apply" class="oe_highlight" colspan="2"/>
+                        </group>
+                        <group string = "Archivo" attrs="{'invisible': [('xls_file_name', '=', False)] }" colspan="4">
+                            <field name='xls_file_name' invisible="1" colspan="2"/>
+                            <field name='xls_file' filename="xls_file_name"  colspan="2"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_emprendimiento_emprered_action" model="ir.actions.act_window">
+            <field name="name">Reporte Emprendimiento Emprered</field>
+            <field name="res_model">report.emprendimiento.emprered</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="report_emprendimiento_tree"/>
+        </record>
+    
+        <menuitem id="report_empre_emprered" name="Emprendimiento" parent="informes_emprered" sequence="0" action="report_emprendimiento_emprered_action" groups="admin_reports"/>
+
+    </data>
+</openerp>

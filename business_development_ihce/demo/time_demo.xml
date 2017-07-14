@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="times_data" model="time.development">
+            <field name="phonetic_search">4</field>
+            <field name="phonetic_search_percent">20</field>
+            <field name="send_format">5</field>
+            <field name="send_format_percent">10</field>
+            <field name="vobo_format">2</field>
+            <field name="vobo_format_percent">30</field>
+            <field name="receiving_record_percent">20</field>
+            <field name="impi">90</field>
+            <field name="impi_percent">20</field>
+
+            <field name="requirements_sheet">1</field>
+            <field name="requirements_sheet_percent">10</field>
+            <field name="information_gs1">30</field>
+            <field name="information_gs1_percent">15</field>
+            <field name="reception_information">1</field>
+            <field name="reception_information_percent">30</field>
+            <field name="send_information_gs1">5</field>
+            <field name="send_information_gs1_percent">20</field>
+            <field name="reception_letters">5</field>
+            <field name="reception_letters_percent">15</field>
+            <field name="advice_company">5</field>
+            <field name="advice_company_percent">10</field>
+            
+            <field name="letter_company">10</field>
+            <field name="letter_company_percent">20</field>
+            <field name="send_impi">2</field>
+            <field name="send_impi_percent">15</field>
+            <field name="mail_company">3</field>
+            <field name="mail_company_percent">25</field>
+            <field name="request_patent">30</field>
+            <field name="request_patent_percent">15</field>
+            <field name="ingress_impi">730</field>
+            <field name="ingress_impi_percent">25</field>
+
+            <field name="contact_laboratory">2</field>
+            <field name="contact_laboratory_percent">20</field>
+            <field name="send_sale">5</field>
+            <field name="send_sale_percent">15</field>
+            <field name="contact_company_laboratory">5</field>
+            <field name="contact_company_laboratory_percent">20</field>
+            <field name="voucher_laboratory">5</field>
+            <field name="voucher_laboratory_percent">10</field>
+            <field name="reception_samples">5</field>
+            <field name="reception_samples_percent">15</field>
+            <field name="send_samples">5</field>
+            <field name="send_samples_percent">10</field>
+            <field name="emits_table">15</field>
+            <field name="emits_table_percent">10</field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+<!--
+        METAS ANUALES IHCE
+-->
+        <record id="meta_anual_ihce_tree" model="ir.ui.view">
+            <field name="name">meta.anual.ihce.tree</field>
+            <field name="model">meta.anual.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Metas Anuales IHCE">
+                    <field name='anio_ihce'/>
+                    <field name='activo'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="meta_anual_ihce_form" model="ir.ui.view">
+            <field name="name">meta.anual.ihce.form</field>
+            <field name="model">meta.anual.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Metas Anuales IHCE">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h2>
+                                    <field name="anio_ihce" placeholder="Año" required="1" colspan="4"/>
+                                </h2>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name='activo' colspan="2" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Emprendimiento">
+                                <group colspan="4" col="2">
+                                    <field name="emprendedores_alto_impacto" colspan="2"/>
+                                    <field name="asesoria_emprendedores" colspan="2"/>
+                                    <field name="cursos_emprendimiento" colspan="2"/>
+                                    <field name="asistentes_emprendimiento" colspan="2"/>
+                                </group>
+                            </page>
+                            <page string="Desarrollo Empresarial">
+                                <group colspan="4" col="2">
+                                    <separator string="Asesorías Empresariales" colspan="4"/>
+                                    <field name="asesorias" colspan="2"/>
+                                    <separator string="Servicios Empresariales" colspan="4"/>
+                                    <field name="servicios" colspan="2"/>
+                                </group>
+                            </page>
+                            <page string="Aceleración Empresarial">
+                                <group colspan="4" col="2">
+                                    <field name="consultoria_especializada" colspan="2"/>
+                                    <field name="cursos_aceleracion" colspan="2"/>
+                                    <field name="asistentes_aceleracion" colspan="2"/>
+                                    <field name="empresas_certificadas" colspan="2"/>
+                                </group>
+                            </page>
+                            <page string="Formación de Capital Humano">
+                                <group colspan="4" col="2">
+                                    <field name="consultoria_servicios_empresariales" colspan="2"/>
+                                    <field name="horas" colspan="2"/>
+                                    <field name="cursos_fch" colspan="2"/>
+                                    <field name="horas_cursos" colspan="2"/>
+                                    <field name="asistentes_fch" colspan="2"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="meta_anual_ihce_action" model="ir.actions.act_window">
+            <field name="name">Metas Anuales IHCE</field>
+            <field name="res_model">meta.anual.ihce</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="meta_anual_ihce_tree"/>
+        </record>
+    
+        <menuitem id="submenu_meta_anual_ihce" name="IHCE" parent="configuracion" sequence="0" action="meta_anual_ihce_action"/>
+        
+        
+        
+<!--
+        METAS ANUALES EMPRERED
+-->
+        
+        
+        <record id="meta_anual_emprered_tree" model="ir.ui.view">
+            <field name="name">meta.anual.emprered.tree</field>
+            <field name="model">meta.anual.emprered</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Metas Anuales EMPRERED">
+                    <field name='emprered_meta'/>
+                    <field name='anio_emprered'/>
+                    <field name='activo'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="meta_anual_emprered_form" model="ir.ui.view">
+            <field name="name">meta.anual.emprered.form</field>
+            <field name="model">meta.anual.emprered</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Metas Anuales IHCE">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h2>
+                                    <field name="emprered_meta" placeholder="Emprered..." required="1" colspan="4"/>
+                                </h2>
+                            </div>
+                        </group>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h3>
+                                    <field name="anio_emprered" placeholder="Año" required="1" colspan="4"/>
+                                </h3>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name='activo' colspan="2" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Metas Anuales">
+                                <group colspan="4" col="2">
+                                    <field name="servicios_empresariales" colspan="2"/>
+                                    <field name="cursos" colspan="2"/>
+                                    <field name="asistentes" colspan="2"/>
+                                    <field name="horas" colspan="2"/>
+                                    <field name="total_asesorias" colspan="2"/>
+                                    <field name="consultoria_especializada" colspan="2"/>
+                                    <field name="horas_consultoria" colspan="2"/>
+                                    <field name="expediente_financiamiento" colspan="2"/>
+                                    <field name="empresas_proyecto_aceleracion" colspan="2"/>
+                                    <field name="eventos" colspan="2"/>
+                                    <field name="diagnosticos_empresariales" colspan="2"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="meta_anual_emprered_action" model="ir.actions.act_window">
+            <field name="name">Metas Anuales EMPRERED</field>
+            <field name="res_model">meta.anual.emprered</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="meta_anual_emprered_tree"/>
+        </record>
+    
+        <menuitem id="submenu_meta_anual_emprered" name="Emprered" parent="configuracion" sequence="1" action="meta_anual_emprered_action"/>
+
+<!--
+        METAS ANUALES EJECUTIVO
+-->
+
+         <record id="meta_anual_ejecutivo_tree" model="ir.ui.view">
+            <field name="name">meta.anual.ejecutivo.tree</field>
+            <field name="model">meta.anual.ejecutivo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Metas Anuales Ejecutivas">
+                    <field name='anio_ihce'/>
+                    <field name='activo'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="meta_anual_ejecutivo_form" model="ir.ui.view">
+            <field name="name">meta.anual.ejecutivo.form</field>
+            <field name="model">meta.anual.ejecutivo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Metas Anuales Ejecutivas">
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <field name="anio_ihce" placeholder="Año" required="1" colspan="2"/>
+                            <field name='activo' colspan="2" readonly="1"/>
+                        </group>
+                        <group  colspan="4" col="4">
+                            <button name="generar_meses" type="object" string="Generar Meses" class="oe_highlight" />
+                        </group>
+                        <notebook>
+                            <page string="Meses">
+                                <group colspan="4" col="2">
+                                    <field name="lines" colspan="2" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="mes"/>
+                                            <field name="name_mes"/>
+                                            <field name="servicios_empresariales"/>
+                                            <field name="asesoria_empresarial"/>
+                                            <field name="eventos"/>
+                                            <field name="asistentes"/>
+                                            <field name="emprereds"/>
+                                            <field name="asesoria_emprered"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="meta_anual_ejecutivo_action" model="ir.actions.act_window">
+            <field name="name">Metas Anuales Ejecutivas</field>
+            <field name="res_model">meta.anual.ejecutivo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="meta_anual_ejecutivo_tree"/>
+        </record>
+    
+        <menuitem id="submenu_meta_anual_ejecutiva" name="Ejecutivas" parent="configuracion" sequence="2" action="meta_anual_ejecutivo_action"/>
+
+
+
+
+        
+    </data>
+</openerp>

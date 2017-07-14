@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="time_development_form" model="ir.ui.view">
+            <field name="name">time.development.form</field>
+            <field name="model">time.development</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Tiempos">
+                    <header>
+                        <button name="check_percent" type="object" string="Verificar %" icon="gtk-apply" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <field name="name" coslpan="4" readonly="1"/>
+                        <group colspan="4" col="4">
+                            <field name="date" coslpan="4"/>
+                        </group>
+                        <notebook>
+                            <page string="Registro de Marca">
+                                <group coslpan="4" col="8" >
+                                    <field name="phonetic_search" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="phonetic_search_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_format" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_format_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="vobo_format" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="vobo_format_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <label string="Recepción de expediente para ingreso" for="receiving_record_percent" colspan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="receiving_record_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="impi" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="impi_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                </group>
+                            </page>
+                            <page string="Código de Barras">
+                                <group coslpan="4" col="8" >
+                                    <field name="requirements_sheet" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="requirements_sheet_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="information_gs1" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="information_gs1_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="reception_information" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="reception_information_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_information_gs1" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_information_gs1_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="reception_letters" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="reception_letters_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="advice_company" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="advice_company_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                </group>
+                            </page>
+                            <page string="Patentes">
+                                <group coslpan="4" col="8" >
+                                    <field name="letter_company" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="letter_company_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_impi" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_impi_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="mail_company" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="mail_company_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="request_patent" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="request_patent_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="ingress_impi" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="ingress_impi_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                </group>
+                            </page>
+                            <page string="FDA">
+                                <group coslpan="4" col="8" >
+                                    <field name="contact_laboratory" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="contact_laboratory_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_sale" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_sale_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="contact_company_laboratory" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="contact_company_laboratory_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="voucher_laboratory" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="voucher_laboratory_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="reception_samples" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="reception_samples_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_samples" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="send_samples_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="emits_table" coslpan="2" required="1"/>
+                                    <label string="días" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                    <field name="emits_table_percent" coslpan="2" required="1"/>
+                                    <label string="%" coslpan="2"/>
+                                    <label string="" coslpan="2"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="time_development_tree" model="ir.ui.view">
+            <field name="name">time.development.tree</field>
+            <field name="model">time.development</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Tiempos">
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="time_development_action" model="ir.actions.act_window">
+            <field name="name">Tiempos</field>
+            <field name="res_model">time.development</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="time_development_tree"/>
+        </record>
+    
+        <menuitem id="submenu_tiempos" name="Configuración" parent="menu_desarrollo" sequence="5" groups="business_development_ihce.admin_desarrollo"/>
+        
+        <menuitem id="tiempos" name="Tiempos" parent="submenu_tiempos" sequence="0" action="time_development_action"/>
+
+    </data>
+</openerp>

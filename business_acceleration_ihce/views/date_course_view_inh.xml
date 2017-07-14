@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--
+        <record id="date_courses_form_inh" model="ir.ui.view">
+            <field name="name">date.courses.form.inh</field>
+            <field name="model">date.courses</field>
+            <field name="inherit_id" ref="courses_ihce.date_courses_form"/>
+            <field name="arch" type="xml">
+                <field name="level_add" position="replace">
+                    <field name="level_add" coslpan="2" attrs="{'invisible':['|',('state','in',('cancel','done','progress')),('services','=','aceleracion')]}"/>
+                </field>
+                <button name="add_company_level" position="replace">
+                    <button name="add_company_level" type="object" string="Agregar por nivel" class="oe_highlight" attrs="{'invisible':['|',('state','in',('cancel','done','progress')),('services','=','aceleracion')]}" coslpan="2"/>
+                    <field name="acceleration_id" attrs="{'invisible':['|',('state','in',('cancel','done','progress')),('services','!=','aceleracion')]}"/>
+                    <button name="add_company_project" type="object" string="Agregar a todas las empresas del proyecto" class="oe_highlight" coslpan="2" attrs="{'invisible':['|',('state','in',('cancel','done','progress')),('services','!=','aceleracion')]}"/>
+                </button>
+            </field>
+        </record>
+-->
+    </data>
+</openerp>

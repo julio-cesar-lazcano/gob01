@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- res.users -->
+        <record model="ir.ui.view" id="view_users_form_ihce_inherit">
+            <field name="name">view.users.form.ihce.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="option" coslpan="2" required="1"/>
+                    <field name="area" coslpan="2" attrs="{'invisible': ['|',('option','=',False),('option','=','emprered')], 'required': [('option','=','ihce')]}"/>
+                    <field name="emprered" coslpan="2" attrs="{'invisible': ['|',('option','=',False),('option','=','ihce')], 'required': [('option','=','emprered')]}"/>
+<!--
+                    <field name="state_id" coslpan="2" required="1" options="{'no_create':True}"/>
+-->
+<!--
+                    <field name="town_id" coslpan="2" required="1" options="{'no_create':True}"/>
+-->
+                    <field name="email_crm" coslpan="2"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="view_users_tree_inh" model="ir.ui.view">
+            <field name="name">res.users.tree.inh</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+                <field name="login" position="replace">
+                    <field name="login" string="Correo electrónico"/>
+                    <field name="option"/>
+                </field>
+                <field name="lang" position="replace">
+                    <field name="lang" invisible="1"/>
+                </field>
+                <field name="login_date"/>
+            </field>
+        </record>
+        
+        <menuitem id="configuracion_user" name="Usuarios" parent="menu_configuracion" sequence="2" groups="base.group_erp_manager"/>
+        
+        <menuitem id="user" name="Usuarios" parent="configuracion_user" sequence="0" action="base.action_res_users"/>
+        
+    </data>
+</openerp>
+
+

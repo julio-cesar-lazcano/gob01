@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="res.groups" id="configuracion_admin">
+            <field name="name">Configuraciones IHCE</field>
+            <field name="category_id"  ref="base.module_category_usability"/>
+        </record>
+    </data>
+</openerp>

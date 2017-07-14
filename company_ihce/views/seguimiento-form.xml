@@ -1,0 +1,88 @@
+<openerp>
+    <data>
+        <template id="forms">
+        	<t t-call="website.layout">
+        		<t t-set="title">Seguimiento</t>
+			    <div class="oe_structure">
+			    		   <script type="text/javascript">
+					            window.setTimeout(function() {
+					                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+					                    $(this).remove(); 
+					                });
+					            }, 4000);
+					           
+					            function validateForm()
+					            {
+
+					        
+					            var a=document.forms["Form"]["email"].value;
+					            var b=document.forms["Form"]["bene"].value;
+					            var c=document.forms["Form"]["responsable"].value;
+					            var d=document.forms["Form"]["empr"].value;
+
+					            if (a==null || a=="",b==null || b=="", c==null || c=="", d==null || d=="")
+					              {
+					              alert("Llenar todos los campos");
+					              return false;
+					              }
+					            }
+					            </script>
+			    		<script
+						  src="https://code.jquery.com/jquery-2.2.4.js"
+						  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+						  crossorigin="anonymous"></script>
+			    		<script type="text/javascript">
+						 $(document).ready(function(){
+						 	$('#datetimepicker1').click(function(){
+						 	});	
+						 });	  
+						</script>
+			    	<img src="http://52.183.73.30/ihce/img/Fondo-de-lienzo.jpg" style="width:100%;position:absolute;background-color:#FFFFFF; z-index:0; min-width: 900px;"/>
+			    	<div class="container" Style="padding-left: 30%;z-index:1;position:absolute;">
+			    		<br/>
+            			<br/>
+            			<form method="post" action="/seguimiento/asesoria" onsubmit="return validateForm()" name="Form" style="background-color:#FFFFFF;width:500px" >
+            					<t t-if="message">
+					             <div class="alert alert-success" role="alert">
+					                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+					                  <t t-esc="message"/>
+					              </div>
+					             </t>
+					             
+            					<h2><center>Crear una Asesoria</center></h2>
+            					<templates>
+            					<!--<select t-if="name" name="name" style="display:none;"><option t-esc="name" t-value="name_value"/></select>-->
+            					<select t-if="id" name="company_id" style="display:none;"><option t-esc="id" t-value="id_value"/></select>
+					           	<div class="form-group">
+            						<br/>
+					           		<label>Asesoria</label>
+						           	<select name="asesoria" class="form-control">
+									  <option>Asesoría general en servicios ihce</option>
+									  <option>Registro de Marca</option>
+									  <option>Patente</option>
+									  <option>Código de Barras</option>
+									  <option>Adecuación de Producto</option>
+									  <option>Normatividad Nacional</option>
+									  <option>Tabla Nutrimental</option>
+									  <option>Imagen Corporativa y Etiquetado</option>
+									  <option>Financiamiento</option>
+									  <option>Emprendimiento</option>
+									  <option>Registro ante la SHCP</option>
+									  <option>Formación de Capital Humano</option>
+									  <option>AIE</option>
+									  <option>Manos a la Obra</option>
+									  <option>Aceleración Empresarial</option>
+									</select>
+								</div>
+								</templates>
+							  	<br/>
+							  	<br/>
+							  	<input type="submit" value="Enviar"  class="btn btn-success" Style="width:100%;"/>
+            			</form>
+			    	</div> 		
+			    </div>       
+        	</t>
+        </template>
+  	</data>
+</openerp>
+

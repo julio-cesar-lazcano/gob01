@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record model="ir.module.category" id="group_desarrollo">
+            <field name="name">Desarrollo Empresarial</field>
+            <field name="sequence">97</field>
+        </record>
+        
+        <record model="res.groups" id="admin_desarrollo">
+            <field name="name">Administrador Desarrollo Empresarial</field>
+            <field name="category_id"  ref="business_development_ihce.group_desarrollo"/>
+        </record>
+        
+        <record model="res.groups" id="user_desarrollo">
+            <field name="name">Usuario Desarrollo Empresarial</field>
+            <field name="category_id"  ref="business_development_ihce.group_desarrollo"/>
+        </record>
+    
+    </data>
+</openerp>

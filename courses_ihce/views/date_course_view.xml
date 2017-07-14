@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <report auto="False" id="report_courses" model="date.courses" name="courses"
+                rml="courses_ihce/report/courses.rml" string="Lista de Asistentes"
+                usage="default" header="False" 
+                attachment="object.courses_id.name + '.pdf'"/>
+                
+<!--
+        CALENDARIZACION DE CURSOS
+-->
+        <record id="date_courses_filter" model="ir.ui.view">
+            <field name="name">date.courses.filter</field>
+            <field name="model">date.courses</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="date" string="Fecha"/>
+                    <field name="state"/>
+                    <field name="courses_id" string="Curso"/>
+                    <field name="municipio" string="Municipio"/>
+                    <field name="type" string="Región"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Cursos" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'courses_id'}"/>
+                        <filter string="Fechas" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'date'}"/>
+                        <filter string="Estado" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Municipio" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'municipio'}"/>
+                        <filter string="Formato" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'type'}"/>
+                        <filter string="Responsable" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'user_id'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="date_courses_form" model="ir.ui.view">
+            <field name="name">date.courses.form</field>
+            <field name="model">date.courses</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Cursos programados">
+                    <header>
+                        <button name="confirm" type="object" string="Aprobar" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state','in',('cancel','done','confirm','progress'))]}"/>
+                        <button name="send_email" type="object" string="Enviar Invitación" class="oe_highlight" attrs="{'invisible':[('state','in',('draft','done','cancel'))]}" icon="terp-mail-"/>
+                        <button name="return_draft" type="object" string="Regresar a nuevo" attrs="{'invisible':[('state','in',('cancel','done','progress','draft'))]}" groups="courses_ihce.admin_courses" class="oe_highlight"  icon="STOCK_UNDO"/>
+                        <button name="complete" type="object" string="Finalizar" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state','in',('cancel','done','draft','confirm'))]}"/>
+                        <button name="action_cancel_wizard" type="object" string="Cancelar" icon="gtk-cancel" class="oe_highlight" attrs="{'invisible':[('state','in',('cancel','done','confirm'))]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,progress,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="courses_id" colspan="2"  attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}" on_change="onchange_course(courses_id)" placeholder="Curso..." options="{'no_create':True}"/>
+                                    <field name="name" colspan="2" attrs="{'readonly':[('state','in',('cancel','done','progress','confirm'))]}" placeholder="Tema/Módulo..."/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="type" colspan="2" attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}" on_change="onchange_type(type)" required="1" options="{'no_create':True}"/>
+                            <field name="date" colspan="2" attrs="{'readonly':[('state','in',('cancel','done'))]}"/>
+                            <field name="supplier_id" colspan="2"  domain="[('courses_id','=',courses_id)]" attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}" options="{'no_create':True}"/>
+                            <field name="hours_training"  colspan="2" attrs="{'readonly':[('state','in',('cancel','done'))],'invisible': [('state','=','draft')],'required':[('state','!=','draft')]}"/>
+                            <field name="municipio" colspan="2" attrs="{'readonly':[('state','in',('cancel','done'))],'invisible': [('state','=','draft')],'required':[('state','!=','draft')]}" options="{'no_create':True}"/>
+                            <field name="services" colspan="2" attrs="{'readonly':[('state','in',('cancel','done'))],'invisible': [('dependence_bool','=',False)],'required':[('dependence_bool','=',True)]}"/>
+                            <field name="user_id" colspan="2" readonly="1"/>
+                            <field name="emprered" colspan="2" attrs="{'readonly':[('state','in',('cancel','done'))],'invisible': [('dependence_bool','=',True)],'required':[('state','!=','draft'),('dependence_bool','=',False)]}" options="{'no_create':True}" readonly="1"/>
+                            <field name="responsible_area" colspan="2" attrs="{'readonly':[('state','in',('cancel','done'))],'invisible': [('dependence_bool','=',False)],'required':[('state','!=','draft'),('dependence_bool','=',True)]}" options="{'no_create':True}" readonly="1"/>
+                            <field name="dependence" colspan="2" attrs="{'readonly':[('state','in',('cancel','done'))],'required':[('state','!=','draft')]}" on_change="onchange_dependence(dependence)" invisible="1" options="{'no_create':True}"/>
+                        </group>
+                        <separator string="" colspan="4"/>
+                        <group colspan="4" col="4">
+                            <field name="course_evaluation" colspan="2" attrs="{'invisible': ['|',('state','in',('draft','confirm')),('type','=','consultoria')]}" readonly="1"/>
+                            <field name="level" invisible="1" colspan="2"/>
+                            <field name="state_mail" invisible="1" colspan="2"/>
+                            <field name="dependence_bool" invisible="1" colspan="2"/>
+                        </group>
+                        <notebook>
+                            <page string="Costos">
+                                <group colspan="4" col="2">
+                                    <field name="cost" colspan="2" attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}" required="1"/>
+                                </group>
+                                <group colspan="4" col="4">
+                                    <field name="beca" colspan="2" attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}"/>
+                                    <field name="beca_cost" colspan="2" readonly="1"/>
+                                    <field name="federal_contribution" colspan="2" attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}"/>
+                                    <field name="federal_cost" colspan="2" readonly="1"/>
+                                    <field name="state_contribution" colspan="2" attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}"/>
+                                    <field name="state_cost" colspan="2" readonly="1"/>
+                                    <field name="company_contribution" colspan="2" attrs="{'readonly':[('state','in',('cancel','done','confirm','progress'))]}"/>
+                                    <field name="company_cost" colspan="2" readonly="1"/>
+                                </group>
+                            </page>
+                            <page string="Invitados" attrs="{'invisible':[('state','=','draft')]}">
+                                <group colspan="4" col="4">
+                                </group>
+                                <field name="company_invited_line" attrs="{'readonly':[('state','in',('cancel','done'))]}">
+                                    <tree editable="bottom" colors="green:state=='invitado'; black:state=='nuevo';">
+                                        <field name="company_id" string="Nombre" on_change="onchange_company_in(company_id)" required="1" domain="[('state','=','done'),('company','=',True)]" options="{'no_create':True}"/>
+                                        <field name="company_name"/>
+                                        <field name="town" options="{'no_create':True}"/>
+                                        <field name="cel_phone"/>
+                                        <field name="phone"/>
+                                        <field name="email"/>
+                                        <field name="idea_commerce"/>
+                                        <field name="level_knowledge" options="{'no_create':True}"/>
+                                        <field name="confirm" />
+                                        <field name="state" invisible="1"/>
+                                        <field name="course_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                                <group colspan="4" col="4">
+                                    <field name="img" colspan="4"/>
+                                    <field name="invited" colspan="2"/>
+                                    <field name="attendees" colspan="2" readonly="1"/>
+                                </group>
+                            </page>
+                            <page string="Asistentes" attrs="{'invisible':[('state','in',('draft','confirm'))]}">
+                                <group string="Lista de Asistentes Registrados en el Sistema" colspan="4" col="4">
+                                    <field name="line" attrs="{'readonly':[('state','in',('cancel','done'))]}" nolabel="1" colspan="4">
+                                        <tree editable="bottom">
+                                            <field name="contact_id" string="Nombre" on_change="onchange_company(contact_id)" required="1" domain="[('state','=','done'),('name','!=','')]" options="{'no_create':True}"/>
+                                            <field name="name_company"/>
+                                            <field name="town" options="{'no_create':True}"/>
+                                            <field name="cel_phone"/>
+                                            <field name="phone" />
+                                            <field name="email" />
+                                            <field name="idea_commerce"/>
+                                            <field name="course_evaluation"/>
+                                            <field name="company_id" invisible="1"/>
+                                            <field name="course_id" invisible="1"/>
+                                            <field name="courses_id" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Lista de Asistentes Sin Registro en el Sistema" colspan="4" col="4">
+                                    <field name="list_lines" attrs="{'readonly':[('state','in',('cancel','done'))]}" nolabel="1" colspan="4">
+                                        <!--<tree editable="bottom">-->
+                                        <tree>
+                                            <field name="name" string="Nombre" required="1"/>
+                                            <field name="sexo" required="1"/>
+                                            <field name="town" options="{'no_create':True}" required="1"/>
+                                            <field name="cel_phone"/>
+                                            <field name="phone" />
+                                            <field name="email"/>
+                                            <field name="idea_commerce"/>
+                                            <field name="course_evaluation"/>
+                                            <field name="course_id" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group colspan="4" col="4">
+                                    <field name="number_attendees" colspan="2"/>
+                                </group>
+                            </page>
+                            <page string="Comentarios">
+                                <field name="notes" colspan="2"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="date_courses_tree" model="ir.ui.view">
+            <field name="name">date.courses.tree</field>
+            <field name="model">date.courses</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Cursos programados" colors="gray:state=='done'; blue:state=='confirm'; green:state=='progress'; black:state=='draft'; LightGrey:state=='cancel';">
+                    <field name="courses_id"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="supplier_id"/>
+                    <field name="number_attendees"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+<!--
+        VISTA KANBAN
+-->
+        <record model="ir.ui.view" id="date_courses_kanban_view">
+            <field name="name">date.courses.kanban</field>
+            <field name="model">date.courses</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="courses_id"/>
+                    <field name="supplier_id"/>
+                    <field name="hours_training"/>
+                    <field name="number_attendees"/>
+                    <field name="responsible_area"/>
+                    <field name="municipio"/>
+                    <field name="emprered"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette oe_semantic_html_override">
+                                <div class="oe_kanban_details">
+                                    <h4 class="oe_partner_heading"><a type="open"><field name="name"/></a></h4>
+                                    <div class="oe_kanban_partner_categories"/>
+                                    <div class="oe_kanban_partner_links"/>
+                                    <ul>
+                                        <div t-if="record.date.raw_value">Curso: <field name="date"/></div>
+                                        <div t-if="record.courses_id.raw_value">Curso: <field name="courses_id"/></div>
+                                        <div t-if="record.supplier_id.raw_value">Proveedor: <field name="supplier_id"/></div>
+                                        <div t-if="record.number_attendees.raw_value">No. Asistentes: <field name="number_attendees"/></div>
+                                        <div t-if="record.hours_training.raw_value">Horas: <field name="hours_training"/></div>
+                                        <div t-if="record.responsible_area.raw_value">Área responsable: <field name="responsible_area"/></div>
+                                        <div t-if="record.region.raw_value">Municipio: <field name="municipio"/></div>
+                                        <div t-if="record.emprered.raw_value">Dependencia: <field name="emprered"/></div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+<!--
+        VISTA CALENDAR
+-->
+        <record model="ir.ui.view" id="date_courses_calendar">
+            <field name="name">date.courses.calendar</field>
+            <field name="model">date.courses</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar date_start="date" color="user_id">
+                    <field name="courses_id"/>
+                    <field name="municipio"/>
+                    <field name="date"/>
+                </calendar>
+            </field>
+        </record>
+        
+        <record id="date_courses_action" model="ir.actions.act_window">
+            <field name="name">Cursos programados</field>
+            <field name="res_model">date.courses</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form,kanban</field>
+            <field name="view_id" ref="date_courses_calendar"/>
+        </record>
+    
+        <menuitem id="submenu_course" name="Agenda de cursos" parent="menu_formacion" sequence="2"/>
+        
+        <menuitem id="curso" name="Módulo" parent="submenu_course" sequence="0" action="date_courses_action"/>
+
+<!--
+        VISTA HEREDADA DE COMPAÑIAS QUE AGREGA PESTAÑA DE CURSOS
+-->
+        <record id="companies_ihce_form_inh" model="ir.ui.view">
+            <field name="name">companies.ihce.form.inh</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="company_ihce.companies_ihce_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="formacion_capital_humano" position="after">
+                    <group colspan="4" col="2" string="Cursos">
+                        <field name="company_course" readonly="1" nolabel="1" colspan="2">
+                            <tree>
+                                <field name="contact_id" string="Contacto"/>
+                                <field name="courses_id" string="Curso"/>
+                                <field name="course_id" string="Módulo"/>
+                                <field name="date"/>
+                                <field name="type"/>
+                                <field name="course_evaluation"/>
+                            </tree>
+                        </field>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+        <record id="fch_form_inh" model="ir.ui.view">
+            <field name="name">fch.form.inh</field>
+            <field name="model">companies.ihce</field>
+            <field name="inherit_id" ref="courses_ihce.fch_company_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="formacion_capital_humano" position="after">
+                    <group colspan="4" col="2" string="Cursos">
+                        <field name="company_course" readonly="1" nolabel="1" colspan="2">
+                            <tree>
+                                <field name="contact_id" string="Contacto"/>
+                                <field name="courses_id" string="Curso"/>
+                                <field name="course_id" string="Módulo"/>
+                                <field name="date"/>
+                                <field name="type"/>
+                                <field name="course_evaluation"/>
+                            </tree>
+                        </field>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

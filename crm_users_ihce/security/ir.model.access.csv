@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_project_ihce,crm.project.ihce,model_crm_project_ihce,,1,1,1,1
+access_crm_task,crm.task,model_crm_task,,1,1,1,1
+access_cancellation_reason_wizard,cancellation.reason.wizard,model_cancellation_reason_wizard,,1,1,1,1
+
+

@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+<!--
+        EMPRERED APAN
+-->
+        <record id="indicador_emprered_apan_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.apan.tree</field>
+            <field name="model">indicador.emprered.apan</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Apan" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_apan_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Apan</field>
+            <field name="res_model">indicador.emprered.apan</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_apan_tree"/>
+        </record>
+    
+        <menuitem id="indicador_apan" name="Emprered Apan" parent="indicadores_emprered" sequence="0" action="indicador_emprered_apan_action" groups="reports_ihce.informes_apan,reports_ihce.admin_reports"/>
+        
+
+
+<!--
+        EMPRERED ATOTONILCO
+-->
+        <record id="indicador_emprered_atotonilco_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.atotonilco.tree</field>
+            <field name="model">indicador.emprered.atotonilco</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Atotonilco" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_atotonilco_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Atotonilco</field>
+            <field name="res_model">indicador.emprered.atotonilco</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_atotonilco_tree"/>
+        </record>
+    
+        <menuitem id="indicador_atotonilco2" name="Emprered Atotonilco" parent="indicadores_emprered" sequence="1" action="indicador_emprered_atotonilco_action" groups="reports_ihce.informes_atoto,reports_ihce.admin_reports"/>
+
+        
+<!--
+        EMPRERED HUEJUTLA
+-->
+        <record id="indicador_emprered_huejutla_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.huejutla.tree</field>
+            <field name="model">indicador.emprered.huejutla</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Huejutla" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_huejutla_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Huejutla</field>
+            <field name="res_model">indicador.emprered.huejutla</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_huejutla_tree"/>
+        </record>
+    
+        <menuitem id="indicador_huejutla" name="Emprered Huejutla" parent="indicadores_emprered" sequence="2" action="indicador_emprered_huejutla_action" groups="reports_ihce.informes_huejutla,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED HUICHAPAN
+-->
+        <record id="indicador_emprered_huichapan_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.huichapan.tree</field>
+            <field name="model">indicador.emprered.huichapan</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Huichapan" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_huichapan_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Huichapan</field>
+            <field name="res_model">indicador.emprered.huichapan</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_huichapan_tree"/>
+        </record>
+    
+        <menuitem id="indicador_huichapan" name="Emprered Huichapan" parent="indicadores_emprered" sequence="3" action="indicador_emprered_huichapan_action" groups="reports_ihce.informes_huichapan,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED Ixmiquilpan
+-->
+        <record id="indicador_emprered_ixmiquilpan_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.ixmiquilpan.tree</field>
+            <field name="model">indicador.emprered.ixmiquilpan</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Ixmiquilpan" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_ixmiquilpan_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Ixmiquilpan</field>
+            <field name="res_model">indicador.emprered.ixmiquilpan</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_ixmiquilpan_tree"/>
+        </record>
+    
+        <menuitem id="indicador_ixmiquilpan" name="Emprered Ixmiquilpan" parent="indicadores_emprered" sequence="4" action="indicador_emprered_ixmiquilpan_action" groups="reports_ihce.informes_ixmiquilpan,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED OTOMI
+-->
+        <record id="indicador_emprered_otomi_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.otomi.tree</field>
+            <field name="model">indicador.emprered.otomi</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Otomi" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_otomi_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Otomi</field>
+            <field name="res_model">indicador.emprered.otomi</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_otomi_tree"/>
+        </record>
+    
+        <menuitem id="indicador_otomi" name="Emprered Otomi" parent="indicadores_emprered" sequence="5" action="indicador_emprered_otomi_action" groups="reports_ihce.informes_otomi,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED Mixquiahuala
+-->
+        <record id="indicador_emprered_mixquiahuala_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.mixquiahuala.tree</field>
+            <field name="model">indicador.emprered.mixquiahuala</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Mixquiahuala" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_mixquiahuala_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Mixquiahuala</field>
+            <field name="res_model">indicador.emprered.mixquiahuala</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_mixquiahuala_tree"/>
+        </record>
+    
+        <menuitem id="indicador_mixquiahuala" name="Emprered Mixquiahuala" parent="indicadores_emprered" sequence="6" action="indicador_emprered_mixquiahuala_action" groups="reports_ihce.informes_mixquiahuala,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED Pachuca
+-->
+        <record id="indicador_emprered_pachuca_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.pachuca.tree</field>
+            <field name="model">indicador.emprered.pachuca</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Pachuca" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_pachuca_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Pachuca</field>
+            <field name="res_model">indicador.emprered.pachuca</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_pachuca_tree"/>
+        </record>
+    
+        <menuitem id="indicador_pachuca" name="Emprered Pachuca" parent="indicadores_emprered" sequence="7" action="indicador_emprered_pachuca_action" groups="reports_ihce.informes_pachuca,reports_ihce.admin_reports"/>
+        
+        
+        
+<!--
+        EMPRERED TIZAYUCA
+-->
+        <record id="indicador_emprered_tizayuca_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.tizayuca.tree</field>
+            <field name="model">indicador.emprered.tizayuca</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Tizayuca" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_tizayuca_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Tizayuca</field>
+            <field name="res_model">indicador.emprered.tizayuca</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_tizayuca_tree"/>
+        </record>
+    
+        <menuitem id="indicador_tizayuca" name="Emprered Tizayuca" parent="indicadores_emprered" sequence="8" action="indicador_emprered_tizayuca_action" groups="reports_ihce.informes_tizayuca,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED TULA
+-->
+        <record id="indicador_emprered_tula_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.tula.tree</field>
+            <field name="model">indicador.emprered.tula</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Tula" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_tula_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Tula</field>
+            <field name="res_model">indicador.emprered.tula</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_tula_tree"/>
+        </record>
+    
+        <menuitem id="indicador_tula" name="Emprered Tula" parent="indicadores_emprered" sequence="9" action="indicador_emprered_tula_action" groups="reports_ihce.informes_tula,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED TULANCINGO
+-->
+        <record id="indicador_emprered_tulancingo_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.tulancingo.tree</field>
+            <field name="model">indicador.emprered.tulancingo</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Tulancingo" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_tulancingo_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Tulancingo</field>
+            <field name="res_model">indicador.emprered.tulancingo</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_tulancingo_tree"/>
+        </record>
+    
+        <menuitem id="indicador_tulancingo" name="Emprered Tulancingo" parent="indicadores_emprered" sequence="10" action="indicador_emprered_tulancingo_action" groups="reports_ihce.informes_tulancingo,reports_ihce.admin_reports"/>
+        
+        
+<!--
+        EMPRERED zacualtipan
+-->
+        <record id="indicador_emprered_zacualtipan_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.zacualtipan.tree</field>
+            <field name="model">indicador.emprered.zacualtipan</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Zacualtipan" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_zacualtipan_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Zacualtipan</field>
+            <field name="res_model">indicador.emprered.zacualtipan</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_zacualtipan_tree"/>
+        </record>
+    
+        <menuitem id="indicador_zacualtipan" name="Emprered Zacualtipan" parent="indicadores_emprered" sequence="11" action="indicador_emprered_zacualtipan_action" groups="reports_ihce.informes_zacualtipan,reports_ihce.admin_reports"/>
+        
+        
+        
+        
+<!--
+        EMPRERED MOLANGO
+-->
+        <record id="indicador_emprered_molango_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.molango.tree</field>
+            <field name="model">indicador.emprered.molango</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Molango" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_molango_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Molango</field>
+            <field name="res_model">indicador.emprered.molango</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_molango_tree"/>
+        </record>
+    
+        <menuitem id="indicador_molango" name="Emprered Molango" parent="indicadores_emprered" sequence="12" action="indicador_emprered_molango_action" groups="reports_ihce.informes_molango,reports_ihce.admin_reports"/>
+        
+        
+ <!--
+        EMPRERED MEZTITLAN
+-->
+        <record id="indicador_emprered_metztitlan_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.metztitlan.tree</field>
+            <field name="model">indicador.emprered.metztitlan</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Metztitlán" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_metztitlan_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Metztitlán</field>
+            <field name="res_model">indicador.emprered.metztitlan</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_metztitlan_tree"/>
+        </record>
+    
+        <menuitem id="indicador_metztitlan" name="Emprered Metztitlán" parent="indicadores_emprered" sequence="13" action="indicador_emprered_metztitlan_action" groups="reports_ihce.informes_metztitlan,reports_ihce.admin_reports"/>
+        
+        
+         <!--
+        EMPRERED JACALA
+-->
+        <record id="indicador_emprered_jacala_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.jacala.tree</field>
+            <field name="model">indicador.emprered.jacala</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Jacala" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_jacala_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Jacala</field>
+            <field name="res_model">indicador.emprered.jacala</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_jacala_tree"/>
+        </record>
+    
+        <menuitem id="indicador_jacala" name="Emprered Jacala" parent="indicadores_emprered" sequence="14" action="indicador_emprered_jacala_action" groups="reports_ihce.informes_jacala,reports_ihce.admin_reports"/>
+        
+        
+        
+<!--
+        EMPRERED zimapan
+-->
+<!--
+        <record id="indicador_emprered_zimapan_tree" model="ir.ui.view">
+            <field name="name">indicador.emprered.zimapan.tree</field>
+            <field name="model">indicador.emprered.zimapan</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Zimapan" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_emprered_zimapan_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Zimapan</field>
+            <field name="res_model">indicador.emprered.zimapan</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_emprered_zimapan_tree"/>
+        </record>
+    
+        <menuitem id="indicador_zimapan" name="Emprered Zimapan" parent="indicadores_emprered" sequence="12" action="indicador_emprered_zimapan_action" groups="informes_zimapan,reports_ihce.admin_reports"/>
+    
+    
+-->
+    
+<!--
+        EMPRERED TOTAL
+-->
+        <record id="indicador_total_emprered_tree" model="ir.ui.view">
+            <field name="name">indicador.total.emprered.tree</field>
+            <field name="model">indicador.total.emprered</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Indicadores Emprered Total" colors="green: porcentaje &gt; 60; orange: porcentaje &gt; 30; red: porcentaje &lt;= 30;">
+                    <field name='name'/>
+                    <field name='meta_anual'/>
+                    <field name='enero'/>
+                    <field name='febrero'/>
+                    <field name='marzo'/>
+                    <field name='trim1'/>
+                    <field name='abril'/>
+                    <field name='mayo'/>
+                    <field name='junio'/>
+                    <field name='trim2'/>
+                    <field name='julio'/>
+                    <field name='agosto'/>
+                    <field name='septiembre'/>
+                    <field name='trim3'/>
+                    <field name='octubre'/>
+                    <field name='noviembre'/>
+                    <field name='diciembre'/>
+                    <field name='trim4'/>
+                    <field name='total'/>
+                    <field name='porcentaje'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="indicador_total_emprered_action" model="ir.actions.act_window">
+            <field name="name">Indicadores Emprered Total</field>
+            <field name="res_model">indicador.total.emprered</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="indicador_total_emprered_tree"/>
+        </record>
+    
+        <menuitem id="indicador_total" name="Emprered Total" parent="indicadores_emprered" sequence="20" action="indicador_total_emprered_action" groups="reports_ihce.admin_reports,reports_ihce.admin_reports"/>
+
+
+    
+    </data>
+</openerp>

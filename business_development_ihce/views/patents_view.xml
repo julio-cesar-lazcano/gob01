@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--
+        DESARROLLO EMPRESARIAL
+-->
+        <record id="patent_ihce_filter" model="ir.ui.view">
+            <field name="name">patent.ihce.filter</field>
+            <field name="model">patent.ihce</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="date" string="Fecha de registro"/>
+                    <field name="date_next_task" string="Fecha de próxima etapa"/>
+                    <field name="state"/>
+                    <field name="company_id" string="Beneficiario"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Beneficiarios" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by':'company_id'}"/>
+                        <filter string="Fechas de registro" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'date'}"/>
+                        <filter string="Fechas de próxima etapa" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'date_next_task'}"/>
+                        <filter string="Estado" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Responsable" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'user_id'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="patent_ihce_form" model="ir.ui.view">
+            <field name="name">patent.ihce.form</field>
+            <field name="model">patent.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Patente">
+                    <header>
+                        <button name="approved" type="object" string="Aprobado" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state','in',('cancel','approved','abandoned','not_approved','draft','process','out_time','espera'))]}" groups="business_development_ihce.admin_desarrollo"/>
+                        <button name="not_approved" type="object" string="No aprobado" icon="gtk-cancel" class="oe_highlight" attrs="{'invisible':[('state','in',('approved','cancel','abandoned','not_approved','draft','process','out_time','espera'))]}" groups="business_development_ihce.admin_desarrollo"/>
+                        <button name="start_process" type="object" string="Empezar proceso" icon="gtk-apply" class="oe_highlight" attrs="{'invisible':[('state','in',('cancel','process','abandoned','not_approved','out_time','done','approved','espera'))]}"/>
+                        <button name="re_start" type="object" string="Reabrir" icon="gtk-refresh" class="oe_highlight" attrs="{'invisible':[('state','in',('draft','approved','not_approved','process','cancel','done','abandoned','espera'))]}"/>
+                        <button name="re_start_all" type="object" string="Reiniciar proceso" icon="gtk-refresh" class="oe_highlight" attrs="{'invisible':[('state','in',('draft','approved','process','cancel','process','out_time'))]}" groups="business_development_ihce.admin_desarrollo" confirm="¿Esta seguro que requiere reiniciar el proceso?"/>
+                        <button name="abandoned" type="object" string="Abandonar" icon="gtk-cancel" class="oe_highlight" attrs="{'invisible':[('state','in',('cancel','abandoned','not_approved','draft','approved'))]}" confirm="¿Esta seguro que requiere abandonar el proceso?"/>
+                        <field name="state" widget="statusbar" statusbar_visible="process,approved,not_approved,abandoned"/>
+                    </header>
+                    <sheet>
+                        <group  colspan="4" col="4">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="description" coslpan="2" required="1" attrs="{'readonly':[('state','in',('approved','process','not_approved','abandoned','done'))]}" placeholder="Descripción/Nombre..."/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group colspan="4" col="2">
+                            <field name="company_id" coslpan="2" required="1" domain="[('company','=',True),('state','=','done'),('desarrollo_empresarial','=',True)]" attrs="{'readonly':[('state','in',('approved','process','not_approved','abandoned','done','espera'))]}" options="{'no_create':True}"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <field name="date" coslpan="2" required="1" readonly="1"/>
+                            <field name="date_next_task" coslpan="2" readonly="1"/>
+                            <field name="user_id" coslpan="2" required="1" on_change="onchange_user(user_id)" attrs="{'readonly':[('change_user','=',False)]}"/>
+                            <field name="area" coslpan="2" attrs="{'invisible':[('option','=','emprered')], 'required':[('option','=','ihce')], 'readonly':[('change_user','=',False)]}" options="{'no_create':True}"/>
+                            <field name="emprered" coslpan="2" attrs="{'invisible':[('option','=','ihce')], 'required':[('option','=','emprered')], 'readonly':[('change_user','=',False)]}" options="{'no_create':True}"/>
+                            <field name="option" coslpan="2" invisible="1"/>
+                            <field name="type_patent" attrs="{'invisible':[('state','in',('abandoned','out_time','draft','not_approved'))], 'readonly':[('state','=','approved')], 'required': [('state','=','done')]}" options="{'no_create':True}"/>
+                            <field name="change_user" groups="business_development_ihce.admin_desarrollo"/>
+                            <field name="cron_id" invisible="1"/>
+                        </group>
+                        <field name="percent" readonly="1" widget="progressbar" colspan="4"/>
+                        <notebook>
+                            <page string="Datos">
+                                <field name="task" readonly="1" invisible="1"/>
+                                <group coslpan="4" col="2" >
+                                    <field name="letter_company" on_change="onchange_task2(letter_company,company_id)" attrs="{'readonly':['|',('state','in',('draft','abandoned','out_time','approved','not_approved')),('task','in',('2','3','4','5','6'))]}"/>
+                                    <field name="letter_company_note" coslpan="2" attrs="{'invisible':[('letter_company','=',False)]}"/>
+                                    <button name="re_start" type="object" string="Reiniciar" icon="gtk-ok" class="oe_highlight" attrs="{'invisible':['|',('letter_company','=',True),('state', 'in', ('draft','out_time'))]}" colspan="2"/>
+                                    
+                                    <field name="send_impi" on_change="onchange_task3(send_impi,company_id)" attrs="{'readonly':['|',('state','in',('abandoned','out_time','approved','not_approved')),('task','in',('3','4','5','6'))],'invisible':[('letter_company','=',False)]}"/>
+                                    <field name="impi_send" attrs="{'invisible':[('send_impi','=',False)],'readonly':['|',('state','in',('abandoned','out_time','approved','not_approved','done')),('task','in',('4','5','6'))]}"/>
+                                    <button name="return_task" type="object" string="Regresar a Carta de parte de la Empresa." icon="gtk-ok" class="oe_highlight" attrs="{'invisible':['|',('impi_send','=','aceptado'),'|',('send_impi','=',False),('impi_send','=',False)]}" colspan="2"/>
+                                    <field name="send_impi_note" coslpan="2" attrs="{'invisible':[('send_impi','=',False)]}"/>
+                                    
+                                    <field name="mail_company" on_change="onchange_task4(mail_company,company_id)" attrs="{ 'readonly':['|',('state','in',('abandoned','out_time','approved','not_approved')),('task','in',('4','5','6'))],'invisible':['|',('send_impi','=',False),'|',('impi_send','=','rechazado'),('impi_send','=',False)]}"/>
+                                    <field name="mail_company_note" coslpan="2" attrs="{'invisible':[('mail_company','=',False)]}"/>
+                                    
+                                    <field name="request_patent" on_change="onchange_task5(request_patent,company_id)" attrs="{'readonly':['|',('state','in',('abandoned','out_time','approved','not_approved')),('task','in',('5','6'))],'invisible':[('mail_company','=',False)]}"/>
+                                    <field name="request_patent_note" coslpan="2" attrs="{'invisible':[('request_patent','=',False)]}"/>
+                                    
+                                    <field name="ingress_impi" on_change="onchange_task6(ingress_impi,company_id,option)" attrs="{'readonly':[('state','in',('abandoned','out_time','approved','not_approved','done'))],'invisible':[('request_patent','=',False)]}"/>
+                                    <field name="ingress_impi_note" coslpan="2" attrs="{'invisible':[('ingress_impi','=',False)]}"/>
+                                </group>
+                            </page>
+                            <page string="Cursos/Consultorías">
+                                <field name="courses_ids" nolabel="1" attrs="{'readonly':[('state','in',('draft','done','out_time','not_approved','abandoned'))]}" context="{'default_patent_id': id, 'default_services': 'P'}"/>
+                            </page>
+                            <page string="Indicadores">
+                                <group colspan="4" col="2">
+                                    <field name="consultoria" readonly="1" colspan="2"/>
+                                    <field name="servicio" readonly="1" colspan="2"/>
+                                </group>
+                            </page>
+                            <page string="Observaciones">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+<!--
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+-->
+                </form>
+            </field>
+        </record>
+        
+        <record id="patent_ihce_tree" model="ir.ui.view">
+            <field name="name">patent.ihce.tree</field>
+            <field name="model">patent.ihce</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Patente" colors="black:state=='draft'; gray:state=='not_approved'; green:state=='approved'; red:state=='out_time'; blue:state=='process'; black:state=='abandoned'; purple:state=='espera'; brown:state=='done';">
+                    <field name="description" />
+                    <field name="company_id" />
+                    <field name="task"/>
+                    <field name="date"/>
+                    <field name="date_next_task"/>
+                    <field name="type_patent"/>
+                    <field name="percent" widget="progressbar"/>
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="patent_ihce_action" model="ir.actions.act_window">
+            <field name="name">Patente</field>
+            <field name="res_model">patent.ihce</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="patent_ihce_tree"/>
+        </record>
+    
+        <menuitem id="patent" name="Patente" parent="submenu_desarrollo" sequence="2" action="patent_ihce_action"/>
+  
+    </data>
+</openerp>
